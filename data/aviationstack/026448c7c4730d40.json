@@ -1,0 +1,1833 @@
+{
+ "requestKey": "flights?arr_iata=DXB&dep_iata=TLV&limit=100",
+ "endpoint": "flights",
+ "params": {
+  "limit": 100,
+  "dep_iata": "TLV",
+  "arr_iata": "DXB"
+ },
+ "fetchedAt": "2026-09-29T08:47:37.313Z",
+ "response": {
+  "pagination": {
+   "limit": 100,
+   "offset": 0,
+   "count": 34,
+   "total": 34
+  },
+  "data": [
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 19,
+     "scheduled": "2026-09-29T17:25:00+00:00",
+     "estimated": "2026-09-29T17:25:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T17:44:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T21:50:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1626",
+     "iata": "FZ1626",
+     "icao": "FDB1626",
+     "codeshared": null
+    },
+    "aircraft": null,
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 19,
+     "scheduled": "2026-09-29T17:25:00+00:00",
+     "estimated": "2026-09-29T17:25:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T17:44:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T21:50:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2451",
+     "iata": "EK2451",
+     "icao": "UAE2451",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1626",
+      "flight_iata": "fz1626",
+      "flight_icao": "fdb1626"
+     }
+    },
+    "aircraft": null,
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 18,
+     "scheduled": "2026-09-29T15:50:00+00:00",
+     "estimated": "2026-09-29T15:50:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T16:08:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T20:15:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2449",
+     "iata": "EK2449",
+     "icao": "UAE2449",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1082",
+      "flight_iata": "fz1082",
+      "flight_icao": "fdb1082"
+     }
+    },
+    "aircraft": null,
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 18,
+     "scheduled": "2026-09-29T15:50:00+00:00",
+     "estimated": "2026-09-29T15:50:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T16:08:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T20:15:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1082",
+     "iata": "FZ1082",
+     "icao": "FDB1082",
+     "codeshared": null
+    },
+    "aircraft": null,
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 20,
+     "scheduled": "2026-09-29T13:35:00+00:00",
+     "estimated": "2026-09-29T13:35:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T13:55:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T18:00:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2364",
+     "iata": "EK2364",
+     "icao": "UAE2364",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1212",
+      "flight_iata": "fz1212",
+      "flight_icao": "fdb1212"
+     }
+    },
+    "aircraft": null,
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 56,
+     "scheduled": "2026-09-29T11:40:00+00:00",
+     "estimated": "2026-09-29T11:40:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T12:36:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T16:05:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2269",
+     "iata": "EK2269",
+     "icao": "UAE2269",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1636",
+      "flight_iata": "fz1636",
+      "flight_icao": "fdb1636"
+     }
+    },
+    "aircraft": null,
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 20,
+     "scheduled": "2026-09-29T13:35:00+00:00",
+     "estimated": "2026-09-29T13:35:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T13:55:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T18:00:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1212",
+     "iata": "FZ1212",
+     "icao": "FDB1212",
+     "codeshared": null
+    },
+    "aircraft": null,
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 29,
+     "scheduled": "2026-09-29T10:55:00+00:00",
+     "estimated": "2026-09-29T10:55:00+00:00",
+     "actual": "2026-09-29T11:24:00+00:00",
+     "estimated_runway": "2026-09-29T11:24:00+00:00",
+     "actual_runway": "2026-09-29T11:24:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T15:20:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T15:09:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T15:09:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2370",
+     "iata": "EK2370",
+     "icao": "UAE2370",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1550",
+      "flight_iata": "fz1550",
+      "flight_icao": "fdb1550"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965D4"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 15,
+     "scheduled": "2026-09-29T10:15:00+00:00",
+     "estimated": "2026-09-29T10:15:00+00:00",
+     "actual": "2026-09-29T10:30:00+00:00",
+     "estimated_runway": "2026-09-29T10:30:00+00:00",
+     "actual_runway": "2026-09-29T10:30:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T14:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T14:09:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T14:09:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2121",
+     "iata": "EK2121",
+     "icao": "UAE2121",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1074",
+      "flight_iata": "fz1074",
+      "flight_icao": "fdb1074"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896515"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 56,
+     "scheduled": "2026-09-29T11:40:00+00:00",
+     "estimated": "2026-09-29T11:40:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T12:36:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T16:05:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1636",
+     "iata": "FZ1636",
+     "icao": "FDB1636",
+     "codeshared": null
+    },
+    "aircraft": null,
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 29,
+     "scheduled": "2026-09-29T10:55:00+00:00",
+     "estimated": "2026-09-29T10:55:00+00:00",
+     "actual": "2026-09-29T11:24:00+00:00",
+     "estimated_runway": "2026-09-29T11:24:00+00:00",
+     "actual_runway": "2026-09-29T11:24:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T15:20:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T15:09:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T15:09:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1550",
+     "iata": "FZ1550",
+     "icao": "FDB1550",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965D4"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 15,
+     "scheduled": "2026-09-29T10:15:00+00:00",
+     "estimated": "2026-09-29T10:15:00+00:00",
+     "actual": "2026-09-29T10:30:00+00:00",
+     "estimated_runway": "2026-09-29T10:30:00+00:00",
+     "actual_runway": "2026-09-29T10:30:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T14:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T14:09:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T14:09:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1074",
+     "iata": "FZ1074",
+     "icao": "FDB1074",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896515"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 27,
+     "scheduled": "2026-09-29T08:55:00+00:00",
+     "estimated": "2026-09-29T08:55:00+00:00",
+     "actual": "2026-09-29T09:22:00+00:00",
+     "estimated_runway": "2026-09-29T09:22:00+00:00",
+     "actual_runway": "2026-09-29T09:22:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T13:20:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T13:00:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T13:00:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1542",
+     "iata": "FZ1542",
+     "icao": "FDB1542",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965CE"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 27,
+     "scheduled": "2026-09-29T08:55:00+00:00",
+     "estimated": "2026-09-29T08:55:00+00:00",
+     "actual": "2026-09-29T09:22:00+00:00",
+     "estimated_runway": "2026-09-29T09:22:00+00:00",
+     "actual_runway": "2026-09-29T09:22:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T13:20:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T13:00:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T13:00:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2333",
+     "iata": "EK2333",
+     "icao": "UAE2333",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1542",
+      "flight_iata": "fz1542",
+      "flight_icao": "fdb1542"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965CE"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 41,
+     "scheduled": "2026-09-28T22:50:00+00:00",
+     "estimated": "2026-09-28T22:50:00+00:00",
+     "actual": "2026-09-28T23:31:00+00:00",
+     "estimated_runway": "2026-09-28T23:31:00+00:00",
+     "actual_runway": "2026-09-28T23:31:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T03:15:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T03:11:00+00:00",
+     "actual": "2026-09-29T03:12:00+00:00",
+     "estimated_runway": "2026-09-29T03:12:00+00:00",
+     "actual_runway": "2026-09-29T03:12:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2168",
+     "iata": "EK2168",
+     "icao": "UAE2168",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1054",
+      "flight_iata": "fz1054",
+      "flight_icao": "fdb1054"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896516"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 25,
+     "scheduled": "2026-09-28T20:45:00+00:00",
+     "estimated": "2026-09-28T20:45:00+00:00",
+     "actual": "2026-09-28T21:10:00+00:00",
+     "estimated_runway": "2026-09-28T21:10:00+00:00",
+     "actual_runway": "2026-09-28T21:10:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T01:15:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T01:00:00+00:00",
+     "actual": "2026-09-29T01:00:00+00:00",
+     "estimated_runway": "2026-09-29T01:00:00+00:00",
+     "actual_runway": "2026-09-29T01:00:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2346",
+     "iata": "EK2346",
+     "icao": "UAE2346",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1808",
+      "flight_iata": "fz1808",
+      "flight_icao": "fdb1808"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965D7"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 41,
+     "scheduled": "2026-09-28T22:50:00+00:00",
+     "estimated": "2026-09-28T22:50:00+00:00",
+     "actual": "2026-09-28T23:31:00+00:00",
+     "estimated_runway": "2026-09-28T23:31:00+00:00",
+     "actual_runway": "2026-09-28T23:31:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T03:15:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T03:11:00+00:00",
+     "actual": "2026-09-29T03:12:00+00:00",
+     "estimated_runway": "2026-09-29T03:12:00+00:00",
+     "actual_runway": "2026-09-29T03:12:00+00:00"
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1054",
+     "iata": "FZ1054",
+     "icao": "FDB1054",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896516"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 25,
+     "scheduled": "2026-09-28T20:45:00+00:00",
+     "estimated": "2026-09-28T20:45:00+00:00",
+     "actual": "2026-09-28T21:10:00+00:00",
+     "estimated_runway": "2026-09-28T21:10:00+00:00",
+     "actual_runway": "2026-09-28T21:10:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T01:15:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T01:00:00+00:00",
+     "actual": "2026-09-29T01:00:00+00:00",
+     "estimated_runway": "2026-09-29T01:00:00+00:00",
+     "actual_runway": "2026-09-29T01:00:00+00:00"
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1808",
+     "iata": "FZ1808",
+     "icao": "FDB1808",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965D7"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 25,
+     "scheduled": "2026-09-28T19:45:00+00:00",
+     "estimated": "2026-09-28T19:45:00+00:00",
+     "actual": "2026-09-28T20:10:00+00:00",
+     "estimated_runway": "2026-09-28T20:10:00+00:00",
+     "actual_runway": "2026-09-28T20:10:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T00:10:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T23:51:00+00:00",
+     "actual": "2026-09-28T23:50:00+00:00",
+     "estimated_runway": "2026-09-28T23:50:00+00:00",
+     "actual_runway": "2026-09-28T23:50:00+00:00"
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1126",
+     "iata": "FZ1126",
+     "icao": "FDB1126",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896515"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 25,
+     "scheduled": "2026-09-28T19:45:00+00:00",
+     "estimated": "2026-09-28T19:45:00+00:00",
+     "actual": "2026-09-28T20:10:00+00:00",
+     "estimated_runway": "2026-09-28T20:10:00+00:00",
+     "actual_runway": "2026-09-28T20:10:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-29T00:10:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T23:51:00+00:00",
+     "actual": "2026-09-28T23:50:00+00:00",
+     "estimated_runway": "2026-09-28T23:50:00+00:00",
+     "actual_runway": "2026-09-28T23:50:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2471",
+     "iata": "EK2471",
+     "icao": "UAE2471",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1126",
+      "flight_iata": "fz1126",
+      "flight_icao": "fdb1126"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896515"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 41,
+     "scheduled": "2026-09-28T17:25:00+00:00",
+     "estimated": "2026-09-28T17:25:00+00:00",
+     "actual": "2026-09-28T18:06:00+00:00",
+     "estimated_runway": "2026-09-28T18:06:00+00:00",
+     "actual_runway": "2026-09-28T18:06:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T21:50:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T21:43:00+00:00",
+     "actual": "2026-09-28T21:45:00+00:00",
+     "estimated_runway": "2026-09-28T21:45:00+00:00",
+     "actual_runway": "2026-09-28T21:45:00+00:00"
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1626",
+     "iata": "FZ1626",
+     "icao": "FDB1626",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896604"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 41,
+     "scheduled": "2026-09-28T17:25:00+00:00",
+     "estimated": "2026-09-28T17:25:00+00:00",
+     "actual": "2026-09-28T18:06:00+00:00",
+     "estimated_runway": "2026-09-28T18:06:00+00:00",
+     "actual_runway": "2026-09-28T18:06:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T21:50:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T21:43:00+00:00",
+     "actual": "2026-09-28T21:45:00+00:00",
+     "estimated_runway": "2026-09-28T21:45:00+00:00",
+     "actual_runway": "2026-09-28T21:45:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2451",
+     "iata": "EK2451",
+     "icao": "UAE2451",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1626",
+      "flight_iata": "fz1626",
+      "flight_icao": "fdb1626"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896604"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 36,
+     "scheduled": "2026-09-28T15:50:00+00:00",
+     "estimated": "2026-09-28T15:50:00+00:00",
+     "actual": "2026-09-28T16:26:00+00:00",
+     "estimated_runway": "2026-09-28T16:26:00+00:00",
+     "actual_runway": "2026-09-28T16:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T20:15:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T20:02:00+00:00",
+     "actual": "2026-09-28T20:02:00+00:00",
+     "estimated_runway": "2026-09-28T20:02:00+00:00",
+     "actual_runway": "2026-09-28T20:02:00+00:00"
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1082",
+     "iata": "FZ1082",
+     "icao": "FDB1082",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965D1"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 36,
+     "scheduled": "2026-09-28T15:50:00+00:00",
+     "estimated": "2026-09-28T15:50:00+00:00",
+     "actual": "2026-09-28T16:26:00+00:00",
+     "estimated_runway": "2026-09-28T16:26:00+00:00",
+     "actual_runway": "2026-09-28T16:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T20:15:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T20:02:00+00:00",
+     "actual": "2026-09-28T20:02:00+00:00",
+     "estimated_runway": "2026-09-28T20:02:00+00:00",
+     "actual_runway": "2026-09-28T20:02:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2449",
+     "iata": "EK2449",
+     "icao": "UAE2449",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1082",
+      "flight_iata": "fz1082",
+      "flight_icao": "fdb1082"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965D1"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 40,
+     "scheduled": "2026-09-28T13:35:00+00:00",
+     "estimated": "2026-09-28T13:35:00+00:00",
+     "actual": "2026-09-28T14:15:00+00:00",
+     "estimated_runway": "2026-09-28T14:15:00+00:00",
+     "actual_runway": "2026-09-28T14:15:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T18:00:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T17:52:00+00:00",
+     "actual": "2026-09-28T17:50:00+00:00",
+     "estimated_runway": "2026-09-28T17:50:00+00:00",
+     "actual_runway": "2026-09-28T17:50:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2364",
+     "iata": "EK2364",
+     "icao": "UAE2364",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1212",
+      "flight_iata": "fz1212",
+      "flight_icao": "fdb1212"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965D3"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 28,
+     "scheduled": "2026-09-28T11:40:00+00:00",
+     "estimated": "2026-09-28T11:40:00+00:00",
+     "actual": "2026-09-28T12:08:00+00:00",
+     "estimated_runway": "2026-09-28T12:08:00+00:00",
+     "actual_runway": "2026-09-28T12:08:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T16:05:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T15:46:00+00:00",
+     "actual": "2026-09-28T15:47:00+00:00",
+     "estimated_runway": "2026-09-28T15:47:00+00:00",
+     "actual_runway": "2026-09-28T15:47:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2269",
+     "iata": "EK2269",
+     "icao": "UAE2269",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1636",
+      "flight_iata": "fz1636",
+      "flight_icao": "fdb1636"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965B3"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 40,
+     "scheduled": "2026-09-28T13:35:00+00:00",
+     "estimated": "2026-09-28T13:35:00+00:00",
+     "actual": "2026-09-28T14:15:00+00:00",
+     "estimated_runway": "2026-09-28T14:15:00+00:00",
+     "actual_runway": "2026-09-28T14:15:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T18:00:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T17:52:00+00:00",
+     "actual": "2026-09-28T17:50:00+00:00",
+     "estimated_runway": "2026-09-28T17:50:00+00:00",
+     "actual_runway": "2026-09-28T17:50:00+00:00"
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1212",
+     "iata": "FZ1212",
+     "icao": "FDB1212",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965D3"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 15,
+     "scheduled": "2026-09-28T10:55:00+00:00",
+     "estimated": "2026-09-28T10:55:00+00:00",
+     "actual": "2026-09-28T11:10:00+00:00",
+     "estimated_runway": "2026-09-28T11:10:00+00:00",
+     "actual_runway": "2026-09-28T11:10:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T15:20:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T14:51:00+00:00",
+     "actual": "2026-09-28T14:49:00+00:00",
+     "estimated_runway": "2026-09-28T14:49:00+00:00",
+     "actual_runway": "2026-09-28T14:49:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2370",
+     "iata": "EK2370",
+     "icao": "UAE2370",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1550",
+      "flight_iata": "fz1550",
+      "flight_icao": "fdb1550"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8964D2"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 18,
+     "scheduled": "2026-09-28T10:15:00+00:00",
+     "estimated": "2026-09-28T10:15:00+00:00",
+     "actual": "2026-09-28T10:33:00+00:00",
+     "estimated_runway": "2026-09-28T10:33:00+00:00",
+     "actual_runway": "2026-09-28T10:33:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T14:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T14:12:00+00:00",
+     "actual": "2026-09-28T14:13:00+00:00",
+     "estimated_runway": "2026-09-28T14:13:00+00:00",
+     "actual_runway": "2026-09-28T14:13:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2121",
+     "iata": "EK2121",
+     "icao": "UAE2121",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1074",
+      "flight_iata": "fz1074",
+      "flight_icao": "fdb1074"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896532"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 28,
+     "scheduled": "2026-09-28T11:40:00+00:00",
+     "estimated": "2026-09-28T11:40:00+00:00",
+     "actual": "2026-09-28T12:08:00+00:00",
+     "estimated_runway": "2026-09-28T12:08:00+00:00",
+     "actual_runway": "2026-09-28T12:08:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T16:05:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T15:46:00+00:00",
+     "actual": "2026-09-28T15:47:00+00:00",
+     "estimated_runway": "2026-09-28T15:47:00+00:00",
+     "actual_runway": "2026-09-28T15:47:00+00:00"
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1636",
+     "iata": "FZ1636",
+     "icao": "FDB1636",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965B3"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 15,
+     "scheduled": "2026-09-28T10:55:00+00:00",
+     "estimated": "2026-09-28T10:55:00+00:00",
+     "actual": "2026-09-28T11:10:00+00:00",
+     "estimated_runway": "2026-09-28T11:10:00+00:00",
+     "actual_runway": "2026-09-28T11:10:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T15:20:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T14:51:00+00:00",
+     "actual": "2026-09-28T14:49:00+00:00",
+     "estimated_runway": "2026-09-28T14:49:00+00:00",
+     "actual_runway": "2026-09-28T14:49:00+00:00"
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1550",
+     "iata": "FZ1550",
+     "icao": "FDB1550",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8964D2"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 18,
+     "scheduled": "2026-09-28T10:15:00+00:00",
+     "estimated": "2026-09-28T10:15:00+00:00",
+     "actual": "2026-09-28T10:33:00+00:00",
+     "estimated_runway": "2026-09-28T10:33:00+00:00",
+     "actual_runway": "2026-09-28T10:33:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T14:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T14:12:00+00:00",
+     "actual": "2026-09-28T14:13:00+00:00",
+     "estimated_runway": "2026-09-28T14:13:00+00:00",
+     "actual_runway": "2026-09-28T14:13:00+00:00"
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1074",
+     "iata": "FZ1074",
+     "icao": "FDB1074",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896532"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 91,
+     "scheduled": "2026-09-28T08:55:00+00:00",
+     "estimated": "2026-09-28T08:55:00+00:00",
+     "actual": "2026-09-28T10:26:00+00:00",
+     "estimated_runway": "2026-09-28T10:26:00+00:00",
+     "actual_runway": "2026-09-28T10:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T13:20:00+00:00",
+     "delay": 45,
+     "estimated": "2026-09-28T14:06:00+00:00",
+     "actual": "2026-09-28T14:05:00+00:00",
+     "estimated_runway": "2026-09-28T14:05:00+00:00",
+     "actual_runway": "2026-09-28T14:05:00+00:00"
+    },
+    "airline": {
+     "name": "flydubai",
+     "iata": "FZ",
+     "icao": "FDB"
+    },
+    "flight": {
+     "number": "1542",
+     "iata": "FZ1542",
+     "icao": "FDB1542",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965D7"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 91,
+     "scheduled": "2026-09-28T08:55:00+00:00",
+     "estimated": "2026-09-28T08:55:00+00:00",
+     "actual": "2026-09-28T10:26:00+00:00",
+     "estimated_runway": "2026-09-28T10:26:00+00:00",
+     "actual_runway": "2026-09-28T10:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": null,
+     "baggage": "13",
+     "scheduled": "2026-09-28T13:20:00+00:00",
+     "delay": 45,
+     "estimated": "2026-09-28T14:06:00+00:00",
+     "actual": "2026-09-28T14:05:00+00:00",
+     "estimated_runway": "2026-09-28T14:05:00+00:00",
+     "actual_runway": "2026-09-28T14:05:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "2333",
+     "iata": "EK2333",
+     "icao": "UAE2333",
+     "codeshared": {
+      "airline_name": "flydubai",
+      "airline_iata": "fz",
+      "airline_icao": "fdb",
+      "flight_number": "1542",
+      "flight_iata": "fz1542",
+      "flight_icao": "fdb1542"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8965D7"
+    },
+    "live": null
+   }
+  ]
+ }
+}

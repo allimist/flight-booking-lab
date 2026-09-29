@@ -1,0 +1,2205 @@
+{
+ "requestKey": "flights?arr_iata=TLV&dep_iata=AUH&limit=100",
+ "endpoint": "flights",
+ "params": {
+  "limit": 100,
+  "dep_iata": "AUH",
+  "arr_iata": "TLV"
+ },
+ "fetchedAt": "2026-09-29T08:47:39.152Z",
+ "response": {
+  "pagination": {
+   "limit": 100,
+   "offset": 0,
+   "count": 39,
+   "total": 39
+  },
+  "data": [
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B10",
+     "delay": 23,
+     "scheduled": "2026-09-29T14:25:00+00:00",
+     "estimated": "2026-09-29T14:25:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T14:48:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T16:50:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "9605",
+     "iata": "LY9605",
+     "icao": "ELY9605",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "597",
+      "flight_iata": "ey597",
+      "flight_icao": "etd597"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896699"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B10",
+     "delay": 23,
+     "scheduled": "2026-09-29T14:25:00+00:00",
+     "estimated": "2026-09-29T14:25:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T14:48:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T16:50:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Air Seychelles",
+     "iata": "HM",
+     "icao": "SEY"
+    },
+    "flight": {
+     "number": "5326",
+     "iata": "HM5326",
+     "icao": "SEY5326",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "597",
+      "flight_iata": "ey597",
+      "flight_icao": "etd597"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896699"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B10",
+     "delay": 23,
+     "scheduled": "2026-09-29T14:25:00+00:00",
+     "estimated": "2026-09-29T14:25:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T14:48:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T16:50:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "597",
+     "iata": "EY597",
+     "icao": "ETD597",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896699"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C28",
+     "delay": 43,
+     "scheduled": "2026-09-29T08:55:00+00:00",
+     "estimated": "2026-09-29T08:55:00+00:00",
+     "actual": "2026-09-29T09:38:00+00:00",
+     "estimated_runway": "2026-09-29T09:38:00+00:00",
+     "actual_runway": "2026-09-29T09:38:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T11:20:00+00:00",
+     "delay": 31,
+     "estimated": "2026-09-29T11:51:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T11:51:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "9614",
+     "iata": "LY9614",
+     "icao": "ELY9614",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "607",
+      "flight_iata": "ey607",
+      "flight_icao": "etd607"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89643E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C28",
+     "delay": 43,
+     "scheduled": "2026-09-29T08:55:00+00:00",
+     "estimated": "2026-09-29T08:55:00+00:00",
+     "actual": "2026-09-29T09:38:00+00:00",
+     "estimated_runway": "2026-09-29T09:38:00+00:00",
+     "actual_runway": "2026-09-29T09:38:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T11:20:00+00:00",
+     "delay": 31,
+     "estimated": "2026-09-29T11:51:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T11:51:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Air Seychelles",
+     "iata": "HM",
+     "icao": "SEY"
+    },
+    "flight": {
+     "number": "5330",
+     "iata": "HM5330",
+     "icao": "SEY5330",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "607",
+      "flight_iata": "ey607",
+      "flight_icao": "etd607"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89643E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B11",
+     "delay": 36,
+     "scheduled": "2026-09-29T08:50:00+00:00",
+     "estimated": "2026-09-29T08:50:00+00:00",
+     "actual": "2026-09-29T09:26:00+00:00",
+     "estimated_runway": "2026-09-29T09:26:00+00:00",
+     "actual_runway": "2026-09-29T09:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T11:10:00+00:00",
+     "delay": 21,
+     "estimated": "2026-09-29T11:31:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T11:31:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "China Eastern Airlines",
+     "iata": "MU",
+     "icao": "CES"
+    },
+    "flight": {
+     "number": "4543",
+     "iata": "MU4543",
+     "icao": "CES4543",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "593",
+      "flight_iata": "ey593",
+      "flight_icao": "etd593"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896677"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B11",
+     "delay": 36,
+     "scheduled": "2026-09-29T08:50:00+00:00",
+     "estimated": "2026-09-29T08:50:00+00:00",
+     "actual": "2026-09-29T09:26:00+00:00",
+     "estimated_runway": "2026-09-29T09:26:00+00:00",
+     "actual_runway": "2026-09-29T09:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T11:10:00+00:00",
+     "delay": 21,
+     "estimated": "2026-09-29T11:31:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T11:31:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "9600",
+     "iata": "LY9600",
+     "icao": "ELY9600",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "593",
+      "flight_iata": "ey593",
+      "flight_icao": "etd593"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896677"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B11",
+     "delay": 36,
+     "scheduled": "2026-09-29T08:50:00+00:00",
+     "estimated": "2026-09-29T08:50:00+00:00",
+     "actual": "2026-09-29T09:26:00+00:00",
+     "estimated_runway": "2026-09-29T09:26:00+00:00",
+     "actual_runway": "2026-09-29T09:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T11:10:00+00:00",
+     "delay": 21,
+     "estimated": "2026-09-29T11:31:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T11:31:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Air Seychelles",
+     "iata": "HM",
+     "icao": "SEY"
+    },
+    "flight": {
+     "number": "5322",
+     "iata": "HM5322",
+     "icao": "SEY5322",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "593",
+      "flight_iata": "ey593",
+      "flight_icao": "etd593"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896677"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C28",
+     "delay": 43,
+     "scheduled": "2026-09-29T08:55:00+00:00",
+     "estimated": "2026-09-29T08:55:00+00:00",
+     "actual": "2026-09-29T09:38:00+00:00",
+     "estimated_runway": "2026-09-29T09:38:00+00:00",
+     "actual_runway": "2026-09-29T09:38:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T11:20:00+00:00",
+     "delay": 31,
+     "estimated": "2026-09-29T11:51:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T11:51:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "607",
+     "iata": "EY607",
+     "icao": "ETD607",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89643E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B11",
+     "delay": 36,
+     "scheduled": "2026-09-29T08:50:00+00:00",
+     "estimated": "2026-09-29T08:50:00+00:00",
+     "actual": "2026-09-29T09:26:00+00:00",
+     "estimated_runway": "2026-09-29T09:26:00+00:00",
+     "actual_runway": "2026-09-29T09:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T11:10:00+00:00",
+     "delay": 21,
+     "estimated": "2026-09-29T11:31:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T11:31:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "593",
+     "iata": "EY593",
+     "icao": "ETD593",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896677"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B21",
+     "delay": 14,
+     "scheduled": "2026-09-29T03:30:00+00:00",
+     "estimated": "2026-09-29T03:30:00+00:00",
+     "actual": "2026-09-29T03:44:00+00:00",
+     "estimated_runway": "2026-09-29T03:44:00+00:00",
+     "actual_runway": "2026-09-29T03:44:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T05:50:00+00:00",
+     "delay": 12,
+     "estimated": "2026-09-29T05:59:00+00:00",
+     "actual": "2026-09-29T06:02:00+00:00",
+     "estimated_runway": "2026-09-29T06:02:00+00:00",
+     "actual_runway": "2026-09-29T06:02:00+00:00"
+    },
+    "airline": {
+     "name": "China Eastern Airlines",
+     "iata": "MU",
+     "icao": "CES"
+    },
+    "flight": {
+     "number": "4998",
+     "iata": "MU4998",
+     "icao": "CES4998",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "595",
+      "flight_iata": "ey595",
+      "flight_icao": "etd595"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896678"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B21",
+     "delay": 14,
+     "scheduled": "2026-09-29T03:30:00+00:00",
+     "estimated": "2026-09-29T03:30:00+00:00",
+     "actual": "2026-09-29T03:44:00+00:00",
+     "estimated_runway": "2026-09-29T03:44:00+00:00",
+     "actual_runway": "2026-09-29T03:44:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T05:50:00+00:00",
+     "delay": 12,
+     "estimated": "2026-09-29T05:59:00+00:00",
+     "actual": "2026-09-29T06:02:00+00:00",
+     "estimated_runway": "2026-09-29T06:02:00+00:00",
+     "actual_runway": "2026-09-29T06:02:00+00:00"
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "9604",
+     "iata": "LY9604",
+     "icao": "ELY9604",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "595",
+      "flight_iata": "ey595",
+      "flight_icao": "etd595"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896678"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B21",
+     "delay": 14,
+     "scheduled": "2026-09-29T03:30:00+00:00",
+     "estimated": "2026-09-29T03:30:00+00:00",
+     "actual": "2026-09-29T03:44:00+00:00",
+     "estimated_runway": "2026-09-29T03:44:00+00:00",
+     "actual_runway": "2026-09-29T03:44:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T05:50:00+00:00",
+     "delay": 12,
+     "estimated": "2026-09-29T05:59:00+00:00",
+     "actual": "2026-09-29T06:02:00+00:00",
+     "estimated_runway": "2026-09-29T06:02:00+00:00",
+     "actual_runway": "2026-09-29T06:02:00+00:00"
+    },
+    "airline": {
+     "name": "Air Seychelles",
+     "iata": "HM",
+     "icao": "SEY"
+    },
+    "flight": {
+     "number": "5324",
+     "iata": "HM5324",
+     "icao": "SEY5324",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "595",
+      "flight_iata": "ey595",
+      "flight_icao": "etd595"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896678"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B10",
+     "delay": 33,
+     "scheduled": "2026-09-29T02:40:00+00:00",
+     "estimated": "2026-09-29T02:40:00+00:00",
+     "actual": "2026-09-29T03:13:00+00:00",
+     "estimated_runway": "2026-09-29T03:13:00+00:00",
+     "actual_runway": "2026-09-29T03:13:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T05:10:00+00:00",
+     "delay": 2,
+     "estimated": "2026-09-29T05:11:00+00:00",
+     "actual": "2026-09-29T05:12:00+00:00",
+     "estimated_runway": "2026-09-29T05:12:00+00:00",
+     "actual_runway": "2026-09-29T05:12:00+00:00"
+    },
+    "airline": {
+     "name": "China Eastern Airlines",
+     "iata": "MU",
+     "icao": "CES"
+    },
+    "flight": {
+     "number": "3619",
+     "iata": "MU3619",
+     "icao": "CES3619",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "609",
+      "flight_iata": "ey609",
+      "flight_icao": "etd609"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89643F"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B10",
+     "delay": 33,
+     "scheduled": "2026-09-29T02:40:00+00:00",
+     "estimated": "2026-09-29T02:40:00+00:00",
+     "actual": "2026-09-29T03:13:00+00:00",
+     "estimated_runway": "2026-09-29T03:13:00+00:00",
+     "actual_runway": "2026-09-29T03:13:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T05:10:00+00:00",
+     "delay": 2,
+     "estimated": "2026-09-29T05:11:00+00:00",
+     "actual": "2026-09-29T05:12:00+00:00",
+     "estimated_runway": "2026-09-29T05:12:00+00:00",
+     "actual_runway": "2026-09-29T05:12:00+00:00"
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "9610",
+     "iata": "LY9610",
+     "icao": "ELY9610",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "609",
+      "flight_iata": "ey609",
+      "flight_icao": "etd609"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89643F"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B10",
+     "delay": 33,
+     "scheduled": "2026-09-29T02:40:00+00:00",
+     "estimated": "2026-09-29T02:40:00+00:00",
+     "actual": "2026-09-29T03:13:00+00:00",
+     "estimated_runway": "2026-09-29T03:13:00+00:00",
+     "actual_runway": "2026-09-29T03:13:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T05:10:00+00:00",
+     "delay": 2,
+     "estimated": "2026-09-29T05:11:00+00:00",
+     "actual": "2026-09-29T05:12:00+00:00",
+     "estimated_runway": "2026-09-29T05:12:00+00:00",
+     "actual_runway": "2026-09-29T05:12:00+00:00"
+    },
+    "airline": {
+     "name": "Air Seychelles",
+     "iata": "HM",
+     "icao": "SEY"
+    },
+    "flight": {
+     "number": "5332",
+     "iata": "HM5332",
+     "icao": "SEY5332",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "609",
+      "flight_iata": "ey609",
+      "flight_icao": "etd609"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89643F"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B21",
+     "delay": 14,
+     "scheduled": "2026-09-29T03:30:00+00:00",
+     "estimated": "2026-09-29T03:30:00+00:00",
+     "actual": "2026-09-29T03:44:00+00:00",
+     "estimated_runway": "2026-09-29T03:44:00+00:00",
+     "actual_runway": "2026-09-29T03:44:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T05:50:00+00:00",
+     "delay": 12,
+     "estimated": "2026-09-29T05:59:00+00:00",
+     "actual": "2026-09-29T06:02:00+00:00",
+     "estimated_runway": "2026-09-29T06:02:00+00:00",
+     "actual_runway": "2026-09-29T06:02:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "595",
+     "iata": "EY595",
+     "icao": "ETD595",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896678"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B10",
+     "delay": 33,
+     "scheduled": "2026-09-29T02:40:00+00:00",
+     "estimated": "2026-09-29T02:40:00+00:00",
+     "actual": "2026-09-29T03:13:00+00:00",
+     "estimated_runway": "2026-09-29T03:13:00+00:00",
+     "actual_runway": "2026-09-29T03:13:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T05:10:00+00:00",
+     "delay": 2,
+     "estimated": "2026-09-29T05:11:00+00:00",
+     "actual": "2026-09-29T05:12:00+00:00",
+     "estimated_runway": "2026-09-29T05:12:00+00:00",
+     "actual_runway": "2026-09-29T05:12:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "609",
+     "iata": "EY609",
+     "icao": "ETD609",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89643F"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C28",
+     "delay": 19,
+     "scheduled": "2026-09-28T20:40:00+00:00",
+     "estimated": "2026-09-28T20:40:00+00:00",
+     "actual": "2026-09-28T20:59:00+00:00",
+     "estimated_runway": "2026-09-28T20:59:00+00:00",
+     "actual_runway": "2026-09-28T20:59:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T23:05:00+00:00",
+     "delay": 3,
+     "estimated": "2026-09-28T23:09:00+00:00",
+     "actual": "2026-09-28T23:08:00+00:00",
+     "estimated_runway": "2026-09-28T23:08:00+00:00",
+     "actual_runway": "2026-09-28T23:08:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "599",
+     "iata": "EY599",
+     "icao": "ETD599",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89627B"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C28",
+     "delay": 19,
+     "scheduled": "2026-09-28T20:40:00+00:00",
+     "estimated": "2026-09-28T20:40:00+00:00",
+     "actual": "2026-09-28T20:59:00+00:00",
+     "estimated_runway": "2026-09-28T20:59:00+00:00",
+     "actual_runway": "2026-09-28T20:59:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T23:05:00+00:00",
+     "delay": 3,
+     "estimated": "2026-09-28T23:09:00+00:00",
+     "actual": "2026-09-28T23:08:00+00:00",
+     "estimated_runway": "2026-09-28T23:08:00+00:00",
+     "actual_runway": "2026-09-28T23:08:00+00:00"
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "9611",
+     "iata": "LY9611",
+     "icao": "ELY9611",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "599",
+      "flight_iata": "ey599",
+      "flight_icao": "etd599"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89627B"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C28",
+     "delay": 19,
+     "scheduled": "2026-09-28T20:40:00+00:00",
+     "estimated": "2026-09-28T20:40:00+00:00",
+     "actual": "2026-09-28T20:59:00+00:00",
+     "estimated_runway": "2026-09-28T20:59:00+00:00",
+     "actual_runway": "2026-09-28T20:59:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T23:05:00+00:00",
+     "delay": 3,
+     "estimated": "2026-09-28T23:09:00+00:00",
+     "actual": "2026-09-28T23:08:00+00:00",
+     "estimated_runway": "2026-09-28T23:08:00+00:00",
+     "actual_runway": "2026-09-28T23:08:00+00:00"
+    },
+    "airline": {
+     "name": "Air Seychelles",
+     "iata": "HM",
+     "icao": "SEY"
+    },
+    "flight": {
+     "number": "5328",
+     "iata": "HM5328",
+     "icao": "SEY5328",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "599",
+      "flight_iata": "ey599",
+      "flight_icao": "etd599"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89627B"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B11",
+     "delay": 25,
+     "scheduled": "2026-09-28T14:25:00+00:00",
+     "estimated": "2026-09-28T14:25:00+00:00",
+     "actual": "2026-09-28T14:50:00+00:00",
+     "estimated_runway": "2026-09-28T14:50:00+00:00",
+     "actual_runway": "2026-09-28T14:50:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T16:50:00+00:00",
+     "delay": 12,
+     "estimated": "2026-09-28T17:05:00+00:00",
+     "actual": "2026-09-28T17:02:00+00:00",
+     "estimated_runway": "2026-09-28T17:02:00+00:00",
+     "actual_runway": "2026-09-28T17:02:00+00:00"
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "9605",
+     "iata": "LY9605",
+     "icao": "ELY9605",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "597",
+      "flight_iata": "ey597",
+      "flight_icao": "etd597"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896678"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B11",
+     "delay": 25,
+     "scheduled": "2026-09-28T14:25:00+00:00",
+     "estimated": "2026-09-28T14:25:00+00:00",
+     "actual": "2026-09-28T14:50:00+00:00",
+     "estimated_runway": "2026-09-28T14:50:00+00:00",
+     "actual_runway": "2026-09-28T14:50:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T16:50:00+00:00",
+     "delay": 12,
+     "estimated": "2026-09-28T17:05:00+00:00",
+     "actual": "2026-09-28T17:02:00+00:00",
+     "estimated_runway": "2026-09-28T17:02:00+00:00",
+     "actual_runway": "2026-09-28T17:02:00+00:00"
+    },
+    "airline": {
+     "name": "Air Seychelles",
+     "iata": "HM",
+     "icao": "SEY"
+    },
+    "flight": {
+     "number": "5326",
+     "iata": "HM5326",
+     "icao": "SEY5326",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "597",
+      "flight_iata": "ey597",
+      "flight_icao": "etd597"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896678"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B11",
+     "delay": 25,
+     "scheduled": "2026-09-28T14:25:00+00:00",
+     "estimated": "2026-09-28T14:25:00+00:00",
+     "actual": "2026-09-28T14:50:00+00:00",
+     "estimated_runway": "2026-09-28T14:50:00+00:00",
+     "actual_runway": "2026-09-28T14:50:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T16:50:00+00:00",
+     "delay": 12,
+     "estimated": "2026-09-28T17:05:00+00:00",
+     "actual": "2026-09-28T17:02:00+00:00",
+     "estimated_runway": "2026-09-28T17:02:00+00:00",
+     "actual_runway": "2026-09-28T17:02:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "597",
+     "iata": "EY597",
+     "icao": "ETD597",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896678"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "A4",
+     "delay": 17,
+     "scheduled": "2026-09-28T08:55:00+00:00",
+     "estimated": "2026-09-28T08:55:00+00:00",
+     "actual": "2026-09-28T09:12:00+00:00",
+     "estimated_runway": "2026-09-28T09:12:00+00:00",
+     "actual_runway": "2026-09-28T09:12:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T11:20:00+00:00",
+     "delay": 7,
+     "estimated": "2026-09-28T11:28:00+00:00",
+     "actual": "2026-09-28T11:27:00+00:00",
+     "estimated_runway": "2026-09-28T11:27:00+00:00",
+     "actual_runway": "2026-09-28T11:27:00+00:00"
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "9614",
+     "iata": "LY9614",
+     "icao": "ELY9614",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "607",
+      "flight_iata": "ey607",
+      "flight_icao": "etd607"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896698"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "A4",
+     "delay": 17,
+     "scheduled": "2026-09-28T08:55:00+00:00",
+     "estimated": "2026-09-28T08:55:00+00:00",
+     "actual": "2026-09-28T09:12:00+00:00",
+     "estimated_runway": "2026-09-28T09:12:00+00:00",
+     "actual_runway": "2026-09-28T09:12:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T11:20:00+00:00",
+     "delay": 7,
+     "estimated": "2026-09-28T11:28:00+00:00",
+     "actual": "2026-09-28T11:27:00+00:00",
+     "estimated_runway": "2026-09-28T11:27:00+00:00",
+     "actual_runway": "2026-09-28T11:27:00+00:00"
+    },
+    "airline": {
+     "name": "Air Seychelles",
+     "iata": "HM",
+     "icao": "SEY"
+    },
+    "flight": {
+     "number": "5330",
+     "iata": "HM5330",
+     "icao": "SEY5330",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "607",
+      "flight_iata": "ey607",
+      "flight_icao": "etd607"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896698"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B17",
+     "delay": 16,
+     "scheduled": "2026-09-28T08:50:00+00:00",
+     "estimated": "2026-09-28T08:50:00+00:00",
+     "actual": "2026-09-28T09:06:00+00:00",
+     "estimated_runway": "2026-09-28T09:06:00+00:00",
+     "actual_runway": "2026-09-28T09:06:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T11:10:00+00:00",
+     "delay": 1,
+     "estimated": "2026-09-28T11:12:00+00:00",
+     "actual": "2026-09-28T11:11:00+00:00",
+     "estimated_runway": "2026-09-28T11:11:00+00:00",
+     "actual_runway": "2026-09-28T11:11:00+00:00"
+    },
+    "airline": {
+     "name": "China Eastern Airlines",
+     "iata": "MU",
+     "icao": "CES"
+    },
+    "flight": {
+     "number": "4543",
+     "iata": "MU4543",
+     "icao": "CES4543",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "593",
+      "flight_iata": "ey593",
+      "flight_icao": "etd593"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896677"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B17",
+     "delay": 16,
+     "scheduled": "2026-09-28T08:50:00+00:00",
+     "estimated": "2026-09-28T08:50:00+00:00",
+     "actual": "2026-09-28T09:06:00+00:00",
+     "estimated_runway": "2026-09-28T09:06:00+00:00",
+     "actual_runway": "2026-09-28T09:06:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T11:10:00+00:00",
+     "delay": 1,
+     "estimated": "2026-09-28T11:12:00+00:00",
+     "actual": "2026-09-28T11:11:00+00:00",
+     "estimated_runway": "2026-09-28T11:11:00+00:00",
+     "actual_runway": "2026-09-28T11:11:00+00:00"
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "9600",
+     "iata": "LY9600",
+     "icao": "ELY9600",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "593",
+      "flight_iata": "ey593",
+      "flight_icao": "etd593"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896677"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B17",
+     "delay": 16,
+     "scheduled": "2026-09-28T08:50:00+00:00",
+     "estimated": "2026-09-28T08:50:00+00:00",
+     "actual": "2026-09-28T09:06:00+00:00",
+     "estimated_runway": "2026-09-28T09:06:00+00:00",
+     "actual_runway": "2026-09-28T09:06:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T11:10:00+00:00",
+     "delay": 1,
+     "estimated": "2026-09-28T11:12:00+00:00",
+     "actual": "2026-09-28T11:11:00+00:00",
+     "estimated_runway": "2026-09-28T11:11:00+00:00",
+     "actual_runway": "2026-09-28T11:11:00+00:00"
+    },
+    "airline": {
+     "name": "Air Seychelles",
+     "iata": "HM",
+     "icao": "SEY"
+    },
+    "flight": {
+     "number": "5322",
+     "iata": "HM5322",
+     "icao": "SEY5322",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "593",
+      "flight_iata": "ey593",
+      "flight_icao": "etd593"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896677"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "A4",
+     "delay": 17,
+     "scheduled": "2026-09-28T08:55:00+00:00",
+     "estimated": "2026-09-28T08:55:00+00:00",
+     "actual": "2026-09-28T09:12:00+00:00",
+     "estimated_runway": "2026-09-28T09:12:00+00:00",
+     "actual_runway": "2026-09-28T09:12:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T11:20:00+00:00",
+     "delay": 7,
+     "estimated": "2026-09-28T11:28:00+00:00",
+     "actual": "2026-09-28T11:27:00+00:00",
+     "estimated_runway": "2026-09-28T11:27:00+00:00",
+     "actual_runway": "2026-09-28T11:27:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "607",
+     "iata": "EY607",
+     "icao": "ETD607",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896698"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B17",
+     "delay": 16,
+     "scheduled": "2026-09-28T08:50:00+00:00",
+     "estimated": "2026-09-28T08:50:00+00:00",
+     "actual": "2026-09-28T09:06:00+00:00",
+     "estimated_runway": "2026-09-28T09:06:00+00:00",
+     "actual_runway": "2026-09-28T09:06:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T11:10:00+00:00",
+     "delay": 1,
+     "estimated": "2026-09-28T11:12:00+00:00",
+     "actual": "2026-09-28T11:11:00+00:00",
+     "estimated_runway": "2026-09-28T11:11:00+00:00",
+     "actual_runway": "2026-09-28T11:11:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "593",
+     "iata": "EY593",
+     "icao": "ETD593",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896677"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B10",
+     "delay": 18,
+     "scheduled": "2026-09-28T03:30:00+00:00",
+     "estimated": "2026-09-28T03:30:00+00:00",
+     "actual": "2026-09-28T03:48:00+00:00",
+     "estimated_runway": "2026-09-28T03:48:00+00:00",
+     "actual_runway": "2026-09-28T03:48:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T05:50:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T05:50:00+00:00",
+     "actual": "2026-09-28T05:50:00+00:00",
+     "estimated_runway": "2026-09-28T05:50:00+00:00",
+     "actual_runway": "2026-09-28T05:50:00+00:00"
+    },
+    "airline": {
+     "name": "China Eastern Airlines",
+     "iata": "MU",
+     "icao": "CES"
+    },
+    "flight": {
+     "number": "4998",
+     "iata": "MU4998",
+     "icao": "CES4998",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "595",
+      "flight_iata": "ey595",
+      "flight_icao": "etd595"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896678"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B10",
+     "delay": 18,
+     "scheduled": "2026-09-28T03:30:00+00:00",
+     "estimated": "2026-09-28T03:30:00+00:00",
+     "actual": "2026-09-28T03:48:00+00:00",
+     "estimated_runway": "2026-09-28T03:48:00+00:00",
+     "actual_runway": "2026-09-28T03:48:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T05:50:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T05:50:00+00:00",
+     "actual": "2026-09-28T05:50:00+00:00",
+     "estimated_runway": "2026-09-28T05:50:00+00:00",
+     "actual_runway": "2026-09-28T05:50:00+00:00"
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "9604",
+     "iata": "LY9604",
+     "icao": "ELY9604",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "595",
+      "flight_iata": "ey595",
+      "flight_icao": "etd595"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896678"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B10",
+     "delay": 18,
+     "scheduled": "2026-09-28T03:30:00+00:00",
+     "estimated": "2026-09-28T03:30:00+00:00",
+     "actual": "2026-09-28T03:48:00+00:00",
+     "estimated_runway": "2026-09-28T03:48:00+00:00",
+     "actual_runway": "2026-09-28T03:48:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T05:50:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T05:50:00+00:00",
+     "actual": "2026-09-28T05:50:00+00:00",
+     "estimated_runway": "2026-09-28T05:50:00+00:00",
+     "actual_runway": "2026-09-28T05:50:00+00:00"
+    },
+    "airline": {
+     "name": "Air Seychelles",
+     "iata": "HM",
+     "icao": "SEY"
+    },
+    "flight": {
+     "number": "5324",
+     "iata": "HM5324",
+     "icao": "SEY5324",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "595",
+      "flight_iata": "ey595",
+      "flight_icao": "etd595"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896678"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B21",
+     "delay": 20,
+     "scheduled": "2026-09-28T02:40:00+00:00",
+     "estimated": "2026-09-28T02:40:00+00:00",
+     "actual": "2026-09-28T03:00:00+00:00",
+     "estimated_runway": "2026-09-28T03:00:00+00:00",
+     "actual_runway": "2026-09-28T03:00:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T05:10:00+00:00",
+     "delay": 2,
+     "estimated": "2026-09-28T05:18:00+00:00",
+     "actual": "2026-09-28T05:12:00+00:00",
+     "estimated_runway": "2026-09-28T05:12:00+00:00",
+     "actual_runway": "2026-09-28T05:12:00+00:00"
+    },
+    "airline": {
+     "name": "China Eastern Airlines",
+     "iata": "MU",
+     "icao": "CES"
+    },
+    "flight": {
+     "number": "3619",
+     "iata": "MU3619",
+     "icao": "CES3619",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "609",
+      "flight_iata": "ey609",
+      "flight_icao": "etd609"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89643E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B21",
+     "delay": 20,
+     "scheduled": "2026-09-28T02:40:00+00:00",
+     "estimated": "2026-09-28T02:40:00+00:00",
+     "actual": "2026-09-28T03:00:00+00:00",
+     "estimated_runway": "2026-09-28T03:00:00+00:00",
+     "actual_runway": "2026-09-28T03:00:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T05:10:00+00:00",
+     "delay": 2,
+     "estimated": "2026-09-28T05:18:00+00:00",
+     "actual": "2026-09-28T05:12:00+00:00",
+     "estimated_runway": "2026-09-28T05:12:00+00:00",
+     "actual_runway": "2026-09-28T05:12:00+00:00"
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "9610",
+     "iata": "LY9610",
+     "icao": "ELY9610",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "609",
+      "flight_iata": "ey609",
+      "flight_icao": "etd609"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89643E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B21",
+     "delay": 20,
+     "scheduled": "2026-09-28T02:40:00+00:00",
+     "estimated": "2026-09-28T02:40:00+00:00",
+     "actual": "2026-09-28T03:00:00+00:00",
+     "estimated_runway": "2026-09-28T03:00:00+00:00",
+     "actual_runway": "2026-09-28T03:00:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T05:10:00+00:00",
+     "delay": 2,
+     "estimated": "2026-09-28T05:18:00+00:00",
+     "actual": "2026-09-28T05:12:00+00:00",
+     "estimated_runway": "2026-09-28T05:12:00+00:00",
+     "actual_runway": "2026-09-28T05:12:00+00:00"
+    },
+    "airline": {
+     "name": "Air Seychelles",
+     "iata": "HM",
+     "icao": "SEY"
+    },
+    "flight": {
+     "number": "5332",
+     "iata": "HM5332",
+     "icao": "SEY5332",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "609",
+      "flight_iata": "ey609",
+      "flight_icao": "etd609"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89643E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B10",
+     "delay": 18,
+     "scheduled": "2026-09-28T03:30:00+00:00",
+     "estimated": "2026-09-28T03:30:00+00:00",
+     "actual": "2026-09-28T03:48:00+00:00",
+     "estimated_runway": "2026-09-28T03:48:00+00:00",
+     "actual_runway": "2026-09-28T03:48:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T05:50:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T05:50:00+00:00",
+     "actual": "2026-09-28T05:50:00+00:00",
+     "estimated_runway": "2026-09-28T05:50:00+00:00",
+     "actual_runway": "2026-09-28T05:50:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "595",
+     "iata": "EY595",
+     "icao": "ETD595",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896678"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B21",
+     "delay": 20,
+     "scheduled": "2026-09-28T02:40:00+00:00",
+     "estimated": "2026-09-28T02:40:00+00:00",
+     "actual": "2026-09-28T03:00:00+00:00",
+     "estimated_runway": "2026-09-28T03:00:00+00:00",
+     "actual_runway": "2026-09-28T03:00:00+00:00"
+    },
+    "arrival": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-28T05:10:00+00:00",
+     "delay": 2,
+     "estimated": "2026-09-28T05:18:00+00:00",
+     "actual": "2026-09-28T05:12:00+00:00",
+     "estimated_runway": "2026-09-28T05:12:00+00:00",
+     "actual_runway": "2026-09-28T05:12:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "609",
+     "iata": "EY609",
+     "icao": "ETD609",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89643E"
+    },
+    "live": null
+   }
+  ]
+ }
+}

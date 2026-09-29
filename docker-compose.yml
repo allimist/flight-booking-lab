@@ -1,0 +1,131 @@
+# Project name fixes container/volume names regardless of the folder name.
+# Host ports are offset from hotel-booking-lab (3010/5173/5433/6379/9092/8080) so both labs can run side by side.
+name: flight-booking-lab
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: booking
+      POSTGRES_PASSWORD: booking
+      POSTGRES_DB: booking
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U booking -d booking"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  redis:
+    image: redis:7-alpine
+    # Hard memory cap: at the limit Redis rejects writes (OOM error) instead of growing until the VM kills it.
+    command: ["redis-server", "--maxmemory", "${REDIS_MAXMEMORY:-400mb}", "--maxmemory-policy", "noeviction"]
+    ports:
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  kafka:
+    # Official Apache image (KRaft, single node). Not published on the host: the hotel lab already uses 9092.
+    image: apache/kafka:3.9.2
+    restart: unless-stopped   # comes back by itself if the VM runs short of memory and kills it
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_LOG_DIRS: /tmp/kraft-combined-logs
+      KAFKA_HEAP_OPTS: -Xmx512m -Xms256m
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 10s
+      retries: 18
+      start_period: 20s
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    depends_on:
+      kafka:
+        condition: service_healthy
+    ports:
+      - "8081:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      JAVA_OPTS: -Xmx256m
+
+  api:
+    build: ./apps/api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka:
+        condition: service_started   # the outbox holds events until Kafka is reachable
+    ports:
+      - "3020:3020"
+    # Responses of every aviationstack call are written here and committed, so a fresh database never pays twice.
+    volumes:
+      - ./data/aviationstack:/app/data/aviationstack
+    environment:
+      PORT: 3020
+      DATABASE_URL: postgresql://booking:booking@postgres:5432/booking
+      REDIS_URL: redis://redis:6379
+      KAFKA_BROKERS: kafka:9092
+      JWT_SECRET: local-learning-secret
+      CORS_ORIGIN: http://localhost:5174
+      KAFKAJS_NO_PARTITIONER_WARNING: "1"
+      AVAILABILITY_DAYS: 365
+      AVIATIONSTACK_KEY: ${AVIATIONSTACK_KEY:-}
+      AVIATIONSTACK_MONTHLY_BUDGET: ${AVIATIONSTACK_MONTHLY_BUDGET:-30}
+      AVIATIONSTACK_URL: ${AVIATIONSTACK_URL:-https://api.aviationstack.com/v1}
+      SNAPSHOT_DIR: /app/data/aviationstack
+
+  # Removes departure days that are already past from Redis once a day.
+  availability-worker:
+    build: ./apps/availability-worker
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://booking:booking@postgres:5432/booking
+      REDIS_URL: redis://redis:6379
+      AVAILABILITY_DAYS: 365
+
+  web:
+    build: ./apps/web
+    depends_on:
+      - api
+    ports:
+      - "5174:5173"
+    environment:
+      VITE_API_URL: http://localhost:3020/api
+      VITE_KAFKA_UI_URL: http://localhost:8081
+      VITE_KAFKA_BROKER: kafka:9092
+      VITE_POSTGRES: "localhost:5435 (user/db/password: booking)"
+      VITE_REDIS: redis://localhost:6380
+
+volumes:
+  postgres_data:

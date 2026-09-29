@@ -1,0 +1,695 @@
+{
+ "requestKey": "flights?arr_iata=BKK&dep_iata=TLV&limit=100",
+ "endpoint": "flights",
+ "params": {
+  "limit": 100,
+  "dep_iata": "TLV",
+  "arr_iata": "BKK"
+ },
+ "fetchedAt": "2026-09-29T08:47:36.248Z",
+ "response": {
+  "pagination": {
+   "limit": 100,
+   "offset": 0,
+   "count": 12,
+   "total": 12
+  },
+  "data": [
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 10,
+     "scheduled": "2026-09-29T00:55:00+00:00",
+     "estimated": "2026-09-29T00:55:00+00:00",
+     "actual": "2026-09-29T01:05:00+00:00",
+     "estimated_runway": "2026-09-29T01:05:00+00:00",
+     "actual_runway": "2026-09-29T01:05:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "E9",
+     "baggage": "17",
+     "scheduled": "2026-09-29T16:35:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T15:51:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T15:51:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "83",
+     "iata": "LY83",
+     "icao": "ELY83",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "738071"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 10,
+     "scheduled": "2026-09-29T00:55:00+00:00",
+     "estimated": "2026-09-29T00:55:00+00:00",
+     "actual": "2026-09-29T01:05:00+00:00",
+     "estimated_runway": "2026-09-29T01:05:00+00:00",
+     "actual_runway": "2026-09-29T01:05:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T16:35:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T15:25:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T15:25:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Vietnam Airlines",
+     "iata": "VN",
+     "icao": "HVN"
+    },
+    "flight": {
+     "number": "3294",
+     "iata": "VN3294",
+     "icao": "HVN3294",
+     "codeshared": {
+      "airline_name": "el al",
+      "airline_iata": "ly",
+      "airline_icao": "ely",
+      "flight_number": "83",
+      "flight_iata": "ly83",
+      "flight_icao": "ely83"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "738071"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 10,
+     "scheduled": "2026-09-29T00:55:00+00:00",
+     "estimated": "2026-09-29T00:55:00+00:00",
+     "actual": "2026-09-29T01:05:00+00:00",
+     "estimated_runway": "2026-09-29T01:05:00+00:00",
+     "actual_runway": "2026-09-29T01:05:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T16:35:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T15:25:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T15:25:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Thai Airways",
+     "iata": "TG",
+     "icao": "THA"
+    },
+    "flight": {
+     "number": "4586",
+     "iata": "TG4586",
+     "icao": "THA4586",
+     "codeshared": {
+      "airline_name": "el al",
+      "airline_iata": "ly",
+      "airline_icao": "ely",
+      "flight_number": "83",
+      "flight_iata": "ly83",
+      "flight_icao": "ely83"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "738071"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 10,
+     "scheduled": "2026-09-29T00:55:00+00:00",
+     "estimated": "2026-09-29T00:55:00+00:00",
+     "actual": "2026-09-29T01:05:00+00:00",
+     "estimated_runway": "2026-09-29T01:05:00+00:00",
+     "actual_runway": "2026-09-29T01:05:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T16:35:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T15:25:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T15:25:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Qantas",
+     "iata": "QF",
+     "icao": "QFA"
+    },
+    "flight": {
+     "number": "5018",
+     "iata": "QF5018",
+     "icao": "QFA5018",
+     "codeshared": {
+      "airline_name": "el al",
+      "airline_iata": "ly",
+      "airline_icao": "ely",
+      "flight_number": "83",
+      "flight_iata": "ly83",
+      "flight_icao": "ely83"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "738071"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 15,
+     "scheduled": "2026-09-28T22:20:00+00:00",
+     "estimated": "2026-09-28T22:20:00+00:00",
+     "actual": "2026-09-28T22:35:00+00:00",
+     "estimated_runway": "2026-09-28T22:35:00+00:00",
+     "actual_runway": "2026-09-28T22:35:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "E10",
+     "baggage": "14",
+     "scheduled": "2026-09-29T14:00:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T13:26:00+00:00",
+     "actual": "2026-09-29T13:26:00+00:00",
+     "estimated_runway": "2026-09-29T13:26:00+00:00",
+     "actual_runway": "2026-09-29T13:26:00+00:00"
+    },
+    "airline": {
+     "name": "Vietnam Airlines",
+     "iata": "VN",
+     "icao": "HVN"
+    },
+    "flight": {
+     "number": "3298",
+     "iata": "VN3298",
+     "icao": "HVN3298",
+     "codeshared": {
+      "airline_name": "el al",
+      "airline_iata": "ly",
+      "airline_icao": "ely",
+      "flight_number": "81",
+      "flight_iata": "ly81",
+      "flight_icao": "ely81"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "738072"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 15,
+     "scheduled": "2026-09-28T22:20:00+00:00",
+     "estimated": "2026-09-28T22:20:00+00:00",
+     "actual": "2026-09-28T22:35:00+00:00",
+     "estimated_runway": "2026-09-28T22:35:00+00:00",
+     "actual_runway": "2026-09-28T22:35:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "E10",
+     "baggage": "14",
+     "scheduled": "2026-09-29T14:00:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T13:26:00+00:00",
+     "actual": "2026-09-29T13:26:00+00:00",
+     "estimated_runway": "2026-09-29T13:26:00+00:00",
+     "actual_runway": "2026-09-29T13:26:00+00:00"
+    },
+    "airline": {
+     "name": "Thai Airways",
+     "iata": "TG",
+     "icao": "THA"
+    },
+    "flight": {
+     "number": "4584",
+     "iata": "TG4584",
+     "icao": "THA4584",
+     "codeshared": {
+      "airline_name": "el al",
+      "airline_iata": "ly",
+      "airline_icao": "ely",
+      "flight_number": "81",
+      "flight_iata": "ly81",
+      "flight_icao": "ely81"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "738072"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 15,
+     "scheduled": "2026-09-28T22:20:00+00:00",
+     "estimated": "2026-09-28T22:20:00+00:00",
+     "actual": "2026-09-28T22:35:00+00:00",
+     "estimated_runway": "2026-09-28T22:35:00+00:00",
+     "actual_runway": "2026-09-28T22:35:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "E10",
+     "baggage": "14",
+     "scheduled": "2026-09-29T14:00:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T13:26:00+00:00",
+     "actual": "2026-09-29T13:26:00+00:00",
+     "estimated_runway": "2026-09-29T13:26:00+00:00",
+     "actual_runway": "2026-09-29T13:26:00+00:00"
+    },
+    "airline": {
+     "name": "Qantas",
+     "iata": "QF",
+     "icao": "QFA"
+    },
+    "flight": {
+     "number": "5020",
+     "iata": "QF5020",
+     "icao": "QFA5020",
+     "codeshared": {
+      "airline_name": "el al",
+      "airline_iata": "ly",
+      "airline_icao": "ely",
+      "flight_number": "81",
+      "flight_iata": "ly81",
+      "flight_icao": "ely81"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "738072"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 15,
+     "scheduled": "2026-09-28T22:20:00+00:00",
+     "estimated": "2026-09-28T22:20:00+00:00",
+     "actual": "2026-09-28T22:35:00+00:00",
+     "estimated_runway": "2026-09-28T22:35:00+00:00",
+     "actual_runway": "2026-09-28T22:35:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "E10",
+     "baggage": "14",
+     "scheduled": "2026-09-29T14:00:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T13:26:00+00:00",
+     "actual": "2026-09-29T13:26:00+00:00",
+     "estimated_runway": "2026-09-29T13:26:00+00:00",
+     "actual_runway": "2026-09-29T13:26:00+00:00"
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "81",
+     "iata": "LY81",
+     "icao": "ELY81",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "738072"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 6,
+     "scheduled": "2026-09-28T00:55:00+00:00",
+     "estimated": "2026-09-28T00:55:00+00:00",
+     "actual": "2026-09-28T01:01:00+00:00",
+     "estimated_runway": "2026-09-28T01:01:00+00:00",
+     "actual_runway": "2026-09-28T01:01:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "E8",
+     "baggage": "17",
+     "scheduled": "2026-09-28T16:35:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T15:49:00+00:00",
+     "actual": "2026-09-28T15:46:00+00:00",
+     "estimated_runway": "2026-09-28T15:46:00+00:00",
+     "actual_runway": "2026-09-28T15:46:00+00:00"
+    },
+    "airline": {
+     "name": "El Al",
+     "iata": "LY",
+     "icao": "ELY"
+    },
+    "flight": {
+     "number": "83",
+     "iata": "LY83",
+     "icao": "ELY83",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "738103"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 6,
+     "scheduled": "2026-09-28T00:55:00+00:00",
+     "estimated": "2026-09-28T00:55:00+00:00",
+     "actual": "2026-09-28T01:01:00+00:00",
+     "estimated_runway": "2026-09-28T01:01:00+00:00",
+     "actual_runway": "2026-09-28T01:01:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "E8",
+     "baggage": "17",
+     "scheduled": "2026-09-28T16:35:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T15:49:00+00:00",
+     "actual": "2026-09-28T15:46:00+00:00",
+     "estimated_runway": "2026-09-28T15:46:00+00:00",
+     "actual_runway": "2026-09-28T15:46:00+00:00"
+    },
+    "airline": {
+     "name": "Vietnam Airlines",
+     "iata": "VN",
+     "icao": "HVN"
+    },
+    "flight": {
+     "number": "3294",
+     "iata": "VN3294",
+     "icao": "HVN3294",
+     "codeshared": {
+      "airline_name": "el al",
+      "airline_iata": "ly",
+      "airline_icao": "ely",
+      "flight_number": "83",
+      "flight_iata": "ly83",
+      "flight_icao": "ely83"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "738103"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 6,
+     "scheduled": "2026-09-28T00:55:00+00:00",
+     "estimated": "2026-09-28T00:55:00+00:00",
+     "actual": "2026-09-28T01:01:00+00:00",
+     "estimated_runway": "2026-09-28T01:01:00+00:00",
+     "actual_runway": "2026-09-28T01:01:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "E8",
+     "baggage": "17",
+     "scheduled": "2026-09-28T16:35:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T15:49:00+00:00",
+     "actual": "2026-09-28T15:46:00+00:00",
+     "estimated_runway": "2026-09-28T15:46:00+00:00",
+     "actual_runway": "2026-09-28T15:46:00+00:00"
+    },
+    "airline": {
+     "name": "Thai Airways",
+     "iata": "TG",
+     "icao": "THA"
+    },
+    "flight": {
+     "number": "4586",
+     "iata": "TG4586",
+     "icao": "THA4586",
+     "codeshared": {
+      "airline_name": "el al",
+      "airline_iata": "ly",
+      "airline_icao": "ely",
+      "flight_number": "83",
+      "flight_iata": "ly83",
+      "flight_icao": "ely83"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "738103"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Ben Gurion International",
+     "timezone": "Asia/Jerusalem",
+     "iata": "TLV",
+     "icao": "LLBG",
+     "terminal": "3",
+     "gate": null,
+     "delay": 6,
+     "scheduled": "2026-09-28T00:55:00+00:00",
+     "estimated": "2026-09-28T00:55:00+00:00",
+     "actual": "2026-09-28T01:01:00+00:00",
+     "estimated_runway": "2026-09-28T01:01:00+00:00",
+     "actual_runway": "2026-09-28T01:01:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "E8",
+     "baggage": "17",
+     "scheduled": "2026-09-28T16:35:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T15:49:00+00:00",
+     "actual": "2026-09-28T15:46:00+00:00",
+     "estimated_runway": "2026-09-28T15:46:00+00:00",
+     "actual_runway": "2026-09-28T15:46:00+00:00"
+    },
+    "airline": {
+     "name": "Qantas",
+     "iata": "QF",
+     "icao": "QFA"
+    },
+    "flight": {
+     "number": "5018",
+     "iata": "QF5018",
+     "icao": "QFA5018",
+     "codeshared": {
+      "airline_name": "el al",
+      "airline_iata": "ly",
+      "airline_icao": "ely",
+      "flight_number": "83",
+      "flight_iata": "ly83",
+      "flight_icao": "ely83"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "738103"
+    },
+    "live": null
+   }
+  ]
+ }
+}

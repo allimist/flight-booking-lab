@@ -1,0 +1,2755 @@
+{
+ "requestKey": "flights?arr_iata=BKK&dep_iata=AUH&limit=100",
+ "endpoint": "flights",
+ "params": {
+  "limit": 100,
+  "dep_iata": "AUH",
+  "arr_iata": "BKK"
+ },
+ "fetchedAt": "2026-09-29T08:47:38.579Z",
+ "response": {
+  "pagination": {
+   "limit": 100,
+   "offset": 0,
+   "count": 48,
+   "total": 48
+  },
+  "data": [
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B12",
+     "delay": 26,
+     "scheduled": "2026-09-29T15:20:00+00:00",
+     "estimated": "2026-09-29T15:20:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T15:46:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-30T00:55:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Air Europa",
+     "iata": "UX",
+     "icao": "AEA"
+    },
+    "flight": {
+     "number": "2722",
+     "iata": "UX2722",
+     "icao": "AEA2722",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "400",
+      "flight_iata": "ey400",
+      "flight_icao": "etd400"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89656D"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B12",
+     "delay": 26,
+     "scheduled": "2026-09-29T15:20:00+00:00",
+     "estimated": "2026-09-29T15:20:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T15:46:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-30T00:55:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Bangkok Airways",
+     "iata": "PG",
+     "icao": "BKP"
+    },
+    "flight": {
+     "number": "4017",
+     "iata": "PG4017",
+     "icao": "BKP4017",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "400",
+      "flight_iata": "ey400",
+      "flight_icao": "etd400"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89656D"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B12",
+     "delay": 26,
+     "scheduled": "2026-09-29T15:20:00+00:00",
+     "estimated": "2026-09-29T15:20:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T15:46:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-30T00:55:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Egyptair",
+     "iata": "MS",
+     "icao": "MSR"
+    },
+    "flight": {
+     "number": "8136",
+     "iata": "MS8136",
+     "icao": "MSR8136",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "400",
+      "flight_iata": "ey400",
+      "flight_icao": "etd400"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89656D"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B12",
+     "delay": 26,
+     "scheduled": "2026-09-29T15:20:00+00:00",
+     "estimated": "2026-09-29T15:20:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T15:46:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-30T00:55:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Air Cambodia",
+     "iata": "K6",
+     "icao": "KHV"
+    },
+    "flight": {
+     "number": "5400",
+     "iata": "K65400",
+     "icao": "KHV5400",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "400",
+      "flight_iata": "ey400",
+      "flight_icao": "etd400"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89656D"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B12",
+     "delay": 26,
+     "scheduled": "2026-09-29T15:20:00+00:00",
+     "estimated": "2026-09-29T15:20:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T15:46:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-30T00:55:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Condor",
+     "iata": "DE",
+     "icao": "CFG"
+    },
+    "flight": {
+     "number": "5466",
+     "iata": "DE5466",
+     "icao": "CFG5466",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "400",
+      "flight_iata": "ey400",
+      "flight_icao": "etd400"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89656D"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B12",
+     "delay": 26,
+     "scheduled": "2026-09-29T15:20:00+00:00",
+     "estimated": "2026-09-29T15:20:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T15:46:00+00:00",
+     "actual_runway": null
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-30T00:55:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "400",
+     "iata": "EY400",
+     "icao": "ETD400",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89656D"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B18",
+     "delay": 41,
+     "scheduled": "2026-09-29T08:35:00+00:00",
+     "estimated": "2026-09-29T08:35:00+00:00",
+     "actual": "2026-09-29T09:16:00+00:00",
+     "estimated_runway": "2026-09-29T09:16:00+00:00",
+     "actual_runway": "2026-09-29T09:16:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T18:10:00+00:00",
+     "delay": 13,
+     "estimated": "2026-09-29T18:23:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T18:23:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Vietnam Airlines",
+     "iata": "VN",
+     "icao": "HVN"
+    },
+    "flight": {
+     "number": "3726",
+     "iata": "VN3726",
+     "icao": "HVN3726",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B18",
+     "delay": 41,
+     "scheduled": "2026-09-29T08:35:00+00:00",
+     "estimated": "2026-09-29T08:35:00+00:00",
+     "actual": "2026-09-29T09:16:00+00:00",
+     "estimated_runway": "2026-09-29T09:16:00+00:00",
+     "actual_runway": "2026-09-29T09:16:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T18:10:00+00:00",
+     "delay": 13,
+     "estimated": "2026-09-29T18:23:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T18:23:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Air Europa",
+     "iata": "UX",
+     "icao": "AEA"
+    },
+    "flight": {
+     "number": "2733",
+     "iata": "UX2733",
+     "icao": "AEA2733",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B18",
+     "delay": 41,
+     "scheduled": "2026-09-29T08:35:00+00:00",
+     "estimated": "2026-09-29T08:35:00+00:00",
+     "actual": "2026-09-29T09:16:00+00:00",
+     "estimated_runway": "2026-09-29T09:16:00+00:00",
+     "actual_runway": "2026-09-29T09:16:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T18:10:00+00:00",
+     "delay": 13,
+     "estimated": "2026-09-29T18:23:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T18:23:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Bangkok Airways",
+     "iata": "PG",
+     "icao": "BKP"
+    },
+    "flight": {
+     "number": "4015",
+     "iata": "PG4015",
+     "icao": "BKP4015",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B18",
+     "delay": 41,
+     "scheduled": "2026-09-29T08:35:00+00:00",
+     "estimated": "2026-09-29T08:35:00+00:00",
+     "actual": "2026-09-29T09:16:00+00:00",
+     "estimated_runway": "2026-09-29T09:16:00+00:00",
+     "actual_runway": "2026-09-29T09:16:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T18:10:00+00:00",
+     "delay": 13,
+     "estimated": "2026-09-29T18:23:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T18:23:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Egyptair",
+     "iata": "MS",
+     "icao": "MSR"
+    },
+    "flight": {
+     "number": "8130",
+     "iata": "MS8130",
+     "icao": "MSR8130",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B18",
+     "delay": 41,
+     "scheduled": "2026-09-29T08:35:00+00:00",
+     "estimated": "2026-09-29T08:35:00+00:00",
+     "actual": "2026-09-29T09:16:00+00:00",
+     "estimated_runway": "2026-09-29T09:16:00+00:00",
+     "actual_runway": "2026-09-29T09:16:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T18:10:00+00:00",
+     "delay": 13,
+     "estimated": "2026-09-29T18:23:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T18:23:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Air Cambodia",
+     "iata": "K6",
+     "icao": "KHV"
+    },
+    "flight": {
+     "number": "5406",
+     "iata": "K65406",
+     "icao": "KHV5406",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B18",
+     "delay": 41,
+     "scheduled": "2026-09-29T08:35:00+00:00",
+     "estimated": "2026-09-29T08:35:00+00:00",
+     "actual": "2026-09-29T09:16:00+00:00",
+     "estimated_runway": "2026-09-29T09:16:00+00:00",
+     "actual_runway": "2026-09-29T09:16:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T18:10:00+00:00",
+     "delay": 13,
+     "estimated": "2026-09-29T18:23:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T18:23:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Garuda Indonesia",
+     "iata": "GA",
+     "icao": "GIA"
+    },
+    "flight": {
+     "number": "9378",
+     "iata": "GA9378",
+     "icao": "GIA9378",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B18",
+     "delay": 41,
+     "scheduled": "2026-09-29T08:35:00+00:00",
+     "estimated": "2026-09-29T08:35:00+00:00",
+     "actual": "2026-09-29T09:16:00+00:00",
+     "estimated_runway": "2026-09-29T09:16:00+00:00",
+     "actual_runway": "2026-09-29T09:16:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T18:10:00+00:00",
+     "delay": 13,
+     "estimated": "2026-09-29T18:23:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T18:23:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Condor",
+     "iata": "DE",
+     "icao": "CFG"
+    },
+    "flight": {
+     "number": "5462",
+     "iata": "DE5462",
+     "icao": "CFG5462",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "scheduled",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "B18",
+     "delay": 45,
+     "scheduled": "2026-09-29T08:35:00+00:00",
+     "estimated": "2026-09-29T08:35:00+00:00",
+     "actual": "2026-09-29T09:16:00+00:00",
+     "estimated_runway": "2026-09-29T09:20:00+00:00",
+     "actual_runway": "2026-09-29T09:16:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T18:10:00+00:00",
+     "delay": null,
+     "estimated": null,
+     "actual": null,
+     "estimated_runway": null,
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "406",
+     "iata": "EY406",
+     "icao": "ETD406",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C35",
+     "delay": 16,
+     "scheduled": "2026-09-29T03:55:00+00:00",
+     "estimated": "2026-09-29T03:55:00+00:00",
+     "actual": "2026-09-29T04:11:00+00:00",
+     "estimated_runway": "2026-09-29T04:11:00+00:00",
+     "actual_runway": "2026-09-29T04:11:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "16",
+     "scheduled": "2026-09-29T13:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T13:06:00+00:00",
+     "actual": "2026-09-29T13:05:00+00:00",
+     "estimated_runway": "2026-09-29T13:05:00+00:00",
+     "actual_runway": "2026-09-29T13:05:00+00:00"
+    },
+    "airline": {
+     "name": "Air Europa",
+     "iata": "UX",
+     "icao": "AEA"
+    },
+    "flight": {
+     "number": "2716",
+     "iata": "UX2716",
+     "icao": "AEA2716",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "404",
+      "flight_iata": "ey404",
+      "flight_icao": "etd404"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E5"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C35",
+     "delay": 16,
+     "scheduled": "2026-09-29T03:55:00+00:00",
+     "estimated": "2026-09-29T03:55:00+00:00",
+     "actual": "2026-09-29T04:11:00+00:00",
+     "estimated_runway": "2026-09-29T04:11:00+00:00",
+     "actual_runway": "2026-09-29T04:11:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "16",
+     "scheduled": "2026-09-29T13:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T13:06:00+00:00",
+     "actual": "2026-09-29T13:05:00+00:00",
+     "estimated_runway": "2026-09-29T13:05:00+00:00",
+     "actual_runway": "2026-09-29T13:05:00+00:00"
+    },
+    "airline": {
+     "name": "Bangkok Airways",
+     "iata": "PG",
+     "icao": "BKP"
+    },
+    "flight": {
+     "number": "4019",
+     "iata": "PG4019",
+     "icao": "BKP4019",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "404",
+      "flight_iata": "ey404",
+      "flight_icao": "etd404"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E5"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C35",
+     "delay": 16,
+     "scheduled": "2026-09-29T03:55:00+00:00",
+     "estimated": "2026-09-29T03:55:00+00:00",
+     "actual": "2026-09-29T04:11:00+00:00",
+     "estimated_runway": "2026-09-29T04:11:00+00:00",
+     "actual_runway": "2026-09-29T04:11:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "16",
+     "scheduled": "2026-09-29T13:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T13:06:00+00:00",
+     "actual": "2026-09-29T13:05:00+00:00",
+     "estimated_runway": "2026-09-29T13:05:00+00:00",
+     "actual_runway": "2026-09-29T13:05:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "404",
+     "iata": "EY404",
+     "icao": "ETD404",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E5"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C35",
+     "delay": 16,
+     "scheduled": "2026-09-29T03:55:00+00:00",
+     "estimated": "2026-09-29T03:55:00+00:00",
+     "actual": "2026-09-29T04:11:00+00:00",
+     "estimated_runway": "2026-09-29T04:11:00+00:00",
+     "actual_runway": "2026-09-29T04:11:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "16",
+     "scheduled": "2026-09-29T13:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T13:06:00+00:00",
+     "actual": "2026-09-29T13:05:00+00:00",
+     "estimated_runway": "2026-09-29T13:05:00+00:00",
+     "actual_runway": "2026-09-29T13:05:00+00:00"
+    },
+    "airline": {
+     "name": "Egyptair",
+     "iata": "MS",
+     "icao": "MSR"
+    },
+    "flight": {
+     "number": "8124",
+     "iata": "MS8124",
+     "icao": "MSR8124",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "404",
+      "flight_iata": "ey404",
+      "flight_icao": "etd404"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E5"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C35",
+     "delay": 16,
+     "scheduled": "2026-09-29T03:55:00+00:00",
+     "estimated": "2026-09-29T03:55:00+00:00",
+     "actual": "2026-09-29T04:11:00+00:00",
+     "estimated_runway": "2026-09-29T04:11:00+00:00",
+     "actual_runway": "2026-09-29T04:11:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "16",
+     "scheduled": "2026-09-29T13:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T13:06:00+00:00",
+     "actual": "2026-09-29T13:05:00+00:00",
+     "estimated_runway": "2026-09-29T13:05:00+00:00",
+     "actual_runway": "2026-09-29T13:05:00+00:00"
+    },
+    "airline": {
+     "name": "Air Cambodia",
+     "iata": "K6",
+     "icao": "KHV"
+    },
+    "flight": {
+     "number": "5404",
+     "iata": "K65404",
+     "icao": "KHV5404",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "404",
+      "flight_iata": "ey404",
+      "flight_icao": "etd404"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E5"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C35",
+     "delay": 16,
+     "scheduled": "2026-09-29T03:55:00+00:00",
+     "estimated": "2026-09-29T03:55:00+00:00",
+     "actual": "2026-09-29T04:11:00+00:00",
+     "estimated_runway": "2026-09-29T04:11:00+00:00",
+     "actual_runway": "2026-09-29T04:11:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "16",
+     "scheduled": "2026-09-29T13:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T13:06:00+00:00",
+     "actual": "2026-09-29T13:05:00+00:00",
+     "estimated_runway": "2026-09-29T13:05:00+00:00",
+     "actual_runway": "2026-09-29T13:05:00+00:00"
+    },
+    "airline": {
+     "name": "Condor",
+     "iata": "DE",
+     "icao": "CFG"
+    },
+    "flight": {
+     "number": "5460",
+     "iata": "DE5460",
+     "icao": "CFG5460",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "404",
+      "flight_iata": "ey404",
+      "flight_icao": "etd404"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8962E5"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C31",
+     "delay": 68,
+     "scheduled": "2026-09-28T21:10:00+00:00",
+     "estimated": "2026-09-28T21:10:00+00:00",
+     "actual": "2026-09-28T22:18:00+00:00",
+     "estimated_runway": "2026-09-28T22:18:00+00:00",
+     "actual_runway": "2026-09-28T22:18:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G2",
+     "baggage": "17",
+     "scheduled": "2026-09-29T06:45:00+00:00",
+     "delay": 23,
+     "estimated": "2026-09-29T07:09:00+00:00",
+     "actual": "2026-09-29T07:08:00+00:00",
+     "estimated_runway": "2026-09-29T07:08:00+00:00",
+     "actual_runway": "2026-09-29T07:08:00+00:00"
+    },
+    "airline": {
+     "name": "Vietnam Airlines",
+     "iata": "VN",
+     "icao": "HVN"
+    },
+    "flight": {
+     "number": "3724",
+     "iata": "VN3724",
+     "icao": "HVN3724",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "402",
+      "flight_iata": "ey402",
+      "flight_icao": "etd402"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8966CF"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C31",
+     "delay": 68,
+     "scheduled": "2026-09-28T21:10:00+00:00",
+     "estimated": "2026-09-28T21:10:00+00:00",
+     "actual": "2026-09-28T22:18:00+00:00",
+     "estimated_runway": "2026-09-28T22:18:00+00:00",
+     "actual_runway": "2026-09-28T22:18:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G2",
+     "baggage": "17",
+     "scheduled": "2026-09-29T06:45:00+00:00",
+     "delay": 23,
+     "estimated": "2026-09-29T07:09:00+00:00",
+     "actual": "2026-09-29T07:08:00+00:00",
+     "estimated_runway": "2026-09-29T07:08:00+00:00",
+     "actual_runway": "2026-09-29T07:08:00+00:00"
+    },
+    "airline": {
+     "name": "Air Europa",
+     "iata": "UX",
+     "icao": "AEA"
+    },
+    "flight": {
+     "number": "2729",
+     "iata": "UX2729",
+     "icao": "AEA2729",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "402",
+      "flight_iata": "ey402",
+      "flight_icao": "etd402"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8966CF"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C31",
+     "delay": 68,
+     "scheduled": "2026-09-28T21:10:00+00:00",
+     "estimated": "2026-09-28T21:10:00+00:00",
+     "actual": "2026-09-28T22:18:00+00:00",
+     "estimated_runway": "2026-09-28T22:18:00+00:00",
+     "actual_runway": "2026-09-28T22:18:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G2",
+     "baggage": "17",
+     "scheduled": "2026-09-29T06:45:00+00:00",
+     "delay": 23,
+     "estimated": "2026-09-29T07:09:00+00:00",
+     "actual": "2026-09-29T07:08:00+00:00",
+     "estimated_runway": "2026-09-29T07:08:00+00:00",
+     "actual_runway": "2026-09-29T07:08:00+00:00"
+    },
+    "airline": {
+     "name": "Bangkok Airways",
+     "iata": "PG",
+     "icao": "BKP"
+    },
+    "flight": {
+     "number": "4011",
+     "iata": "PG4011",
+     "icao": "BKP4011",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "402",
+      "flight_iata": "ey402",
+      "flight_icao": "etd402"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8966CF"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C31",
+     "delay": 68,
+     "scheduled": "2026-09-28T21:10:00+00:00",
+     "estimated": "2026-09-28T21:10:00+00:00",
+     "actual": "2026-09-28T22:18:00+00:00",
+     "estimated_runway": "2026-09-28T22:18:00+00:00",
+     "actual_runway": "2026-09-28T22:18:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G2",
+     "baggage": "17",
+     "scheduled": "2026-09-29T06:45:00+00:00",
+     "delay": 23,
+     "estimated": "2026-09-29T07:09:00+00:00",
+     "actual": "2026-09-29T07:08:00+00:00",
+     "estimated_runway": "2026-09-29T07:08:00+00:00",
+     "actual_runway": "2026-09-29T07:08:00+00:00"
+    },
+    "airline": {
+     "name": "Egyptair",
+     "iata": "MS",
+     "icao": "MSR"
+    },
+    "flight": {
+     "number": "8128",
+     "iata": "MS8128",
+     "icao": "MSR8128",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "402",
+      "flight_iata": "ey402",
+      "flight_icao": "etd402"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8966CF"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C31",
+     "delay": 68,
+     "scheduled": "2026-09-28T21:10:00+00:00",
+     "estimated": "2026-09-28T21:10:00+00:00",
+     "actual": "2026-09-28T22:18:00+00:00",
+     "estimated_runway": "2026-09-28T22:18:00+00:00",
+     "actual_runway": "2026-09-28T22:18:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G2",
+     "baggage": "17",
+     "scheduled": "2026-09-29T06:45:00+00:00",
+     "delay": 23,
+     "estimated": "2026-09-29T07:09:00+00:00",
+     "actual": "2026-09-29T07:08:00+00:00",
+     "estimated_runway": "2026-09-29T07:08:00+00:00",
+     "actual_runway": "2026-09-29T07:08:00+00:00"
+    },
+    "airline": {
+     "name": "Air Cambodia",
+     "iata": "K6",
+     "icao": "KHV"
+    },
+    "flight": {
+     "number": "5402",
+     "iata": "K65402",
+     "icao": "KHV5402",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "402",
+      "flight_iata": "ey402",
+      "flight_icao": "etd402"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8966CF"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C31",
+     "delay": 68,
+     "scheduled": "2026-09-28T21:10:00+00:00",
+     "estimated": "2026-09-28T21:10:00+00:00",
+     "actual": "2026-09-28T22:18:00+00:00",
+     "estimated_runway": "2026-09-28T22:18:00+00:00",
+     "actual_runway": "2026-09-28T22:18:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G2",
+     "baggage": "17",
+     "scheduled": "2026-09-29T06:45:00+00:00",
+     "delay": 23,
+     "estimated": "2026-09-29T07:09:00+00:00",
+     "actual": "2026-09-29T07:08:00+00:00",
+     "estimated_runway": "2026-09-29T07:08:00+00:00",
+     "actual_runway": "2026-09-29T07:08:00+00:00"
+    },
+    "airline": {
+     "name": "Garuda Indonesia",
+     "iata": "GA",
+     "icao": "GIA"
+    },
+    "flight": {
+     "number": "9036",
+     "iata": "GA9036",
+     "icao": "GIA9036",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "402",
+      "flight_iata": "ey402",
+      "flight_icao": "etd402"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8966CF"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C31",
+     "delay": 68,
+     "scheduled": "2026-09-28T21:10:00+00:00",
+     "estimated": "2026-09-28T21:10:00+00:00",
+     "actual": "2026-09-28T22:18:00+00:00",
+     "estimated_runway": "2026-09-28T22:18:00+00:00",
+     "actual_runway": "2026-09-28T22:18:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G2",
+     "baggage": "17",
+     "scheduled": "2026-09-29T06:45:00+00:00",
+     "delay": 23,
+     "estimated": "2026-09-29T07:09:00+00:00",
+     "actual": "2026-09-29T07:08:00+00:00",
+     "estimated_runway": "2026-09-29T07:08:00+00:00",
+     "actual_runway": "2026-09-29T07:08:00+00:00"
+    },
+    "airline": {
+     "name": "Condor",
+     "iata": "DE",
+     "icao": "CFG"
+    },
+    "flight": {
+     "number": "5470",
+     "iata": "DE5470",
+     "icao": "CFG5470",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "402",
+      "flight_iata": "ey402",
+      "flight_icao": "etd402"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8966CF"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C31",
+     "delay": 68,
+     "scheduled": "2026-09-28T21:10:00+00:00",
+     "estimated": "2026-09-28T21:10:00+00:00",
+     "actual": "2026-09-28T22:18:00+00:00",
+     "estimated_runway": "2026-09-28T22:18:00+00:00",
+     "actual_runway": "2026-09-28T22:18:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G2",
+     "baggage": "17",
+     "scheduled": "2026-09-29T06:45:00+00:00",
+     "delay": 23,
+     "estimated": "2026-09-29T07:09:00+00:00",
+     "actual": "2026-09-29T07:08:00+00:00",
+     "estimated_runway": "2026-09-29T07:08:00+00:00",
+     "actual_runway": "2026-09-29T07:08:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "402",
+     "iata": "EY402",
+     "icao": "ETD402",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8966CF"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C39",
+     "delay": 20,
+     "scheduled": "2026-09-28T15:20:00+00:00",
+     "estimated": "2026-09-28T15:20:00+00:00",
+     "actual": "2026-09-28T15:40:00+00:00",
+     "estimated_runway": "2026-09-28T15:40:00+00:00",
+     "actual_runway": "2026-09-28T15:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "F6",
+     "baggage": "16",
+     "scheduled": "2026-09-29T00:55:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T00:33:00+00:00",
+     "actual": "2026-09-29T00:31:00+00:00",
+     "estimated_runway": "2026-09-29T00:31:00+00:00",
+     "actual_runway": "2026-09-29T00:31:00+00:00"
+    },
+    "airline": {
+     "name": "Air Europa",
+     "iata": "UX",
+     "icao": "AEA"
+    },
+    "flight": {
+     "number": "2722",
+     "iata": "UX2722",
+     "icao": "AEA2722",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "400",
+      "flight_iata": "ey400",
+      "flight_icao": "etd400"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89656E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C39",
+     "delay": 20,
+     "scheduled": "2026-09-28T15:20:00+00:00",
+     "estimated": "2026-09-28T15:20:00+00:00",
+     "actual": "2026-09-28T15:40:00+00:00",
+     "estimated_runway": "2026-09-28T15:40:00+00:00",
+     "actual_runway": "2026-09-28T15:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "F6",
+     "baggage": "16",
+     "scheduled": "2026-09-29T00:55:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T00:33:00+00:00",
+     "actual": "2026-09-29T00:31:00+00:00",
+     "estimated_runway": "2026-09-29T00:31:00+00:00",
+     "actual_runway": "2026-09-29T00:31:00+00:00"
+    },
+    "airline": {
+     "name": "Bangkok Airways",
+     "iata": "PG",
+     "icao": "BKP"
+    },
+    "flight": {
+     "number": "4017",
+     "iata": "PG4017",
+     "icao": "BKP4017",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "400",
+      "flight_iata": "ey400",
+      "flight_icao": "etd400"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89656E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C39",
+     "delay": 20,
+     "scheduled": "2026-09-28T15:20:00+00:00",
+     "estimated": "2026-09-28T15:20:00+00:00",
+     "actual": "2026-09-28T15:40:00+00:00",
+     "estimated_runway": "2026-09-28T15:40:00+00:00",
+     "actual_runway": "2026-09-28T15:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "F6",
+     "baggage": "16",
+     "scheduled": "2026-09-29T00:55:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T00:33:00+00:00",
+     "actual": "2026-09-29T00:31:00+00:00",
+     "estimated_runway": "2026-09-29T00:31:00+00:00",
+     "actual_runway": "2026-09-29T00:31:00+00:00"
+    },
+    "airline": {
+     "name": "Egyptair",
+     "iata": "MS",
+     "icao": "MSR"
+    },
+    "flight": {
+     "number": "8136",
+     "iata": "MS8136",
+     "icao": "MSR8136",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "400",
+      "flight_iata": "ey400",
+      "flight_icao": "etd400"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89656E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C39",
+     "delay": 20,
+     "scheduled": "2026-09-28T15:20:00+00:00",
+     "estimated": "2026-09-28T15:20:00+00:00",
+     "actual": "2026-09-28T15:40:00+00:00",
+     "estimated_runway": "2026-09-28T15:40:00+00:00",
+     "actual_runway": "2026-09-28T15:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "F6",
+     "baggage": "16",
+     "scheduled": "2026-09-29T00:55:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T00:33:00+00:00",
+     "actual": "2026-09-29T00:31:00+00:00",
+     "estimated_runway": "2026-09-29T00:31:00+00:00",
+     "actual_runway": "2026-09-29T00:31:00+00:00"
+    },
+    "airline": {
+     "name": "Air Cambodia",
+     "iata": "K6",
+     "icao": "KHV"
+    },
+    "flight": {
+     "number": "5400",
+     "iata": "K65400",
+     "icao": "KHV5400",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "400",
+      "flight_iata": "ey400",
+      "flight_icao": "etd400"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89656E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C39",
+     "delay": 20,
+     "scheduled": "2026-09-28T15:20:00+00:00",
+     "estimated": "2026-09-28T15:20:00+00:00",
+     "actual": "2026-09-28T15:40:00+00:00",
+     "estimated_runway": "2026-09-28T15:40:00+00:00",
+     "actual_runway": "2026-09-28T15:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "F6",
+     "baggage": "16",
+     "scheduled": "2026-09-29T00:55:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T00:33:00+00:00",
+     "actual": "2026-09-29T00:31:00+00:00",
+     "estimated_runway": "2026-09-29T00:31:00+00:00",
+     "actual_runway": "2026-09-29T00:31:00+00:00"
+    },
+    "airline": {
+     "name": "Condor",
+     "iata": "DE",
+     "icao": "CFG"
+    },
+    "flight": {
+     "number": "5466",
+     "iata": "DE5466",
+     "icao": "CFG5466",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "400",
+      "flight_iata": "ey400",
+      "flight_icao": "etd400"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89656E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C39",
+     "delay": 20,
+     "scheduled": "2026-09-28T15:20:00+00:00",
+     "estimated": "2026-09-28T15:20:00+00:00",
+     "actual": "2026-09-28T15:40:00+00:00",
+     "estimated_runway": "2026-09-28T15:40:00+00:00",
+     "actual_runway": "2026-09-28T15:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "F6",
+     "baggage": "16",
+     "scheduled": "2026-09-29T00:55:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T00:33:00+00:00",
+     "actual": "2026-09-29T00:31:00+00:00",
+     "estimated_runway": "2026-09-29T00:31:00+00:00",
+     "actual_runway": "2026-09-29T00:31:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "400",
+     "iata": "EY400",
+     "icao": "ETD400",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89656E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "D47",
+     "delay": 65,
+     "scheduled": "2026-09-28T08:35:00+00:00",
+     "estimated": "2026-09-28T08:35:00+00:00",
+     "actual": "2026-09-28T09:40:00+00:00",
+     "estimated_runway": "2026-09-28T09:40:00+00:00",
+     "actual_runway": "2026-09-28T09:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "14",
+     "scheduled": "2026-09-28T18:10:00+00:00",
+     "delay": 17,
+     "estimated": "2026-09-28T18:27:00+00:00",
+     "actual": "2026-09-28T18:27:00+00:00",
+     "estimated_runway": "2026-09-28T18:27:00+00:00",
+     "actual_runway": "2026-09-28T18:27:00+00:00"
+    },
+    "airline": {
+     "name": "Vietnam Airlines",
+     "iata": "VN",
+     "icao": "HVN"
+    },
+    "flight": {
+     "number": "3726",
+     "iata": "VN3726",
+     "icao": "HVN3726",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896354"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "D47",
+     "delay": 65,
+     "scheduled": "2026-09-28T08:35:00+00:00",
+     "estimated": "2026-09-28T08:35:00+00:00",
+     "actual": "2026-09-28T09:40:00+00:00",
+     "estimated_runway": "2026-09-28T09:40:00+00:00",
+     "actual_runway": "2026-09-28T09:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "14",
+     "scheduled": "2026-09-28T18:10:00+00:00",
+     "delay": 17,
+     "estimated": "2026-09-28T18:27:00+00:00",
+     "actual": "2026-09-28T18:27:00+00:00",
+     "estimated_runway": "2026-09-28T18:27:00+00:00",
+     "actual_runway": "2026-09-28T18:27:00+00:00"
+    },
+    "airline": {
+     "name": "Air Europa",
+     "iata": "UX",
+     "icao": "AEA"
+    },
+    "flight": {
+     "number": "2733",
+     "iata": "UX2733",
+     "icao": "AEA2733",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896354"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "D47",
+     "delay": 65,
+     "scheduled": "2026-09-28T08:35:00+00:00",
+     "estimated": "2026-09-28T08:35:00+00:00",
+     "actual": "2026-09-28T09:40:00+00:00",
+     "estimated_runway": "2026-09-28T09:40:00+00:00",
+     "actual_runway": "2026-09-28T09:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "14",
+     "scheduled": "2026-09-28T18:10:00+00:00",
+     "delay": 17,
+     "estimated": "2026-09-28T18:27:00+00:00",
+     "actual": "2026-09-28T18:27:00+00:00",
+     "estimated_runway": "2026-09-28T18:27:00+00:00",
+     "actual_runway": "2026-09-28T18:27:00+00:00"
+    },
+    "airline": {
+     "name": "Bangkok Airways",
+     "iata": "PG",
+     "icao": "BKP"
+    },
+    "flight": {
+     "number": "4015",
+     "iata": "PG4015",
+     "icao": "BKP4015",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896354"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "D47",
+     "delay": 65,
+     "scheduled": "2026-09-28T08:35:00+00:00",
+     "estimated": "2026-09-28T08:35:00+00:00",
+     "actual": "2026-09-28T09:40:00+00:00",
+     "estimated_runway": "2026-09-28T09:40:00+00:00",
+     "actual_runway": "2026-09-28T09:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "14",
+     "scheduled": "2026-09-28T18:10:00+00:00",
+     "delay": 17,
+     "estimated": "2026-09-28T18:27:00+00:00",
+     "actual": "2026-09-28T18:27:00+00:00",
+     "estimated_runway": "2026-09-28T18:27:00+00:00",
+     "actual_runway": "2026-09-28T18:27:00+00:00"
+    },
+    "airline": {
+     "name": "Egyptair",
+     "iata": "MS",
+     "icao": "MSR"
+    },
+    "flight": {
+     "number": "8130",
+     "iata": "MS8130",
+     "icao": "MSR8130",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896354"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "D47",
+     "delay": 65,
+     "scheduled": "2026-09-28T08:35:00+00:00",
+     "estimated": "2026-09-28T08:35:00+00:00",
+     "actual": "2026-09-28T09:40:00+00:00",
+     "estimated_runway": "2026-09-28T09:40:00+00:00",
+     "actual_runway": "2026-09-28T09:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "14",
+     "scheduled": "2026-09-28T18:10:00+00:00",
+     "delay": 17,
+     "estimated": "2026-09-28T18:27:00+00:00",
+     "actual": "2026-09-28T18:27:00+00:00",
+     "estimated_runway": "2026-09-28T18:27:00+00:00",
+     "actual_runway": "2026-09-28T18:27:00+00:00"
+    },
+    "airline": {
+     "name": "Air Cambodia",
+     "iata": "K6",
+     "icao": "KHV"
+    },
+    "flight": {
+     "number": "5406",
+     "iata": "K65406",
+     "icao": "KHV5406",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896354"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "D47",
+     "delay": 65,
+     "scheduled": "2026-09-28T08:35:00+00:00",
+     "estimated": "2026-09-28T08:35:00+00:00",
+     "actual": "2026-09-28T09:40:00+00:00",
+     "estimated_runway": "2026-09-28T09:40:00+00:00",
+     "actual_runway": "2026-09-28T09:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "14",
+     "scheduled": "2026-09-28T18:10:00+00:00",
+     "delay": 17,
+     "estimated": "2026-09-28T18:27:00+00:00",
+     "actual": "2026-09-28T18:27:00+00:00",
+     "estimated_runway": "2026-09-28T18:27:00+00:00",
+     "actual_runway": "2026-09-28T18:27:00+00:00"
+    },
+    "airline": {
+     "name": "Garuda Indonesia",
+     "iata": "GA",
+     "icao": "GIA"
+    },
+    "flight": {
+     "number": "9378",
+     "iata": "GA9378",
+     "icao": "GIA9378",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896354"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "D47",
+     "delay": 65,
+     "scheduled": "2026-09-28T08:35:00+00:00",
+     "estimated": "2026-09-28T08:35:00+00:00",
+     "actual": "2026-09-28T09:40:00+00:00",
+     "estimated_runway": "2026-09-28T09:40:00+00:00",
+     "actual_runway": "2026-09-28T09:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "14",
+     "scheduled": "2026-09-28T18:10:00+00:00",
+     "delay": 17,
+     "estimated": "2026-09-28T18:27:00+00:00",
+     "actual": "2026-09-28T18:27:00+00:00",
+     "estimated_runway": "2026-09-28T18:27:00+00:00",
+     "actual_runway": "2026-09-28T18:27:00+00:00"
+    },
+    "airline": {
+     "name": "Condor",
+     "iata": "DE",
+     "icao": "CFG"
+    },
+    "flight": {
+     "number": "5462",
+     "iata": "DE5462",
+     "icao": "CFG5462",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "406",
+      "flight_iata": "ey406",
+      "flight_icao": "etd406"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896354"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "D47",
+     "delay": 65,
+     "scheduled": "2026-09-28T08:35:00+00:00",
+     "estimated": "2026-09-28T08:35:00+00:00",
+     "actual": "2026-09-28T09:40:00+00:00",
+     "estimated_runway": "2026-09-28T09:40:00+00:00",
+     "actual_runway": "2026-09-28T09:40:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "G5",
+     "baggage": "14",
+     "scheduled": "2026-09-28T18:10:00+00:00",
+     "delay": 17,
+     "estimated": "2026-09-28T18:27:00+00:00",
+     "actual": "2026-09-28T18:27:00+00:00",
+     "estimated_runway": "2026-09-28T18:27:00+00:00",
+     "actual_runway": "2026-09-28T18:27:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "406",
+     "iata": "EY406",
+     "icao": "ETD406",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896354"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C32",
+     "delay": 20,
+     "scheduled": "2026-09-28T03:55:00+00:00",
+     "estimated": "2026-09-28T03:55:00+00:00",
+     "actual": "2026-09-28T04:15:00+00:00",
+     "estimated_runway": "2026-09-28T04:15:00+00:00",
+     "actual_runway": "2026-09-28T04:15:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "F6",
+     "baggage": "12",
+     "scheduled": "2026-09-28T13:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T13:17:00+00:00",
+     "actual": "2026-09-28T13:20:00+00:00",
+     "estimated_runway": "2026-09-28T13:20:00+00:00",
+     "actual_runway": "2026-09-28T13:20:00+00:00"
+    },
+    "airline": {
+     "name": "Air Europa",
+     "iata": "UX",
+     "icao": "AEA"
+    },
+    "flight": {
+     "number": "2716",
+     "iata": "UX2716",
+     "icao": "AEA2716",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "404",
+      "flight_iata": "ey404",
+      "flight_icao": "etd404"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89664C"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C32",
+     "delay": 20,
+     "scheduled": "2026-09-28T03:55:00+00:00",
+     "estimated": "2026-09-28T03:55:00+00:00",
+     "actual": "2026-09-28T04:15:00+00:00",
+     "estimated_runway": "2026-09-28T04:15:00+00:00",
+     "actual_runway": "2026-09-28T04:15:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "F6",
+     "baggage": "12",
+     "scheduled": "2026-09-28T13:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T13:17:00+00:00",
+     "actual": "2026-09-28T13:20:00+00:00",
+     "estimated_runway": "2026-09-28T13:20:00+00:00",
+     "actual_runway": "2026-09-28T13:20:00+00:00"
+    },
+    "airline": {
+     "name": "Bangkok Airways",
+     "iata": "PG",
+     "icao": "BKP"
+    },
+    "flight": {
+     "number": "4019",
+     "iata": "PG4019",
+     "icao": "BKP4019",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "404",
+      "flight_iata": "ey404",
+      "flight_icao": "etd404"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89664C"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C32",
+     "delay": 20,
+     "scheduled": "2026-09-28T03:55:00+00:00",
+     "estimated": "2026-09-28T03:55:00+00:00",
+     "actual": "2026-09-28T04:15:00+00:00",
+     "estimated_runway": "2026-09-28T04:15:00+00:00",
+     "actual_runway": "2026-09-28T04:15:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "F6",
+     "baggage": "12",
+     "scheduled": "2026-09-28T13:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T13:17:00+00:00",
+     "actual": "2026-09-28T13:20:00+00:00",
+     "estimated_runway": "2026-09-28T13:20:00+00:00",
+     "actual_runway": "2026-09-28T13:20:00+00:00"
+    },
+    "airline": {
+     "name": "Egyptair",
+     "iata": "MS",
+     "icao": "MSR"
+    },
+    "flight": {
+     "number": "8124",
+     "iata": "MS8124",
+     "icao": "MSR8124",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "404",
+      "flight_iata": "ey404",
+      "flight_icao": "etd404"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89664C"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C32",
+     "delay": 20,
+     "scheduled": "2026-09-28T03:55:00+00:00",
+     "estimated": "2026-09-28T03:55:00+00:00",
+     "actual": "2026-09-28T04:15:00+00:00",
+     "estimated_runway": "2026-09-28T04:15:00+00:00",
+     "actual_runway": "2026-09-28T04:15:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "F6",
+     "baggage": "12",
+     "scheduled": "2026-09-28T13:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T13:17:00+00:00",
+     "actual": "2026-09-28T13:20:00+00:00",
+     "estimated_runway": "2026-09-28T13:20:00+00:00",
+     "actual_runway": "2026-09-28T13:20:00+00:00"
+    },
+    "airline": {
+     "name": "Air Cambodia",
+     "iata": "K6",
+     "icao": "KHV"
+    },
+    "flight": {
+     "number": "5404",
+     "iata": "K65404",
+     "icao": "KHV5404",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "404",
+      "flight_iata": "ey404",
+      "flight_icao": "etd404"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89664C"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C32",
+     "delay": 20,
+     "scheduled": "2026-09-28T03:55:00+00:00",
+     "estimated": "2026-09-28T03:55:00+00:00",
+     "actual": "2026-09-28T04:15:00+00:00",
+     "estimated_runway": "2026-09-28T04:15:00+00:00",
+     "actual_runway": "2026-09-28T04:15:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "F6",
+     "baggage": "12",
+     "scheduled": "2026-09-28T13:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T13:17:00+00:00",
+     "actual": "2026-09-28T13:20:00+00:00",
+     "estimated_runway": "2026-09-28T13:20:00+00:00",
+     "actual_runway": "2026-09-28T13:20:00+00:00"
+    },
+    "airline": {
+     "name": "Condor",
+     "iata": "DE",
+     "icao": "CFG"
+    },
+    "flight": {
+     "number": "5460",
+     "iata": "DE5460",
+     "icao": "CFG5460",
+     "codeshared": {
+      "airline_name": "etihad airways",
+      "airline_iata": "ey",
+      "airline_icao": "etd",
+      "flight_number": "404",
+      "flight_iata": "ey404",
+      "flight_icao": "etd404"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89664C"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Abu Dhabi International",
+     "timezone": "Asia/Dubai",
+     "iata": "AUH",
+     "icao": "OMAA",
+     "terminal": "A",
+     "gate": "C32",
+     "delay": 20,
+     "scheduled": "2026-09-28T03:55:00+00:00",
+     "estimated": "2026-09-28T03:55:00+00:00",
+     "actual": "2026-09-28T04:15:00+00:00",
+     "estimated_runway": "2026-09-28T04:15:00+00:00",
+     "actual_runway": "2026-09-28T04:15:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "F6",
+     "baggage": "12",
+     "scheduled": "2026-09-28T13:40:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T13:17:00+00:00",
+     "actual": "2026-09-28T13:20:00+00:00",
+     "estimated_runway": "2026-09-28T13:20:00+00:00",
+     "actual_runway": "2026-09-28T13:20:00+00:00"
+    },
+    "airline": {
+     "name": "Etihad Airways",
+     "iata": "EY",
+     "icao": "ETD"
+    },
+    "flight": {
+     "number": "404",
+     "iata": "EY404",
+     "icao": "ETD404",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89664C"
+    },
+    "live": null
+   }
+  ]
+ }
+}

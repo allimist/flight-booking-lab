@@ -1,0 +1,1871 @@
+{
+ "requestKey": "flights?arr_iata=BKK&dep_iata=DXB&limit=100",
+ "endpoint": "flights",
+ "params": {
+  "limit": 100,
+  "dep_iata": "DXB",
+  "arr_iata": "BKK"
+ },
+ "fetchedAt": "2026-09-29T08:47:37.558Z",
+ "response": {
+  "pagination": {
+   "limit": 100,
+   "offset": 0,
+   "count": 33,
+   "total": 33
+  },
+  "data": [
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C22",
+     "delay": 43,
+     "scheduled": "2026-09-29T09:40:00+00:00",
+     "estimated": "2026-09-29T09:40:00+00:00",
+     "actual": "2026-09-29T10:23:00+00:00",
+     "estimated_runway": "2026-09-29T10:23:00+00:00",
+     "actual_runway": "2026-09-29T10:23:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T19:25:00+00:00",
+     "delay": 1,
+     "estimated": "2026-09-29T19:26:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T19:26:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "TAP Air Portugal",
+     "iata": "TP",
+     "icao": "TAP"
+    },
+    "flight": {
+     "number": "6362",
+     "iata": "TP6362",
+     "icao": "TAP6362",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "372",
+      "flight_iata": "ek372",
+      "flight_icao": "uae372"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896183"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C22",
+     "delay": 43,
+     "scheduled": "2026-09-29T09:40:00+00:00",
+     "estimated": "2026-09-29T09:40:00+00:00",
+     "actual": "2026-09-29T10:23:00+00:00",
+     "estimated_runway": "2026-09-29T10:23:00+00:00",
+     "actual_runway": "2026-09-29T10:23:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T19:25:00+00:00",
+     "delay": 1,
+     "estimated": "2026-09-29T19:26:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T19:26:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Qantas",
+     "iata": "QF",
+     "icao": "QFA"
+    },
+    "flight": {
+     "number": "8372",
+     "iata": "QF8372",
+     "icao": "QFA8372",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "372",
+      "flight_iata": "ek372",
+      "flight_icao": "uae372"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896183"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C22",
+     "delay": 43,
+     "scheduled": "2026-09-29T09:40:00+00:00",
+     "estimated": "2026-09-29T09:40:00+00:00",
+     "actual": "2026-09-29T10:23:00+00:00",
+     "estimated_runway": "2026-09-29T10:23:00+00:00",
+     "actual_runway": "2026-09-29T10:23:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T19:25:00+00:00",
+     "delay": 1,
+     "estimated": "2026-09-29T19:26:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T19:26:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "airBaltic",
+     "iata": "BT",
+     "icao": "BTI"
+    },
+    "flight": {
+     "number": "5811",
+     "iata": "BT5811",
+     "icao": "BTI5811",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "372",
+      "flight_iata": "ek372",
+      "flight_icao": "uae372"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896183"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C22",
+     "delay": 43,
+     "scheduled": "2026-09-29T09:40:00+00:00",
+     "estimated": "2026-09-29T09:40:00+00:00",
+     "actual": "2026-09-29T10:23:00+00:00",
+     "estimated_runway": "2026-09-29T10:23:00+00:00",
+     "actual_runway": "2026-09-29T10:23:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T19:25:00+00:00",
+     "delay": 1,
+     "estimated": "2026-09-29T19:26:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T19:26:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "372",
+     "iata": "EK372",
+     "icao": "UAE372",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896183"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C15",
+     "delay": 28,
+     "scheduled": "2026-09-29T09:00:00+00:00",
+     "estimated": "2026-09-29T09:00:00+00:00",
+     "actual": "2026-09-29T09:28:00+00:00",
+     "estimated_runway": "2026-09-29T09:28:00+00:00",
+     "actual_runway": "2026-09-29T09:28:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T18:25:00+00:00",
+     "delay": 1,
+     "estimated": "2026-09-29T18:26:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T18:26:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "370",
+     "iata": "EK370",
+     "icao": "UAE370",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8963E1"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "active",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C15",
+     "delay": 28,
+     "scheduled": "2026-09-29T09:00:00+00:00",
+     "estimated": "2026-09-29T09:00:00+00:00",
+     "actual": "2026-09-29T09:28:00+00:00",
+     "estimated_runway": "2026-09-29T09:28:00+00:00",
+     "actual_runway": "2026-09-29T09:28:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": null,
+     "baggage": null,
+     "scheduled": "2026-09-29T18:25:00+00:00",
+     "delay": 1,
+     "estimated": "2026-09-29T18:26:00+00:00",
+     "actual": null,
+     "estimated_runway": "2026-09-29T18:26:00+00:00",
+     "actual_runway": null
+    },
+    "airline": {
+     "name": "Qantas",
+     "iata": "QF",
+     "icao": "QFA"
+    },
+    "flight": {
+     "number": "8370",
+     "iata": "QF8370",
+     "icao": "QFA8370",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "370",
+      "flight_iata": "ek370",
+      "flight_icao": "uae370"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8963E1"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B14",
+     "delay": 36,
+     "scheduled": "2026-09-29T02:50:00+00:00",
+     "estimated": "2026-09-29T02:50:00+00:00",
+     "actual": "2026-09-29T03:26:00+00:00",
+     "estimated_runway": "2026-09-29T03:26:00+00:00",
+     "actual_runway": "2026-09-29T03:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S114",
+     "baggage": "19",
+     "scheduled": "2026-09-29T12:30:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T12:22:00+00:00",
+     "actual": "2026-09-29T12:22:00+00:00",
+     "estimated_runway": "2026-09-29T12:22:00+00:00",
+     "actual_runway": "2026-09-29T12:22:00+00:00"
+    },
+    "airline": {
+     "name": "TAP Air Portugal",
+     "iata": "TP",
+     "icao": "TAP"
+    },
+    "flight": {
+     "number": "6372",
+     "iata": "TP6372",
+     "icao": "TAP6372",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "384",
+      "flight_iata": "ek384",
+      "flight_icao": "uae384"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8960F6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B14",
+     "delay": 36,
+     "scheduled": "2026-09-29T02:50:00+00:00",
+     "estimated": "2026-09-29T02:50:00+00:00",
+     "actual": "2026-09-29T03:26:00+00:00",
+     "estimated_runway": "2026-09-29T03:26:00+00:00",
+     "actual_runway": "2026-09-29T03:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S114",
+     "baggage": "19",
+     "scheduled": "2026-09-29T12:30:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T12:22:00+00:00",
+     "actual": "2026-09-29T12:22:00+00:00",
+     "estimated_runway": "2026-09-29T12:22:00+00:00",
+     "actual_runway": "2026-09-29T12:22:00+00:00"
+    },
+    "airline": {
+     "name": "Qantas",
+     "iata": "QF",
+     "icao": "QFA"
+    },
+    "flight": {
+     "number": "8384",
+     "iata": "QF8384",
+     "icao": "QFA8384",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "384",
+      "flight_iata": "ek384",
+      "flight_icao": "uae384"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8960F6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B14",
+     "delay": 36,
+     "scheduled": "2026-09-29T02:50:00+00:00",
+     "estimated": "2026-09-29T02:50:00+00:00",
+     "actual": "2026-09-29T03:26:00+00:00",
+     "estimated_runway": "2026-09-29T03:26:00+00:00",
+     "actual_runway": "2026-09-29T03:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S114",
+     "baggage": "19",
+     "scheduled": "2026-09-29T12:30:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T12:22:00+00:00",
+     "actual": "2026-09-29T12:22:00+00:00",
+     "estimated_runway": "2026-09-29T12:22:00+00:00",
+     "actual_runway": "2026-09-29T12:22:00+00:00"
+    },
+    "airline": {
+     "name": "Condor",
+     "iata": "DE",
+     "icao": "CFG"
+    },
+    "flight": {
+     "number": "5909",
+     "iata": "DE5909",
+     "icao": "CFG5909",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "384",
+      "flight_iata": "ek384",
+      "flight_icao": "uae384"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8960F6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B14",
+     "delay": 36,
+     "scheduled": "2026-09-29T02:50:00+00:00",
+     "estimated": "2026-09-29T02:50:00+00:00",
+     "actual": "2026-09-29T03:26:00+00:00",
+     "estimated_runway": "2026-09-29T03:26:00+00:00",
+     "actual_runway": "2026-09-29T03:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S114",
+     "baggage": "19",
+     "scheduled": "2026-09-29T12:30:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T12:22:00+00:00",
+     "actual": "2026-09-29T12:22:00+00:00",
+     "estimated_runway": "2026-09-29T12:22:00+00:00",
+     "actual_runway": "2026-09-29T12:22:00+00:00"
+    },
+    "airline": {
+     "name": "Air Canada",
+     "iata": "AC",
+     "icao": "ACA"
+    },
+    "flight": {
+     "number": "7603",
+     "iata": "AC7603",
+     "icao": "ACA7603",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "384",
+      "flight_iata": "ek384",
+      "flight_icao": "uae384"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8960F6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "A19",
+     "delay": 81,
+     "scheduled": "2026-09-29T04:05:00+00:00",
+     "estimated": "2026-09-29T04:05:00+00:00",
+     "actual": "2026-09-29T05:26:00+00:00",
+     "estimated_runway": "2026-09-29T05:26:00+00:00",
+     "actual_runway": "2026-09-29T05:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S115",
+     "baggage": "23",
+     "scheduled": "2026-09-29T13:45:00+00:00",
+     "delay": 37,
+     "estimated": "2026-09-29T14:20:00+00:00",
+     "actual": "2026-09-29T14:22:00+00:00",
+     "estimated_runway": "2026-09-29T14:22:00+00:00",
+     "actual_runway": "2026-09-29T14:22:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "376",
+     "iata": "EK376",
+     "icao": "UAE376",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896116"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "A19",
+     "delay": 81,
+     "scheduled": "2026-09-29T04:05:00+00:00",
+     "estimated": "2026-09-29T04:05:00+00:00",
+     "actual": "2026-09-29T05:26:00+00:00",
+     "estimated_runway": "2026-09-29T05:26:00+00:00",
+     "actual_runway": "2026-09-29T05:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S115",
+     "baggage": "23",
+     "scheduled": "2026-09-29T13:45:00+00:00",
+     "delay": 37,
+     "estimated": "2026-09-29T14:20:00+00:00",
+     "actual": "2026-09-29T14:22:00+00:00",
+     "estimated_runway": "2026-09-29T14:22:00+00:00",
+     "actual_runway": "2026-09-29T14:22:00+00:00"
+    },
+    "airline": {
+     "name": "TAP Air Portugal",
+     "iata": "TP",
+     "icao": "TAP"
+    },
+    "flight": {
+     "number": "6374",
+     "iata": "TP6374",
+     "icao": "TAP6374",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "376",
+      "flight_iata": "ek376",
+      "flight_icao": "uae376"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896116"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "A19",
+     "delay": 81,
+     "scheduled": "2026-09-29T04:05:00+00:00",
+     "estimated": "2026-09-29T04:05:00+00:00",
+     "actual": "2026-09-29T05:26:00+00:00",
+     "estimated_runway": "2026-09-29T05:26:00+00:00",
+     "actual_runway": "2026-09-29T05:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S115",
+     "baggage": "23",
+     "scheduled": "2026-09-29T13:45:00+00:00",
+     "delay": 37,
+     "estimated": "2026-09-29T14:20:00+00:00",
+     "actual": "2026-09-29T14:22:00+00:00",
+     "estimated_runway": "2026-09-29T14:22:00+00:00",
+     "actual_runway": "2026-09-29T14:22:00+00:00"
+    },
+    "airline": {
+     "name": "Thai Airways",
+     "iata": "TG",
+     "icao": "THA"
+    },
+    "flight": {
+     "number": "4506",
+     "iata": "TG4506",
+     "icao": "THA4506",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "376",
+      "flight_iata": "ek376",
+      "flight_icao": "uae376"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896116"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "A19",
+     "delay": 81,
+     "scheduled": "2026-09-29T04:05:00+00:00",
+     "estimated": "2026-09-29T04:05:00+00:00",
+     "actual": "2026-09-29T05:26:00+00:00",
+     "estimated_runway": "2026-09-29T05:26:00+00:00",
+     "actual_runway": "2026-09-29T05:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S115",
+     "baggage": "23",
+     "scheduled": "2026-09-29T13:45:00+00:00",
+     "delay": 37,
+     "estimated": "2026-09-29T14:20:00+00:00",
+     "actual": "2026-09-29T14:22:00+00:00",
+     "estimated_runway": "2026-09-29T14:22:00+00:00",
+     "actual_runway": "2026-09-29T14:22:00+00:00"
+    },
+    "airline": {
+     "name": "Qantas",
+     "iata": "QF",
+     "icao": "QFA"
+    },
+    "flight": {
+     "number": "8376",
+     "iata": "QF8376",
+     "icao": "QFA8376",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "376",
+      "flight_iata": "ek376",
+      "flight_icao": "uae376"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "896116"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-29",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B14",
+     "delay": 36,
+     "scheduled": "2026-09-29T02:50:00+00:00",
+     "estimated": "2026-09-29T02:50:00+00:00",
+     "actual": "2026-09-29T03:26:00+00:00",
+     "estimated_runway": "2026-09-29T03:26:00+00:00",
+     "actual_runway": "2026-09-29T03:26:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S114",
+     "baggage": "19",
+     "scheduled": "2026-09-29T12:30:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-29T12:22:00+00:00",
+     "actual": "2026-09-29T12:22:00+00:00",
+     "estimated_runway": "2026-09-29T12:22:00+00:00",
+     "actual_runway": "2026-09-29T12:22:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "384",
+     "iata": "EK384",
+     "icao": "UAE384",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8960F6"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B14",
+     "delay": 43,
+     "scheduled": "2026-09-28T22:30:00+00:00",
+     "estimated": "2026-09-28T22:30:00+00:00",
+     "actual": "2026-09-28T23:13:00+00:00",
+     "estimated_runway": "2026-09-28T23:13:00+00:00",
+     "actual_runway": "2026-09-28T23:13:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S112",
+     "baggage": "23",
+     "scheduled": "2026-09-29T08:00:00+00:00",
+     "delay": 10,
+     "estimated": "2026-09-29T08:11:00+00:00",
+     "actual": "2026-09-29T08:10:00+00:00",
+     "estimated_runway": "2026-09-29T08:10:00+00:00",
+     "actual_runway": "2026-09-29T08:10:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "374",
+     "iata": "EK374",
+     "icao": "UAE374",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89618D"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B14",
+     "delay": 43,
+     "scheduled": "2026-09-28T22:30:00+00:00",
+     "estimated": "2026-09-28T22:30:00+00:00",
+     "actual": "2026-09-28T23:13:00+00:00",
+     "estimated_runway": "2026-09-28T23:13:00+00:00",
+     "actual_runway": "2026-09-28T23:13:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S112",
+     "baggage": "23",
+     "scheduled": "2026-09-29T08:00:00+00:00",
+     "delay": 10,
+     "estimated": "2026-09-29T08:11:00+00:00",
+     "actual": "2026-09-29T08:10:00+00:00",
+     "estimated_runway": "2026-09-29T08:10:00+00:00",
+     "actual_runway": "2026-09-29T08:10:00+00:00"
+    },
+    "airline": {
+     "name": "Qantas",
+     "iata": "QF",
+     "icao": "QFA"
+    },
+    "flight": {
+     "number": "8374",
+     "iata": "QF8374",
+     "icao": "QFA8374",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "374",
+      "flight_iata": "ek374",
+      "flight_icao": "uae374"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89618D"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B14",
+     "delay": 43,
+     "scheduled": "2026-09-28T22:30:00+00:00",
+     "estimated": "2026-09-28T22:30:00+00:00",
+     "actual": "2026-09-28T23:13:00+00:00",
+     "estimated_runway": "2026-09-28T23:13:00+00:00",
+     "actual_runway": "2026-09-28T23:13:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S112",
+     "baggage": "23",
+     "scheduled": "2026-09-29T08:00:00+00:00",
+     "delay": 10,
+     "estimated": "2026-09-29T08:11:00+00:00",
+     "actual": "2026-09-29T08:10:00+00:00",
+     "estimated_runway": "2026-09-29T08:10:00+00:00",
+     "actual_runway": "2026-09-29T08:10:00+00:00"
+    },
+    "airline": {
+     "name": "Condor",
+     "iata": "DE",
+     "icao": "CFG"
+    },
+    "flight": {
+     "number": "5911",
+     "iata": "DE5911",
+     "icao": "CFG5911",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "374",
+      "flight_iata": "ek374",
+      "flight_icao": "uae374"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89618D"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B27",
+     "delay": 24,
+     "scheduled": "2026-09-28T09:00:00+00:00",
+     "estimated": "2026-09-28T09:00:00+00:00",
+     "actual": "2026-09-28T09:24:00+00:00",
+     "estimated_runway": "2026-09-28T09:24:00+00:00",
+     "actual_runway": "2026-09-28T09:24:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S116",
+     "baggage": "19",
+     "scheduled": "2026-09-28T18:25:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T18:15:00+00:00",
+     "actual": "2026-09-28T18:15:00+00:00",
+     "estimated_runway": "2026-09-28T18:15:00+00:00",
+     "actual_runway": "2026-09-28T18:15:00+00:00"
+    },
+    "airline": {
+     "name": "Qantas",
+     "iata": "QF",
+     "icao": "QFA"
+    },
+    "flight": {
+     "number": "8370",
+     "iata": "QF8370",
+     "icao": "QFA8370",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "370",
+      "flight_iata": "ek370",
+      "flight_icao": "uae370"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8963E0"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C18",
+     "delay": 24,
+     "scheduled": "2026-09-28T09:40:00+00:00",
+     "estimated": "2026-09-28T09:40:00+00:00",
+     "actual": "2026-09-28T10:04:00+00:00",
+     "estimated_runway": "2026-09-28T10:04:00+00:00",
+     "actual_runway": "2026-09-28T10:04:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S114",
+     "baggage": "23",
+     "scheduled": "2026-09-28T19:25:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T19:04:00+00:00",
+     "actual": "2026-09-28T19:01:00+00:00",
+     "estimated_runway": "2026-09-28T19:01:00+00:00",
+     "actual_runway": "2026-09-28T19:01:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "372",
+     "iata": "EK372",
+     "icao": "UAE372",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89645B"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C18",
+     "delay": 24,
+     "scheduled": "2026-09-28T09:40:00+00:00",
+     "estimated": "2026-09-28T09:40:00+00:00",
+     "actual": "2026-09-28T10:04:00+00:00",
+     "estimated_runway": "2026-09-28T10:04:00+00:00",
+     "actual_runway": "2026-09-28T10:04:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S114",
+     "baggage": "23",
+     "scheduled": "2026-09-28T19:25:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T19:04:00+00:00",
+     "actual": "2026-09-28T19:01:00+00:00",
+     "estimated_runway": "2026-09-28T19:01:00+00:00",
+     "actual_runway": "2026-09-28T19:01:00+00:00"
+    },
+    "airline": {
+     "name": "TAP Air Portugal",
+     "iata": "TP",
+     "icao": "TAP"
+    },
+    "flight": {
+     "number": "6362",
+     "iata": "TP6362",
+     "icao": "TAP6362",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "372",
+      "flight_iata": "ek372",
+      "flight_icao": "uae372"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89645B"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C18",
+     "delay": 24,
+     "scheduled": "2026-09-28T09:40:00+00:00",
+     "estimated": "2026-09-28T09:40:00+00:00",
+     "actual": "2026-09-28T10:04:00+00:00",
+     "estimated_runway": "2026-09-28T10:04:00+00:00",
+     "actual_runway": "2026-09-28T10:04:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S114",
+     "baggage": "23",
+     "scheduled": "2026-09-28T19:25:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T19:04:00+00:00",
+     "actual": "2026-09-28T19:01:00+00:00",
+     "estimated_runway": "2026-09-28T19:01:00+00:00",
+     "actual_runway": "2026-09-28T19:01:00+00:00"
+    },
+    "airline": {
+     "name": "Qantas",
+     "iata": "QF",
+     "icao": "QFA"
+    },
+    "flight": {
+     "number": "8372",
+     "iata": "QF8372",
+     "icao": "QFA8372",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "372",
+      "flight_iata": "ek372",
+      "flight_icao": "uae372"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89645B"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C18",
+     "delay": 24,
+     "scheduled": "2026-09-28T09:40:00+00:00",
+     "estimated": "2026-09-28T09:40:00+00:00",
+     "actual": "2026-09-28T10:04:00+00:00",
+     "estimated_runway": "2026-09-28T10:04:00+00:00",
+     "actual_runway": "2026-09-28T10:04:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S114",
+     "baggage": "23",
+     "scheduled": "2026-09-28T19:25:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T19:04:00+00:00",
+     "actual": "2026-09-28T19:01:00+00:00",
+     "estimated_runway": "2026-09-28T19:01:00+00:00",
+     "actual_runway": "2026-09-28T19:01:00+00:00"
+    },
+    "airline": {
+     "name": "airBaltic",
+     "iata": "BT",
+     "icao": "BTI"
+    },
+    "flight": {
+     "number": "5811",
+     "iata": "BT5811",
+     "icao": "BTI5811",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "372",
+      "flight_iata": "ek372",
+      "flight_icao": "uae372"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89645B"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B27",
+     "delay": 24,
+     "scheduled": "2026-09-28T09:00:00+00:00",
+     "estimated": "2026-09-28T09:00:00+00:00",
+     "actual": "2026-09-28T09:24:00+00:00",
+     "estimated_runway": "2026-09-28T09:24:00+00:00",
+     "actual_runway": "2026-09-28T09:24:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S116",
+     "baggage": "19",
+     "scheduled": "2026-09-28T18:25:00+00:00",
+     "delay": 0,
+     "estimated": "2026-09-28T18:15:00+00:00",
+     "actual": "2026-09-28T18:15:00+00:00",
+     "estimated_runway": "2026-09-28T18:15:00+00:00",
+     "actual_runway": "2026-09-28T18:15:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "370",
+     "iata": "EK370",
+     "icao": "UAE370",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8963E0"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B24",
+     "delay": 34,
+     "scheduled": "2026-09-28T04:05:00+00:00",
+     "estimated": "2026-09-28T04:05:00+00:00",
+     "actual": "2026-09-28T04:39:00+00:00",
+     "estimated_runway": "2026-09-28T04:39:00+00:00",
+     "actual_runway": "2026-09-28T04:39:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S110",
+     "baggage": "19",
+     "scheduled": "2026-09-28T13:45:00+00:00",
+     "delay": 13,
+     "estimated": "2026-09-28T13:58:00+00:00",
+     "actual": "2026-09-28T13:58:00+00:00",
+     "estimated_runway": "2026-09-28T13:58:00+00:00",
+     "actual_runway": "2026-09-28T13:58:00+00:00"
+    },
+    "airline": {
+     "name": "TAP Air Portugal",
+     "iata": "TP",
+     "icao": "TAP"
+    },
+    "flight": {
+     "number": "6374",
+     "iata": "TP6374",
+     "icao": "TAP6374",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "376",
+      "flight_iata": "ek376",
+      "flight_icao": "uae376"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89617E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B24",
+     "delay": 34,
+     "scheduled": "2026-09-28T04:05:00+00:00",
+     "estimated": "2026-09-28T04:05:00+00:00",
+     "actual": "2026-09-28T04:39:00+00:00",
+     "estimated_runway": "2026-09-28T04:39:00+00:00",
+     "actual_runway": "2026-09-28T04:39:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S110",
+     "baggage": "19",
+     "scheduled": "2026-09-28T13:45:00+00:00",
+     "delay": 13,
+     "estimated": "2026-09-28T13:58:00+00:00",
+     "actual": "2026-09-28T13:58:00+00:00",
+     "estimated_runway": "2026-09-28T13:58:00+00:00",
+     "actual_runway": "2026-09-28T13:58:00+00:00"
+    },
+    "airline": {
+     "name": "Thai Airways",
+     "iata": "TG",
+     "icao": "THA"
+    },
+    "flight": {
+     "number": "4506",
+     "iata": "TG4506",
+     "icao": "THA4506",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "376",
+      "flight_iata": "ek376",
+      "flight_icao": "uae376"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89617E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B24",
+     "delay": 34,
+     "scheduled": "2026-09-28T04:05:00+00:00",
+     "estimated": "2026-09-28T04:05:00+00:00",
+     "actual": "2026-09-28T04:39:00+00:00",
+     "estimated_runway": "2026-09-28T04:39:00+00:00",
+     "actual_runway": "2026-09-28T04:39:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S110",
+     "baggage": "19",
+     "scheduled": "2026-09-28T13:45:00+00:00",
+     "delay": 13,
+     "estimated": "2026-09-28T13:58:00+00:00",
+     "actual": "2026-09-28T13:58:00+00:00",
+     "estimated_runway": "2026-09-28T13:58:00+00:00",
+     "actual_runway": "2026-09-28T13:58:00+00:00"
+    },
+    "airline": {
+     "name": "Qantas",
+     "iata": "QF",
+     "icao": "QFA"
+    },
+    "flight": {
+     "number": "8376",
+     "iata": "QF8376",
+     "icao": "QFA8376",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "376",
+      "flight_iata": "ek376",
+      "flight_icao": "uae376"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89617E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C23",
+     "delay": 31,
+     "scheduled": "2026-09-28T02:50:00+00:00",
+     "estimated": "2026-09-28T02:50:00+00:00",
+     "actual": "2026-09-28T03:21:00+00:00",
+     "estimated_runway": "2026-09-28T03:21:00+00:00",
+     "actual_runway": "2026-09-28T03:21:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S118",
+     "baggage": "23",
+     "scheduled": "2026-09-28T12:30:00+00:00",
+     "delay": 3,
+     "estimated": "2026-09-28T12:27:00+00:00",
+     "actual": "2026-09-28T12:33:00+00:00",
+     "estimated_runway": "2026-09-28T12:33:00+00:00",
+     "actual_runway": "2026-09-28T12:33:00+00:00"
+    },
+    "airline": {
+     "name": "TAP Air Portugal",
+     "iata": "TP",
+     "icao": "TAP"
+    },
+    "flight": {
+     "number": "6372",
+     "iata": "TP6372",
+     "icao": "TAP6372",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "384",
+      "flight_iata": "ek384",
+      "flight_icao": "uae384"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8960F2"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C23",
+     "delay": 31,
+     "scheduled": "2026-09-28T02:50:00+00:00",
+     "estimated": "2026-09-28T02:50:00+00:00",
+     "actual": "2026-09-28T03:21:00+00:00",
+     "estimated_runway": "2026-09-28T03:21:00+00:00",
+     "actual_runway": "2026-09-28T03:21:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S118",
+     "baggage": "23",
+     "scheduled": "2026-09-28T12:30:00+00:00",
+     "delay": 3,
+     "estimated": "2026-09-28T12:27:00+00:00",
+     "actual": "2026-09-28T12:33:00+00:00",
+     "estimated_runway": "2026-09-28T12:33:00+00:00",
+     "actual_runway": "2026-09-28T12:33:00+00:00"
+    },
+    "airline": {
+     "name": "Qantas",
+     "iata": "QF",
+     "icao": "QFA"
+    },
+    "flight": {
+     "number": "8384",
+     "iata": "QF8384",
+     "icao": "QFA8384",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "384",
+      "flight_iata": "ek384",
+      "flight_icao": "uae384"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8960F2"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C23",
+     "delay": 31,
+     "scheduled": "2026-09-28T02:50:00+00:00",
+     "estimated": "2026-09-28T02:50:00+00:00",
+     "actual": "2026-09-28T03:21:00+00:00",
+     "estimated_runway": "2026-09-28T03:21:00+00:00",
+     "actual_runway": "2026-09-28T03:21:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S118",
+     "baggage": "23",
+     "scheduled": "2026-09-28T12:30:00+00:00",
+     "delay": 3,
+     "estimated": "2026-09-28T12:27:00+00:00",
+     "actual": "2026-09-28T12:33:00+00:00",
+     "estimated_runway": "2026-09-28T12:33:00+00:00",
+     "actual_runway": "2026-09-28T12:33:00+00:00"
+    },
+    "airline": {
+     "name": "Condor",
+     "iata": "DE",
+     "icao": "CFG"
+    },
+    "flight": {
+     "number": "5909",
+     "iata": "DE5909",
+     "icao": "CFG5909",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "384",
+      "flight_iata": "ek384",
+      "flight_icao": "uae384"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8960F2"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C23",
+     "delay": 31,
+     "scheduled": "2026-09-28T02:50:00+00:00",
+     "estimated": "2026-09-28T02:50:00+00:00",
+     "actual": "2026-09-28T03:21:00+00:00",
+     "estimated_runway": "2026-09-28T03:21:00+00:00",
+     "actual_runway": "2026-09-28T03:21:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S118",
+     "baggage": "23",
+     "scheduled": "2026-09-28T12:30:00+00:00",
+     "delay": 3,
+     "estimated": "2026-09-28T12:27:00+00:00",
+     "actual": "2026-09-28T12:33:00+00:00",
+     "estimated_runway": "2026-09-28T12:33:00+00:00",
+     "actual_runway": "2026-09-28T12:33:00+00:00"
+    },
+    "airline": {
+     "name": "Air Canada",
+     "iata": "AC",
+     "icao": "ACA"
+    },
+    "flight": {
+     "number": "7603",
+     "iata": "AC7603",
+     "icao": "ACA7603",
+     "codeshared": {
+      "airline_name": "emirates",
+      "airline_iata": "ek",
+      "airline_icao": "uae",
+      "flight_number": "384",
+      "flight_iata": "ek384",
+      "flight_icao": "uae384"
+     }
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8960F2"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "B24",
+     "delay": 34,
+     "scheduled": "2026-09-28T04:05:00+00:00",
+     "estimated": "2026-09-28T04:05:00+00:00",
+     "actual": "2026-09-28T04:39:00+00:00",
+     "estimated_runway": "2026-09-28T04:39:00+00:00",
+     "actual_runway": "2026-09-28T04:39:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S110",
+     "baggage": "19",
+     "scheduled": "2026-09-28T13:45:00+00:00",
+     "delay": 13,
+     "estimated": "2026-09-28T13:58:00+00:00",
+     "actual": "2026-09-28T13:58:00+00:00",
+     "estimated_runway": "2026-09-28T13:58:00+00:00",
+     "actual_runway": "2026-09-28T13:58:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "376",
+     "iata": "EK376",
+     "icao": "UAE376",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "89617E"
+    },
+    "live": null
+   },
+   {
+    "flight_date": "2026-09-28",
+    "flight_status": "landed",
+    "departure": {
+     "airport": "Dubai",
+     "timezone": "Asia/Dubai",
+     "iata": "DXB",
+     "icao": "OMDB",
+     "terminal": "3",
+     "gate": "C23",
+     "delay": 31,
+     "scheduled": "2026-09-28T02:50:00+00:00",
+     "estimated": "2026-09-28T02:50:00+00:00",
+     "actual": "2026-09-28T03:21:00+00:00",
+     "estimated_runway": "2026-09-28T03:21:00+00:00",
+     "actual_runway": "2026-09-28T03:21:00+00:00"
+    },
+    "arrival": {
+     "airport": "Suvarnabhumi International",
+     "timezone": "Asia/Bangkok",
+     "iata": "BKK",
+     "icao": "VTBS",
+     "terminal": null,
+     "gate": "S118",
+     "baggage": "23",
+     "scheduled": "2026-09-28T12:30:00+00:00",
+     "delay": 3,
+     "estimated": "2026-09-28T12:27:00+00:00",
+     "actual": "2026-09-28T12:33:00+00:00",
+     "estimated_runway": "2026-09-28T12:33:00+00:00",
+     "actual_runway": "2026-09-28T12:33:00+00:00"
+    },
+    "airline": {
+     "name": "Emirates",
+     "iata": "EK",
+     "icao": "UAE"
+    },
+    "flight": {
+     "number": "384",
+     "iata": "EK384",
+     "icao": "UAE384",
+     "codeshared": null
+    },
+    "aircraft": {
+     "registration": null,
+     "iata": null,
+     "icao": null,
+     "icao24": "8960F2"
+    },
+    "live": null
+   }
+  ]
+ }
+}
