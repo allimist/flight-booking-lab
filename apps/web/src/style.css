@@ -53,3 +53,12 @@ h1 small{font-size:15px;color:#556;font-weight:400}
 @media (max-width:700px){.itin{flex-direction:column;align-items:stretch}.itin-side{align-items:flex-start;text-align:left}.layover{margin-left:0}}
 header label.inline select{min-width:0;padding:6px 8px}header>.row{align-items:center;gap:12px}
 .recent{margin:8px 0}.recent-list{display:flex;gap:8px;overflow-x:auto;padding:4px 0}.recent-list button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:190px;background:white;box-shadow:0 1px 4px #0001;text-align:left}.recent-list button small{color:#556;font-size:11px}.recent-list button.past{opacity:.6}button.link{background:none;padding:2px 6px;color:#0b5cad}
+.fares{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0}.fare{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:180px;background:white;border:2px solid #e6eaf0;text-align:left}.fare.active{border-color:#18202a}.fare .price-big{font-size:18px}
+.fare-tag{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;background:#e8ecf3}.fare-tag.SAVER{background:#d9f5e3;color:#116b32}.fare-tag.FLEX{background:#f3e8ff;color:#5b2a86}
+.ptag.FARE_CLASS,.p-FARE_CLASS{background:#f3e8ff;color:#5b2a86}
+.seatmap{display:inline-flex;flex-direction:column;gap:3px;margin:8px 0;padding:10px;background:#f7f9fc;border:1px solid #e6eaf0;border-radius:12px;max-height:420px;overflow-y:auto}
+.seat-row,.seat-head{display:flex;gap:4px;align-items:center}.seat-head span{width:26px;text-align:center;font-size:11px;color:#556}.seat-head span:first-child{width:26px}
+.rowno{width:26px;font-size:11px;color:#556;text-align:right;padding-right:4px}.aisle{width:14px!important}
+.seat{width:26px;height:26px;padding:0;border-radius:6px 6px 3px 3px;background:#dfe9f7;font-size:11px;font-weight:700}.seat:hover:not(:disabled){background:#a9c6ef}.seat.taken{background:#c4c9d1;cursor:not-allowed}.seat.mine{background:#116b32;color:white}.seat.none{display:inline-block;background:none}
+.seat-sw{display:inline-block;width:12px;height:12px;border-radius:3px;background:#dfe9f7;margin-right:5px;vertical-align:-2px}.seat-sw.taken{background:#c4c9d1}.seat-sw.mine{background:#116b32}
+.modal{z-index:20}.seatmap{display:flex;width:max-content}.seat.mine,.seat.mine:hover:not(:disabled){background:#116b32;color:white}

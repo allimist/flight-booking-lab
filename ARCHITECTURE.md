@@ -75,6 +75,34 @@ A round trip with a connection each way is four legs held atomically, in about 1
 ### Availability cleanup (`apps/availability-worker`)
 Runs at startup and just after every UTC midnight. It removes departure days that are already past from the current and previous month's keys. It never adds anything. Every run is written to `availability_window_log` and shown in the admin **Availability log** tab.
 
+## Fare classes
+Nested booking classes, as airlines sell them. Every cabin is shared by three classes in `flight_fare_classes`:
+
+| Class | `cap_pct` | `price_pct` | `refund_pct` |
+|---|---|---|---|
+| SAVER | 40 | −20 | 0 |
+| STANDARD | 85 | 0 | 50 |
+| FLEX | 100 | +35 | 100 |
+
+A class is on sale while `booked + passengers <= floor(total_seats × cap_pct / 100)`. So the cheap seats run out first and Flex can sell the last seat. The atomic hold needs nothing new: the Lua script receives the cap instead of the total, and the PostgreSQL guard counts against the same cap.
+
+The class is one price layer (`FARE_CLASS`, applied after demand and booking time, before discounts). It is stored on the booking and on each leg. Cancelling a paid booking refunds `Σ leg price × passengers × refund_pct` (`refund_amount`). Search prices every itinerary in every class and shows the cheapest one still on sale. A trip is sold out only when Flex is.
+
+## Seat maps
+Layouts are derived, not stored:
+- business is 2-2 (A C D F) from row 1;
+- economy is 3-3 (A–F) up to 180 seats, else 3-3-3 (A–K without I), numbered on after the business rows.
+
+A seat's index in the cabin (row-major) is its bit in Redis.
+
+- **Redis**: `fsm:{cabinId}:YYYY-MM-DD` is a bitmap per departure (1 = taken). It shares the `{cabinId}` hash tag with the count hash, so both live in one cluster slot, and expires 2 days after the departure.
+  - The hold script checks every chosen seat with `GETBIT`, auto-assigns the first free seats to passengers without a choice, then sets the bits together with `HINCRBY`, all in the same `EVAL`.
+  - Release clears the bits.
+- **PostgreSQL**: `flight_seat_assignments(booking_id, passenger_id, cabin_id, dep_date, seat_index, seat, active)`.
+  - The partial unique index `(cabin_id, dep_date, seat_index) WHERE active` is the database guard: an active seat exists once, even if Redis is wrong.
+  - Cancel and payment timeout set `active = false`.
+- **Invariant**: for every booked departure, `BITCOUNT` of its bitmap = the seats booked. **Redis records** checks it next to the count check, and `rebuildAvailability()` rebuilds the bitmaps from the active assignments. On upgrade, the API gives active bookings made before seat maps the first free seats, so the invariant holds from the first start.
+
 ## Search
 `GET /api/flights/search` is one-way; a round trip is two searches whose chosen itineraries are booked together.
 
@@ -125,9 +153,14 @@ Same design as the hotel lab. N throw-away customers (`sim-<run>-<n>@example.com
 - *Random trips* books random TLV ⇄ BKK itineraries in the next 14 days, with pay / late / abandon shares.
 - *Same flight* sends everyone at one departure. Rejected customers cascade to other itineraries that day, then the next day.
 
+## CI
+`.github/workflows/ci.yml` has two jobs:
+- typecheck and build each app (API, worker, web);
+- start the compose stack (without Kafka UI or web) and run `scripts/smoke.sh`.
+
+The runner has **no aviationstack key**: the import must be served entirely from the committed snapshots, and the test asserts that zero real calls were made.
+
 ## Next learning upgrades
-- Seat maps (a Redis bitmap per departure) on top of seat counts
-- Fare classes (booking-class buckets inside a cabin)
 - Cluster-safe multi-leg holds (hash-tagged keys or a saga)
 - Merge with hotel-booking-lab: one catalogue, flight + hotel packages
 - Batch Kafka sends and LISTEN/NOTIFY instead of polling (the hotel lab's measured bottleneck)

@@ -97,6 +97,7 @@ function ItineraryCard({it,passengers,onPick,picked,actionLabel,disabled}:{it:an
     <div className="itin-side">
       <div>{it.stops===0?<span className="badge direct">Direct</span>:<span className="badge stop">1 stop via {it.via.join(', ')}</span>}
         {it.soldOut&&<span className="soldout">Sold out</span>}{it.source==='SAMPLE'&&<span className="tag" title="Synthetic flight: not from aviationstack">sample</span>}</div>
+      {!it.soldOut&&<small className={`fare-tag ${it.fareClass}`}>{FARE_TAG[it.fareClass]} fare · {refundText(it.fares.find((f:any)=>f.code===it.fareClass)?.refundPct)}</small>}
       <div className="price-big" title={it.legs.map((l:any)=>`${l.flightNumber}: ${money(l.price)}${l.label?` (${l.label})`:''}`).join('\n')}>{money(it.pricePerPassenger)}<small> / passenger</small></div>
       {passengers>1&&<small>{money(it.totalPrice)} for {passengers}</small>}
       <small>{dur(it.durationMin)} total · {it.seatsLeft<20?<span className="notice">{it.seatsLeft} seats left</span>:`${it.seatsLeft} seats left`}</small>
@@ -421,7 +422,8 @@ function bytes(n:number){const u=['B','KB','MB','GB'];let i=0;while(n>=1024&&i<u
 
 function RedisRecords({onMessage}:{onMessage:(m:string)=>void}){
   const [scheduleId,setScheduleId]=useState(''); const [date,setDate]=useState(''); const [page,setPage]=useState(1);
-  const [data,setData]=useState<any>(null);
+  const [data,setData]=useState<any>(null); const [map,setMap]=useState<any>(null);
+  async function showMap(x:any){try{setMap(await api(`/flights/seatmap?cabinId=${x.cabinId}&date=${x.date}`))}catch(e:any){onMessage(e.message)}}
   const limit=50;
   async function load(){try{setData(await api(`/admin/redis-records?page=${page}&limit=${limit}${scheduleId?`&scheduleId=${scheduleId}`:''}${date?`&date=${date}`:''}`))}catch(e:any){onMessage(e.message)}}
   useEffect(()=>{load()},[scheduleId,date,page]);
@@ -433,6 +435,7 @@ function RedisRecords({onMessage}:{onMessage:(m:string)=>void}){
       <Tile label="Keys in Redis" value={s.totalKeys.toLocaleString()} hint={`one per cabin and month that has bookings, for ${s.cabins} cabins`}/>
       <Tile label="Booked seats" value={s.bookedSeats.toLocaleString()} cls="small" hint={`on ${s.checkedDepartures.toLocaleString()} departures in PostgreSQL (next ${s.windowDays} days)`}/>
       <Tile label="Redis vs PostgreSQL" value={s.mismatches?`✕ ${s.mismatches} differ`:'✓ Match'} cls={`small ${s.mismatches?'bad':'ok'}`} hint="booked seats of every booked departure compared"/>
+      <Tile label="Seat bitmaps" value={s.seatMismatches?`✕ ${s.seatMismatches} differ`:'✓ Match'} cls={`small ${s.seatMismatches?'bad':'ok'}`} hint="BITCOUNT of each departure's seat bitmap = seats booked"/>
       <Tile label="Loaded" value={s.loadedAt?'✓ Yes':'✕ No'} cls={`small ${s.loadedAt?'ok':'bad'}`} hint={s.loadedAt?`rebuilt ${new Date(s.loadedAt).toLocaleString()}`:'bookings are refused until the rebuild runs'}/>
       <Tile label="Redis RAM" value={bytes(s.memory.usedBytes)} cls="small" hint={`data ${bytes(s.memory.datasetBytes)} · peak ${bytes(s.memory.peakBytes)} · limit ${s.memory.maxBytes?bytes(s.memory.maxBytes):'none'}`}/>
     </div>
@@ -441,10 +444,14 @@ function RedisRecords({onMessage}:{onMessage:(m:string)=>void}){
       <label>Date<input type="date" value={date} onChange={e=>{setDate(e.target.value);setPage(1)}}/></label>
       {date&&<button onClick={()=>{setDate('');setPage(1)}}>Clear date</button>}
     </div>
-    <small>Redis stores only booked departures: a day with nothing booked has no entry, which means every seat is free. Days a flight does not fly are not listed.</small>
-    <div className="tablewrap"><table><thead><tr><th>Date</th><th>Flight</th><th>Route</th><th>Cabin</th><th>Booked</th><th>Free</th><th>Seats</th><th>Redis key · field</th></tr></thead><tbody>
-      {data.items.map((x:any)=><tr key={x.key} className={x.available===0?'warn':''}><td>{fmt(x.date)}</td><td>{x.flight}</td><td>{x.route}</td><td>{CABIN_LABEL[x.cabin]}</td><td>{x.stored?x.booked:<small>— (no entry)</small>}</td><td>{x.available}</td><td>{x.totalSeats}</td><td><code className="key">{x.key}</code></td></tr>)}
-      {data.items.length===0&&<tr><td colSpan={8}>No departures match.</td></tr>}
+    <small>Redis stores only booked departures: a day with nothing booked has no entry, which means every seat is free. Days a flight does not fly are not listed. Each booked departure also has a seat bitmap (fsm:&#123;cabinId&#125;:date, one bit per seat); "map" shows it.</small>
+    {map&&<div className="modal" onClick={()=>setMap(null)}><div className="card" onClick={e=>e.stopPropagation()}><button onClick={()=>setMap(null)}>Close</button>
+      <h2>{map.flightNumber} · {CABIN_LABEL[map.cabin]} · {fmt(map.date)}</h2><p><small>{map.booked} booked · bitmap <code className="key">{map.redisKey}</code> · {map.fares.map((f:any)=>`${f.name} ${f.onSale?'on sale':'closed'} (cap ${f.cap})`).join(' · ')}</small></p>
+      <SeatMap map={map}/></div></div>}
+    <div className="tablewrap"><table><thead><tr><th>Date</th><th>Flight</th><th>Route</th><th>Cabin</th><th>Booked</th><th>Free</th><th>Seats</th><th>Seat bits</th><th>Redis key · field</th></tr></thead><tbody>
+      {data.items.map((x:any)=><tr key={x.key} className={x.available===0?'warn':''}><td>{fmt(x.date)}</td><td>{x.flight}</td><td>{x.route}</td><td>{CABIN_LABEL[x.cabin]}</td><td>{x.stored?x.booked:<small>— (no entry)</small>}</td><td>{x.available}</td><td>{x.totalSeats}</td>
+        <td className={x.seatBits!==x.booked?'notice':''}>{x.seatBits}{x.booked>0&&<> <button className="link" onClick={()=>showMap(x)}>map</button></>}</td><td><code className="key">{x.key}</code></td></tr>)}
+      {data.items.length===0&&<tr><td colSpan={9}>No departures match.</td></tr>}
     </tbody></table></div>
     <div className="row between"><small>{data.total.toLocaleString()} departures · page {page} of {pages}</small>
       <span className="row"><button disabled={page<=1} onClick={()=>setPage(page-1)}>Previous</button><button disabled={page>=pages} onClick={()=>setPage(page+1)}>Next</button></span></div>
@@ -478,19 +485,57 @@ function AvailabilityLog({onMessage}:{onMessage:(m:string)=>void}){
   </section>;
 }
 
+const FARE_TAG:Record<string,string>={SAVER:'Saver',STANDARD:'Standard',FLEX:'Flex'};
+const refundText=(pct:number)=>pct===0?'No refund':pct===100?'Full refund':`${pct}% refund`;
+/** Seat label for an index in a layout ({letters, firstRow}); mirrors seatLabel() in the API. */
+const seatAt=(L:any,i:number)=>`${L.firstRow+Math.floor(i/L.letters.length)}${L.letters[i%L.letters.length]}`;
+
+/** Clickable seat grid. Taken seats are greyed out; up to `max` seats can be picked (none when read-only). */
+function SeatMap({map,selected=[],max=0,onChange}:{map:any,selected?:string[],max?:number,onChange?:(s:string[])=>void}){
+  const L=map.layout,taken=new Set(map.taken);
+  const toggle=(seat:string)=>{if(!onChange)return;if(selected.includes(seat))onChange(selected.filter(x=>x!==seat));else if(selected.length<max)onChange([...selected,seat]);else onChange([...selected.slice(1),seat])};
+  return <div className="seatmap"><div className="seat-head"><span/>{L.letters.map((l:string,i:number)=><React.Fragment key={l}><span>{l}</span>{L.aisleAfter.includes(i)&&<span className="aisle"/>}</React.Fragment>)}</div>
+    {Array.from({length:L.rows},(_,r)=><div className="seat-row" key={r}><span className="rowno">{L.firstRow+r}</span>
+      {L.letters.map((l:string,c:number)=>{const i=r*L.letters.length+c,seat=seatAt(L,i);
+        return <React.Fragment key={l}>{i>=L.total?<span className="seat none"/>:
+          <button className={`seat${taken.has(seat)?' taken':''}${selected.includes(seat)?' mine':''}`} disabled={taken.has(seat)||!onChange} title={seat} onClick={()=>toggle(seat)}>{selected.includes(seat)?selected.indexOf(seat)+1:''}</button>}
+          {L.aisleAfter.includes(c)&&<span className="aisle"/>}</React.Fragment>})}</div>)}
+    <div className="legend"><span><i className="seat-sw"/>free</span><span><i className="seat-sw taken"/>taken</span>{onChange&&<span><i className="seat-sw mine"/>yours (passenger number)</span>}</div>
+  </div>;
+}
+
 /** Passenger names + the price of every leg; books all legs in one request. */
 function BookModal({legs,passengers,cabin,onClose,onBooked,onMessage}:{legs:{it:any,direction:string}[],passengers:number,cabin:string,onClose:()=>void,onBooked:(x:any)=>void,onMessage:(m:string)=>void}){
   const [pax,setPax]=useState(()=>Array.from({length:passengers},()=>({firstName:'',lastName:'',passport:''})));
   const [busy,setBusy]=useState(false);
-  const perPax=legs.reduce((a,x)=>a+x.it.pricePerPassenger,0);
+  // One fare class for the whole trip: its price is the sum over both directions, on sale only if every flight has room.
+  const fares=legs[0].it.fares.map((f:any)=>{const all=legs.map(x=>x.it.fares.find((g:any)=>g.code===f.code));
+    return {...f,perPassenger:all.reduce((a:number,g:any)=>a+g.perPassenger,0),available:all.every((g:any)=>g.available),seatsAtFare:Math.min(...all.map((g:any)=>g.seatsAtFare))}});
+  const [fare,setFare]=useState(()=>[...fares].filter((f:any)=>f.available).sort((a:any,b:any)=>a.perPassenger-b.perPassenger)[0]?.code||'FLEX');
+  const chosen=fares.find((f:any)=>f.code===fare)||fares[0];
+  const flights=legs.flatMap(x=>x.it.legs.map((l:any)=>({...l,direction:x.direction})));
+  const [seats,setSeats]=useState<Record<string,string[]>>({}); const [maps,setMaps]=useState<Record<string,any>>({}); const [open,setOpen]=useState('');
+  const key=(l:any)=>`${l.cabinId}@${l.date}`;
+  async function openMap(l:any){const k=key(l);if(open===k){setOpen('');return}setOpen(k);
+    try{setMaps({...maps,[k]:await api(`/flights/seatmap?cabinId=${l.cabinId}&date=${l.date}`)})}catch(e:any){onMessage(e.message)}}
+  const perPax=chosen.perPassenger;
   const put=(i:number,k:string,v:string)=>setPax(pax.map((p,j)=>j===i?{...p,[k]:v}:p));
   async function book(){setBusy(true);try{
-    const x=await api('/flight-bookings',{method:'POST',body:JSON.stringify({legs:legs.flatMap(x=>x.it.legs.map((l:any)=>({cabinId:l.cabinId,date:l.date,direction:x.direction}))),passengers:pax})});
-    onBooked(x)}catch(e:any){onMessage(e.message)}finally{setBusy(false)}}
+    const x=await api('/flight-bookings',{method:'POST',body:JSON.stringify({fareClass:fare,legs:flights.map((l:any)=>({cabinId:l.cabinId,date:l.date,direction:l.direction,seats:seats[key(l)]||[]})),passengers:pax})});
+    onBooked(x)}catch(e:any){onMessage(e.message);setMaps({});setOpen('')}finally{setBusy(false)}}
   return <div className="modal" onClick={onClose}><div className="card wide" onClick={e=>e.stopPropagation()}><button onClick={onClose}>Close</button>
     <h2>Book {legs.length>1?'round trip':'one way'} · {CABIN_LABEL[cabin]} · {passengers} passenger{passengers===1?'':'s'}</h2>
     {legs.map(x=><div key={x.direction} className="book-part"><h4>{x.direction==='RETURN'?'Return':'Outbound'} · {fmtShort(x.it.legs[0].date)}</h4>
-      {x.it.legs.map((l:any)=><div key={l.cabinId+l.date}><LegLine l={l}/><div className="nightly"><b>{money(l.price)}</b> per passenger{l.parts.map((p:any)=><span key={p.layer} className={`ptag ${p.layer}`}>{p.name} {p.change}</span>)}</div></div>)}</div>)}
+      {x.it.legs.map((l:any)=>{const k=key(l);return <div key={k}><LegLine l={l}/>
+        <div className="row between"><div className="nightly">{x.it.fareClass===fare?<><b>{money(l.price)}</b> per passenger{l.parts.map((p:any)=><span key={p.layer} className={`ptag ${p.layer}`}>{p.name} {p.change}</span>)}</>:<small>price in {FARE_TAG[fare]} shown in the total below</small>}</div>
+          <button onClick={()=>openMap(l)}>{seats[k]?.length?`Seats: ${seats[k].join(', ')}`:'Choose seats'}</button></div>
+        {open===k&&maps[k]&&<><SeatMap map={maps[k]} selected={seats[k]||[]} max={passengers} onChange={v=>setSeats({...seats,[k]:v})}/>
+          <small>Pick up to {passengers} seat{passengers===1?'':'s'} (in passenger order); passengers without a seat get the first free ones.</small></>}
+      </div>})}</div>)}
+    <h3>Fare</h3>
+    <div className="fares">{fares.map((f:any)=><button key={f.code} className={`fare${fare===f.code?' active':''}`} disabled={!f.available} onClick={()=>setFare(f.code)}>
+      <b>{f.name}</b><span className="price-big">{f.available?money(f.perPassenger):'Sold out'}</span><small>{refundText(f.refundPct)}{f.changeable?' · changes allowed':''}</small>
+      {f.available&&f.seatsAtFare<20&&<small className="notice">{f.seatsAtFare} left at this fare</small>}</button>)}</div>
     <h3>Passengers</h3>
     {pax.map((p,i)=><div className="row" key={i}><b className="paxno">{i+1}</b>
       <input placeholder="First name" value={p.firstName} onChange={e=>put(i,'firstName',e.target.value)}/>
@@ -498,7 +543,7 @@ function BookModal({legs,passengers,cabin,onClose,onBooked,onMessage}:{legs:{it:
       <input placeholder="Passport (optional)" value={p.passport} onChange={e=>put(i,'passport',e.target.value)}/></div>)}
     <div className="row between"><div className="price-big">{money(perPax*passengers)}<small> total · {money(perPax)} per passenger{charged(perPax*passengers)}</small></div>
       <button className="pay" disabled={busy||pax.some(p=>!p.firstName.trim()||!p.lastName.trim())} onClick={book}>{busy?'Holding seats…':'Hold seats and continue to payment'}</button></div>
-    <small>Seats on every flight are held for you at once (all or nothing) for 60 seconds; pay in My bookings to confirm.</small>
+    <small>Seats on every flight are held for you at once (all or nothing) for 60 seconds; pay in My bookings to confirm. Cheaper fares sell out first: Saver closes when 40% of a cabin is sold, Standard at 85%.</small>
   </div></div>;
 }
 
@@ -532,7 +577,7 @@ function App(){
   const [myFlights,setMyFlights]=useState<any[]>([]); const [flightBookings,setFlightBookings]=useState<any>(null); const [pricesAirline,setPricesAirline]=useState<any>(null);
   const [bookings,setBookings]=useState<any[]>([]);
   const [customers,setCustomers]=useState<any[]>([]); const [customerId,setCustomerId]=useState(''); const [allCustomerCount,setAllCustomerCount]=useState(0);
-  const [adminFlights,setAdminFlights]=useState<any[]>([]); const [raceCabin,setRaceCabin]=useState(''); const [raceDate,setRaceDate]=useState(plusDays(today,7)); const [racePax,setRacePax]=useState(2);
+  const [adminFlights,setAdminFlights]=useState<any[]>([]); const [raceCabin,setRaceCabin]=useState(''); const [raceDate,setRaceDate]=useState(plusDays(today,7)); const [racePax,setRacePax]=useState(2); const [raceSeat,setRaceSeat]=useState('');
   const [confirmNow,setConfirmNow]=useState(false); const [race,setRace]=useState<any>(null);
   const [currencies,setCurrencies]=useState<Currency[]>([THB]);
   const [currency,setCurrencyState]=useState(()=>{try{return localStorage.getItem('currency')||'THB'}catch{return 'THB'}});
@@ -557,7 +602,7 @@ function App(){
     catch(e:any){setMessage(e.message)}}
   async function loadBookings(){try{setBookings(await api('/flight-bookings/me'))}catch(e:any){setMessage(e.message)}}
   async function pay(id:string){try{await api(`/flight-bookings/${id}/pay`,{method:'POST'});setMessage('Payment received. Booking confirmed.');loadBookings()}catch(e:any){setMessage(e.message);loadBookings()}}
-  async function cancel(id:string){if(!confirm('Cancel this trip?'))return;try{const x=await api(`/flight-bookings/${id}/cancel`,{method:'POST'});setMessage(`Trip cancelled. Seats released${x.seatsLeft!=null?` (fewest free on its flights now: ${x.seatsLeft})`:''}.`);loadBookings()}catch(e:any){setMessage(e.message)}}
+  async function cancel(id:string){if(!confirm('Cancel this trip?'))return;try{const x=await api(`/flight-bookings/${id}/cancel`,{method:'POST'});setMessage(`Trip cancelled, seats released. ${FARE_TAG[x.fareClass]||''} fare: ${refundText(x.refundPct).toLowerCase()}, ${money(x.refundAmount||0)} back${x.refundAmount?charged(x.refundAmount):''}.`);loadBookings()}catch(e:any){setMessage(e.message)}}
   async function loadMyFlights(){try{setMyFlights(await api('/seller/flights'))}catch(e:any){setMessage(e.message)}}
   async function openFlightBookings(f:any){try{setFlightBookings({flight:f,rows:await api(`/seller/flights/${f.id}/bookings`)})}catch(e:any){setMessage(e.message)}}
   async function loadCustomers(){try{const all=(await api('/admin/users')).filter((u:any)=>u.role==='CUSTOMER');setAllCustomerCount(all.length);const us=all.filter((u:any)=>!u.email.startsWith('sim-'));setCustomers(us);if(!us.find((u:any)=>u.id===customerId))setCustomerId(us[0]?.id||'')}catch(e:any){setMessage(e.message)}}
@@ -566,7 +611,7 @@ function App(){
   async function sample(){try{setMessage((await api('/admin/sample-data',{method:'POST'})).message);adminRefresh()}catch(e:any){setMessage(e.message)}}
   async function delSample(){if(!confirm('Delete sample users, their bookings and synthetic flights? Real (aviationstack) flights are kept.'))return;try{setMessage((await api('/admin/sample-data',{method:'DELETE'})).message);adminRefresh();setRace(null)}catch(e:any){setMessage(e.message)}}
   async function sampleBookings(){if(!customerId){setMessage('Select a customer first');return}try{setMessage((await api('/admin/sample-bookings',{method:'POST',body:JSON.stringify({userId:customerId})})).message)}catch(e:any){setMessage(e.message)}}
-  async function raceBooking(){try{const x=await api('/admin/concurrent-booking',{method:'POST',body:JSON.stringify({cabinId:raceCabin,date:raceDate,passengers:racePax,confirm:confirmNow})});setRace(x);setMessage(x.message)}catch(e:any){setMessage(e.message)}}
+  async function raceBooking(){try{const x=await api('/admin/concurrent-booking',{method:'POST',body:JSON.stringify({cabinId:raceCabin,date:raceDate,passengers:racePax,seat:raceSeat||undefined,confirm:confirmNow})});setRace(x);setMessage(x.message)}catch(e:any){setMessage(e.message)}}
   async function loadHistory(){try{setHistory(await api('/me/search-history'))}catch{}}
   async function clearHistory(){try{await api('/me/search-history',{method:'DELETE'});setHistory([])}catch(e:any){setMessage(e.message)}}
   function restoreSearch(h:any){
@@ -666,14 +711,15 @@ function App(){
           {adminFlights.flatMap((f:any)=>f.cabins.map((c:any)=><option key={c.id} value={c.id}>{f.flightNumber} {f.from} → {f.to} {f.depLocal} · {CABIN_LABEL[c.cabin]} · {c.totalSeats} seats</option>))}
         </select>
         <label>Date<input type="date" min={today} value={raceDate} onChange={e=>setRaceDate(e.target.value)}/></label>
-        <label>Seats per customer<input type="number" min={1} max={9} value={racePax} onChange={e=>setRacePax(Number(e.target.value))}/></label>
+        <label>Seats per customer<input type="number" min={1} max={9} value={racePax} disabled={!!raceSeat} onChange={e=>setRacePax(Number(e.target.value))}/></label>
+        <label>Or everyone wants seat<input value={raceSeat} placeholder="e.g. 1A" onChange={e=>setRaceSeat(e.target.value.toUpperCase())} style={{width:90}}/></label>
         <label className="check"><input type="checkbox" checked={confirmNow} onChange={e=>setConfirmNow(e.target.checked)}/>Confirm immediately (skip the 60s payment window)</label>
         <button onClick={raceBooking} disabled={!raceCabin||!allCustomerCount}>Book with all {allCustomerCount} customers at once</button>
       </div>
       <small>Every customer (including simulation customers, if any) books the same departure in the same instant. The atomic Redis script decides who gets seats; the others are rejected. Business cabins are small: use them (or many simulation customers) to see a sell-out.</small>
       {race&&<div className="tablewrap"><table><thead><tr><th>Customer</th><th>Result</th><th>Seats left after</th></tr></thead><tbody>
-        {race.results.map((x:any)=><tr key={x.email} className={x.ok?'':'warn'}><td>{x.customer}<br/><small>{x.email}</small></td><td>{x.ok?<span className={`status ${x.status}`}>{STATUS_LABEL[x.status]}</span>:<span className="notice">✕ {x.error}</span>}</td><td>{x.ok?x.seatsLeft:'—'}</td></tr>)}
-      </tbody></table><small>{race.flight} · {CABIN_LABEL[race.cabin]} · {fmt(race.date)} · seats free {race.seatsBefore} → {race.seatsAfter} · {race.durationMs} ms</small></div>}
+        {race.results.map((x:any)=><tr key={x.email} className={x.ok?'':'warn'}><td>{x.customer}<br/><small>{x.email}</small></td><td>{x.ok?<span className={`status ${x.status}`}>{STATUS_LABEL[x.status]}</span>:<span className="notice">✕ {x.error}</span>}</td><td>{x.ok?<>{x.seatsLeft}{x.seats?<small> · seat {x.seats.join(', ')}</small>:null}</>:'—'}</td></tr>)}
+      </tbody></table><small>{race.flight} · {CABIN_LABEL[race.cabin]} · {fmt(race.date)}{race.seat?` · seat ${race.seat}`:''} · seats free {race.seatsBefore} → {race.seatsAfter} · {race.durationMs} ms</small></div>}
       <SimulationPanel onMessage={setMessage} flights={adminFlights}/>
     </section>}
 
@@ -698,7 +744,7 @@ function App(){
       {flightBookings.rows.length===0?<p>No bookings on this flight.</p>:
       <div className="tablewrap"><table><thead><tr><th>Customer</th><th>Trip</th><th>Passengers</th><th>Total</th><th>Status</th></tr></thead><tbody>
         {flightBookings.rows.map((b:any)=><tr key={b.id}><td>{b.customerName}<br/><small>{b.customerEmail}</small></td>
-          <td>{b.legs.map((l:any)=><div key={l.seq}><small>{l.flightNumber===flightBookings.flight.flightNumber?<b>{l.flightNumber}</b>:l.flightNumber} {l.from} → {l.to} · {fmt(l.date)} · {CABIN_LABEL[l.cabin]}</small></div>)}</td>
+          <td>{b.legs.map((l:any)=><div key={l.seq}><small>{l.flightNumber===flightBookings.flight.flightNumber?<b>{l.flightNumber}</b>:l.flightNumber} {l.from} → {l.to} · {fmt(l.date)} · {CABIN_LABEL[l.cabin]} {FARE_TAG[l.fareClass]||''}{l.seats?.length?` · ${l.seats.map((x:any)=>x.seat).join(', ')}`:''}</small></div>)}</td>
           <td>{b.passengers}<br/><small>{(b.passengerList||[]).map((p:any)=>`${p.firstName} ${p.lastName}`).join(', ')}</small></td><td>{money(b.price)}</td><td><span className={`status ${b.status}`}>{STATUS_LABEL[b.status]||b.status}</span></td></tr>)}
       </tbody></table></div>}
     </div></div>}
@@ -746,10 +792,11 @@ function App(){
         {bookings.map(b=>{const first=b.legs[0],last=b.legs[b.legs.length-1],out=b.legs.filter((l:any)=>l.direction==='OUTBOUND');
           return <tr key={b.id} className={b.status==='PENDING'?'pending':b.overlaps?.length?'warn':''}>
           <td><b>{first.fromCity} → {out[out.length-1].toCity}</b><br/><small>{b.tripType==='ROUND_TRIP'?`Round trip, back ${fmt(last.arrAt)}`:'One way'} · {CABIN_LABEL[first.cabin]}</small></td>
-          <td>{b.legs.map((l:any)=><div key={l.seq}><small>{l.direction==='RETURN'&&l.seq===out.length+1?'↩ ':''}<b>{l.flightNumber}</b> {l.from} {l.depLocal} → {l.to} {l.arrLocal}{l.arrDayOffset>0?`+${l.arrDayOffset}`:''} · {fmtShort(l.date)}</small></div>)}</td>
+          <td>{b.legs.map((l:any)=><div key={l.seq}><small>{l.direction==='RETURN'&&l.seq===out.length+1?'↩ ':''}<b>{l.flightNumber}</b> {l.from} {l.depLocal} → {l.to} {l.arrLocal}{l.arrDayOffset>0?`+${l.arrDayOffset}`:''} · {fmtShort(l.date)}{l.seats?.length?<> · seat{l.seats.length>1?'s':''} <b title={l.seats.map((x:any)=>`${x.seat} ${x.passenger}`).join('\n')}>{l.seats.map((x:any)=>x.seat).join(', ')}</b></>:null}</small></div>)}</td>
           <td>{b.passengers}<br/><small>{(b.passengerList||[]).map((p:any)=>`${p.firstName} ${p.lastName}`).join(', ')}</small></td>
           <td title={(b.priceBreakdown||[]).map((p:any)=>`${p.flightNumber} ${fmt(p.date)}: ${money(p.price)}${p.label?` (${p.label})`:''}`).join('\n')}>{money(b.price)}<br/><small>{money(b.price/b.passengers)} / passenger</small></td>
-          <td><span className={`status ${b.status}`}>{STATUS_LABEL[b.status]||b.status}</span>{b.status==='PENDING'&&<><br/><span className="countdown">{secondsLeft(b)}s left</span></>}</td>
+          <td><span className={`status ${b.status}`}>{STATUS_LABEL[b.status]||b.status}</span>{b.status==='PENDING'&&<><br/><span className="countdown">{secondsLeft(b)}s left</span></>}
+            <br/><small className={`fare-tag ${b.fareClass}`}>{FARE_TAG[b.fareClass]||b.fareClass}</small>{b.status==='CANCELLED'&&b.refundAmount!=null&&<><br/><small>Refund {money(b.refundAmount)}</small></>}</td>
           <td>{b.overlaps?.length>0&&<span className="notice" title={b.overlaps.map((o:any)=>`${o.route} ${fmt(o.depAt)}`).join('\n')}>⚠ Double booking: overlaps {b.overlaps.map((o:any)=>o.route).join(', ')}</span>}</td>
           <td className="actions">
             {(()=>{const ph=tripPhase(b);return ph&&<span className={`phase ${ph.key}`} title={ph.hint}><b>{ph.label}</b><br/><small>{ph.hint}</small></span>})()}

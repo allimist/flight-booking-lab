@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "tsx watch src/worker.ts",
     "build": "tsc",
-    "start": "node dist/worker.js"
+    "start": "node dist/worker.js",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "ioredis": "^5.4.1",

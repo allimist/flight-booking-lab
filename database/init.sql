@@ -152,6 +152,20 @@ CREATE TABLE IF NOT EXISTS flight_price_rules (
     AND (schedule_id IS NULL OR airline_iata IS NOT NULL) AND (cabin_id IS NULL OR schedule_id IS NOT NULL))
 );
 
+-- Nested booking classes inside every cabin: a class is on sale while the cabin's booked seats stay under cap_pct %.
+CREATE TABLE IF NOT EXISTS flight_fare_classes (
+  code TEXT PRIMARY KEY CHECK (code IN ('SAVER','STANDARD','FLEX')),
+  name TEXT NOT NULL,
+  cap_pct INT NOT NULL CHECK (cap_pct BETWEEN 1 AND 100),
+  price_pct NUMERIC(6,2) NOT NULL,                             -- price layer, e.g. -20 for Saver
+  refund_pct INT NOT NULL CHECK (refund_pct BETWEEN 0 AND 100),
+  changeable BOOLEAN NOT NULL DEFAULT false,
+  sort INT NOT NULL
+);
+INSERT INTO flight_fare_classes(code,name,cap_pct,price_pct,refund_pct,changeable,sort) VALUES
+  ('SAVER','Saver',40,-20,0,false,1), ('STANDARD','Standard',85,0,50,false,2), ('FLEX','Flex',100,35,100,true,3)
+ON CONFLICT (code) DO NOTHING;
+
 -- ---- Bookings ---------------------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS flight_bookings (
   id UUID PRIMARY KEY,
@@ -163,6 +177,8 @@ CREATE TABLE IF NOT EXISTS flight_bookings (
   expires_at TIMESTAMPTZ,
   paid_at TIMESTAMPTZ,
   price_breakdown JSONB,                                       -- per leg, per passenger, with layers, at booking time
+  fare_class TEXT NOT NULL DEFAULT 'STANDARD',
+  refund_amount NUMERIC(12,2),                                 -- set on cancel: paid price x the fare class refund %
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
@@ -177,6 +193,7 @@ CREATE TABLE IF NOT EXISTS flight_booking_legs (
   dep_at TIMESTAMPTZ NOT NULL,
   arr_at TIMESTAMPTZ NOT NULL,
   price NUMERIC(12,2) NOT NULL,                                -- per passenger
+  fare_class TEXT NOT NULL DEFAULT 'STANDARD',
   PRIMARY KEY (booking_id, seq)
 );
 
@@ -187,6 +204,20 @@ CREATE TABLE IF NOT EXISTS passengers (
   last_name TEXT NOT NULL,
   passport TEXT
 );
+
+-- Seat of each passenger on each leg. The partial unique index is PostgreSQL's guard: an active seat is taken once.
+CREATE TABLE IF NOT EXISTS flight_seat_assignments (
+  id BIGSERIAL PRIMARY KEY,
+  booking_id UUID NOT NULL REFERENCES flight_bookings(id) ON DELETE CASCADE,
+  passenger_id UUID NOT NULL REFERENCES passengers(id) ON DELETE CASCADE,
+  cabin_id UUID NOT NULL REFERENCES flight_cabins(id) ON DELETE CASCADE,
+  dep_date DATE NOT NULL,
+  seat_index INT NOT NULL,                                     -- bit in the Redis seat bitmap
+  seat TEXT NOT NULL,                                          -- e.g. 23A
+  active BOOLEAN NOT NULL DEFAULT true                         -- false after cancel / payment timeout
+);
+CREATE UNIQUE INDEX IF NOT EXISTS seat_taken_once ON flight_seat_assignments(cabin_id, dep_date, seat_index) WHERE active;
+CREATE INDEX IF NOT EXISTS seat_assignments_booking_idx ON flight_seat_assignments(booking_id);
 
 CREATE INDEX IF NOT EXISTS schedules_route_idx ON flight_schedules(dep_iata, arr_iata);
 CREATE INDEX IF NOT EXISTS cabins_schedule_idx ON flight_cabins(schedule_id);

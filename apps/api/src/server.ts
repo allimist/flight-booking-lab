@@ -376,11 +376,12 @@ async function assignAirlinesToSellers() {
 type Cabin = { id: string; schedule_id: string; cabin: 'ECONOMY'|'BUSINESS'; total_seats: number; price: number; airline_iata: string; airline_name: string;
   flight_number: string; dep_iata: string; arr_iata: string; dep_time: string; arr_time: string; arr_day_offset: number; duration_min: number;
   days_of_week: number[]; aircraft: string | null; source: string; country: string; dep_city: string; arr_city: string; dep_tz: string; arr_tz: string;
-  dep_name: string; arr_name: string; seller_id: string | null };
+  dep_name: string; arr_name: string; seller_id: string | null; biz_seats: number | null };
 const CABIN_SQL = `SELECT c.id, c.schedule_id, c.cabin, c.total_seats, c.price::float AS price, s.airline_iata, al.name AS airline_name, s.flight_number,
   s.dep_iata, s.arr_iata, to_char(s.dep_time,'HH24:MI') AS dep_time, to_char(s.arr_time,'HH24:MI') AS arr_time, s.arr_day_offset, s.duration_min,
   s.days_of_week, s.aircraft, s.source, da.country, da.city AS dep_city, aa.city AS arr_city, da.timezone AS dep_tz, aa.timezone AS arr_tz,
-  da.name AS dep_name, aa.name AS arr_name, al.seller_id
+  da.name AS dep_name, aa.name AS arr_name, al.seller_id,
+  (SELECT b.total_seats FROM flight_cabins b WHERE b.schedule_id=c.schedule_id AND b.cabin='BUSINESS') AS biz_seats
   FROM flight_cabins c JOIN flight_schedules s ON s.id=c.schedule_id JOIN airlines al ON al.iata=s.airline_iata
   JOIN airports da ON da.iata=s.dep_iata JOIN airports aa ON aa.iata=s.arr_iata`;
 async function loadCabins(where = '', values: any[] = []): Promise<Cabin[]> {
@@ -407,9 +408,10 @@ function dateProblem(date: string) {
 //   4. weekday %: the airline's value for that day of the week, else the departure country's, else 0
 //   5. DEMAND: seats already sold on this departure (>= 50% +15%, >= 80% +40%)
 //   6. ADVANCE: days before departure (< 7 days +30%, >= 60 days -10%)
-//   7. DISCOUNT: minus the single largest active discount %
+//   7. FARE_CLASS: Saver -20%, Standard 0, Flex +35% (see Fare classes)
+//   8. DISCOUNT: minus the single largest active discount %
 // Inside one layer a cabin rule beats a flight rule beats an airline rule beats a country rule, then the newest wins.
-// Same engine as the hotel lab (room > hotel > country); layers 5 and 6 are flight specific.
+// Same engine as the hotel lab (room > hotel > country); layers 5 to 7 are flight specific.
 type PriceRule = { id: string; country: string | null; airline_iata: string | null; schedule_id: string | null; cabin_id: string | null;
   kind: 'SEASON'|'HOLIDAY'|'DISCOUNT'; name: string; start_date: string; end_date: string; adjust_type: 'PERCENT'|'FIXED'; adjust_value: number; created_at: Date };
 type Pricing = { airlinePct: Map<string, (number|null)[]>; countryPct: Map<string, number[]>; rules: PriceRule[];
@@ -443,7 +445,7 @@ function pickRule(rules: PriceRule[]) {
 const signed = (n: number) => `${n > 0 ? '+' : n < 0 ? '−' : ''}${Math.abs(n)}%`;
 
 /** Price of one seat on a departure. `booked` = seats already sold or held on it (for the demand layer). */
-function priceSeat(c: Cabin, date: string, booked: number, P: Pricing, today = todayStr()) {
+function priceSeat(c: Cabin, date: string, booked: number, P: Pricing, fare?: FareClass, today = todayStr()) {
   const base = Number(c.price);
   const candidates = [...(P.byAirline.get(c.airline_iata) || []), ...(P.byCountry.get(c.country) || [])];
   const active = candidates.filter(r => date >= r.start_date && date <= r.end_date &&
@@ -467,6 +469,7 @@ function priceSeat(c: Cabin, date: string, booked: number, P: Pricing, today = t
   if (demand) { price *= 1 + demand[1] / 100; parts.push({ layer: 'DEMAND', source: 'seats', name: demand[2], change: signed(demand[1]) }); }
   const ahead = daysBetween(today, date), adv = ADVANCE_TIERS.find(([when]) => when(ahead));
   if (adv) { price *= 1 + adv[1] / 100; parts.push({ layer: 'ADVANCE', source: 'date', name: adv[2], change: signed(adv[1]) }); }
+  if (fare?.price_pct) { price *= 1 + fare.price_pct / 100; parts.push({ layer: 'FARE_CLASS', source: 'fare', name: fare.name, change: signed(fare.price_pct) }); }
   const discount = of('DISCOUNT').sort((a, b) => b.adjust_value - a.adjust_value)[0];
   if (discount) { price *= 1 - discount.adjust_value / 100; parts.push({ layer: 'DISCOUNT', source: ruleSource(discount), name: discount.name, change: signed(-discount.adjust_value) }); }
   const label = parts.map(p => `${p.name} ${p.change}`).join(' · ');
@@ -494,6 +497,42 @@ function parseWeekdays(pct: any, allowNull: boolean) {
   return { pct: out as (number|null)[] };
 }
 
+// ---- Fare classes ----------------------------------------------------------------------------------------------------
+// Nested booking classes inside every cabin, the way airlines sell seats: a class can be sold while the cabin's booked
+// seats stay under its cap, so the cheap seats run out first. SAVER until 40% of the cabin is sold, STANDARD until 85%,
+// FLEX to the last seat. The cap is all the atomic hold needs: the Lua script checks booked + passengers <= cap instead
+// of <= total. Rules live in flight_fare_classes (one row per class, shared by every cabin) and are loaded at startup.
+type FareCode = 'SAVER'|'STANDARD'|'FLEX';
+type FareClass = { code: FareCode; name: string; cap_pct: number; price_pct: number; refund_pct: number; changeable: boolean; sort: number };
+const FARE_DEFAULTS: FareClass[] = [
+  { code: 'SAVER', name: 'Saver', cap_pct: 40, price_pct: -20, refund_pct: 0, changeable: false, sort: 1 },
+  { code: 'STANDARD', name: 'Standard', cap_pct: 85, price_pct: 0, refund_pct: 50, changeable: false, sort: 2 },
+  { code: 'FLEX', name: 'Flex', cap_pct: 100, price_pct: 35, refund_pct: 100, changeable: true, sort: 3 },
+];
+let FARE_CLASSES: FareClass[] = FARE_DEFAULTS;
+const fareByCode = (code: any) => FARE_CLASSES.find(f => f.code === code);
+/** Seats of the cabin that may be booked in total while this class is still on sale. */
+const fareCap = (c: { total_seats: number }, f: FareClass) => Math.floor(c.total_seats * f.cap_pct / 100);
+
+// ---- Seat maps ----------------------------------------------------------------------------------------------------------
+// The layout is derived, not stored: business 2-2 (A C D F) from row 1; economy 3-3 (A-F) up to 180 seats, else 3-3-3
+// (A-K without I), numbered on after the business rows. Seat index = position in the cabin (row-major), which is also
+// the bit in the Redis seat bitmap.
+type SeatLayout = { letters: string[]; aisleAfter: number[]; firstRow: number; rows: number; total: number };
+function seatLayout(c: { cabin: string; total_seats: number; biz_seats?: number | null }): SeatLayout {
+  const [letters, aisleAfter] = c.cabin === 'BUSINESS' ? [['A', 'C', 'D', 'F'], [1]]
+    : c.total_seats > 180 ? [['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'K'], [2, 5]] : [['A', 'B', 'C', 'D', 'E', 'F'], [2]];
+  const firstRow = c.cabin === 'BUSINESS' ? 1 : Math.ceil((c.biz_seats || 0) / 4) + 1;
+  return { letters, aisleAfter, firstRow, rows: Math.ceil(c.total_seats / letters.length), total: c.total_seats };
+}
+const seatLabel = (L: SeatLayout, i: number) => `${L.firstRow + Math.floor(i / L.letters.length)}${L.letters[i % L.letters.length]}`;
+function seatIndex(L: SeatLayout, label: string) {
+  const m = /^(\d{1,3})([A-Z])$/.exec(String(label).trim().toUpperCase());
+  if (!m) return -1;
+  const col = L.letters.indexOf(m[2]), i = (Number(m[1]) - L.firstRow) * L.letters.length + col;
+  return col < 0 || i < 0 || i >= L.total ? -1 : i;
+}
+
 // ---- Redis seats: booked counts only ---------------------------------------------------------------------------
 // Same model as the hotel lab's rooms: per cabin and month one small hash, fs:{cabinId}:YYYY-MM, with a field only for
 // departure days that have bookings or payment holds (field = day of month, value = seats booked). No field = nothing
@@ -515,51 +554,98 @@ async function bookedCounts(refs: SeatRef[]) {
   return refs.map((_, i) => Number(res[1 + i][1] || 0));
 }
 
-// Both scripts: KEYS = [fs:loaded, month keys...]; ARGV = seats per leg (passengers), number of legs, then per leg
-// (index into KEYS, day field, total seats), then per month key its EXPIREAT. Returns {code, value}:
-// {0, fewest seats left on any leg}, {-1, 1-based leg that is full}, {-2, 0} = Redis not loaded.
-function legsScript(legs: (SeatRef & { total: number })[], qty: number) {
+// Seat bitmaps: one per departure, fsm:{cabinId}:YYYY-MM-DD, bit = seat index (1 = taken). Same {cabinId} hash tag as
+// the count hash, so both live in one Redis Cluster slot. Invariant: BITCOUNT(bitmap) = booked count of that day.
+// A bitmap expires two days after its departure.
+const seatKey = (cabinId: string, date: string) => `fsm:{${cabinId}}:${date}`;
+const seatExpireAt = (date: string) => String(Math.floor(Date.parse(addDays(date, 3) + 'T00:00:00Z') / 1000));
+type HoldLeg = SeatRef & { cap: number; total: number; seats: number[] };
+
+// KEYS = [fs:loaded, month count hashes..., seat bitmaps (one per leg)].
+// Hold ARGV = qty, legs, month count, each month's EXPIREAT, then per leg (variable length):
+//   count-hash index, day field, cap, total seats, bitmap index, bitmap EXPIREAT, chosen seat count, chosen seats...
+// Release ARGV = qty, legs, then per leg: count-hash index, day field, total seats, bitmap index, seat count, seats...
+function holdScript(legs: HoldLeg[], qty: number, release = false) {
   const months = [...new Set(legs.map(l => monthKey(l.cabinId, l.date.slice(0, 7))))];
-  const keys = [FS_LOADED, ...months];
-  const argv = [String(qty), String(legs.length),
-    ...legs.flatMap(l => [String(months.indexOf(monthKey(l.cabinId, l.date.slice(0, 7))) + 2), dayField(l.date), String(l.total)]),
-    ...months.map(k => monthExpireAt(k.slice(-7)))];
+  const keys = [FS_LOADED, ...months, ...legs.map(l => seatKey(l.cabinId, l.date))];
+  const hIdx = (l: HoldLeg) => String(months.indexOf(monthKey(l.cabinId, l.date.slice(0, 7))) + 2);
+  const argv = release
+    ? [String(qty), String(legs.length), ...legs.flatMap((l, i) => [hIdx(l), dayField(l.date), String(l.total), String(months.length + 2 + i), String(l.seats.length), ...l.seats.map(String)])]
+    : [String(qty), String(legs.length), String(months.length), ...months.map(k => monthExpireAt(k.slice(-7))),
+       ...legs.flatMap((l, i) => [hIdx(l), dayField(l.date), String(l.cap), String(l.total), String(months.length + 2 + i), seatExpireAt(l.date), String(l.seats.length), ...l.seats.map(String)])];
   return [keys.length, ...keys, ...argv] as const;
 }
-// All-or-nothing over every leg of the trip: if any departure has fewer free seats than passengers, nothing changes.
+// All-or-nothing over every leg of the trip. Per leg: booked + passengers must fit under the fare class cap, every
+// chosen seat must be free, and passengers without a choice get the first free seats. Only when every leg passes are
+// the counts incremented and the seat bits set. Returns {0, fewest seats left in any cabin, seat per passenger per
+// leg...}, {-1, leg} = no seats at this fare, {-3, leg, seat} = a chosen seat is taken, {-2} = Redis not loaded.
 const RESERVE_LUA = `
   if redis.call('EXISTS', KEYS[1]) == 0 then return {-2, 0} end
-  local qty, n, least = tonumber(ARGV[1]), tonumber(ARGV[2]), nil
+  local qty, n, m = tonumber(ARGV[1]), tonumber(ARGV[2]), tonumber(ARGV[3])
+  local p, legs, least = 4 + m, {}, nil
   for i = 1, n do
-    local b = tonumber(redis.call('HGET', KEYS[tonumber(ARGV[3*i])], ARGV[3*i + 1]) or '0')
-    local left = tonumber(ARGV[3*i + 2]) - b - qty
-    if left < 0 then return {-1, i} end
-    if least == nil or left < least then least = left end
+    local hk, f, cap, total = KEYS[tonumber(ARGV[p])], ARGV[p + 1], tonumber(ARGV[p + 2]), tonumber(ARGV[p + 3])
+    local sk, sexp, c = KEYS[tonumber(ARGV[p + 4])], ARGV[p + 5], tonumber(ARGV[p + 6])
+    local b = tonumber(redis.call('HGET', hk, f) or '0')
+    if b + qty > cap then return {-1, i} end
+    if least == nil or total - b - qty < least then least = total - b - qty end
+    local seats, taken = {}, {}
+    for j = 1, c do
+      local s = tonumber(ARGV[p + 6 + j])
+      if taken[s] or redis.call('GETBIT', sk, s) == 1 then return {-3, i, s} end
+      taken[s] = true
+      seats[#seats + 1] = s
+    end
+    local s = 0
+    while #seats < qty do
+      if s >= total then return {-1, i} end
+      if not taken[s] and redis.call('GETBIT', sk, s) == 0 then taken[s] = true seats[#seats + 1] = s end
+      s = s + 1
+    end
+    legs[i] = {hk, f, sk, sexp, seats}
+    p = p + 7 + c
   end
-  for i = 1, n do redis.call('HINCRBY', KEYS[tonumber(ARGV[3*i])], ARGV[3*i + 1], qty) end
-  for j = 2, #KEYS do redis.call('EXPIREAT', KEYS[j], ARGV[3*n + 1 + j]) end
-  return {0, least}
+  local out = {0, least}
+  for i = 1, n do
+    local L = legs[i]
+    redis.call('HINCRBY', L[1], L[2], qty)
+    for _, s in ipairs(L[5]) do
+      redis.call('SETBIT', L[3], s, 1)
+      out[#out + 1] = s
+    end
+    redis.call('EXPIREAT', L[3], L[4])
+  end
+  for j = 1, m do redis.call('EXPIREAT', KEYS[1 + j], ARGV[3 + j]) end
+  return out
 `;
-// Gives seats back: -qty per leg, and a day that reaches 0 is removed (keeps the hash sparse).
+// Gives seats back: -qty per leg (a day that reaches 0 is removed, keeping the hash sparse) and clears the seat bits.
 const RELEASE_LUA = `
   if redis.call('EXISTS', KEYS[1]) == 0 then return {-2, 0} end
-  local qty, n, least = tonumber(ARGV[1]), tonumber(ARGV[2]), nil
+  local qty, n, p, least = tonumber(ARGV[1]), tonumber(ARGV[2]), 3, nil
   for i = 1, n do
-    local k, f = KEYS[tonumber(ARGV[3*i])], ARGV[3*i + 1]
-    local b = redis.call('HINCRBY', k, f, -qty)
-    if b <= 0 then redis.call('HDEL', k, f) b = 0 end
-    local left = tonumber(ARGV[3*i + 2]) - b
-    if least == nil or left < least then least = left end
+    local hk, f, total, sk, c = KEYS[tonumber(ARGV[p])], ARGV[p + 1], tonumber(ARGV[p + 2]), KEYS[tonumber(ARGV[p + 3])], tonumber(ARGV[p + 4])
+    local b = redis.call('HINCRBY', hk, f, -qty)
+    if b <= 0 then redis.call('HDEL', hk, f) b = 0 end
+    for j = 1, c do redis.call('SETBIT', sk, tonumber(ARGV[p + 4 + j]), 0) end
+    if least == nil or total - b < least then least = total - b end
+    p = p + 5 + c
   end
   return {0, least}
 `;
 /** Releases the legs that have not departed yet. Returns the fewest seats now free on them, or null if none. */
-async function releaseLegs(legs: (SeatRef & { total: number })[], qty: number) {
+async function releaseLegs(legs: HoldLeg[], qty: number) {
   const open = legs.filter(l => l.date >= todayStr());
   if (!open.length) return null;
-  const [code, least] = (await redis.eval(RELEASE_LUA, ...legsScript(open, qty))) as number[];
+  const [code, least] = (await redis.eval(RELEASE_LUA, ...holdScript(open, qty, true))) as number[];
   if (code === -2) throw NOT_LOADED;
   return least;
+}
+/** Seat indexes set in a departure's bitmap. */
+async function takenSeats(cabinId: string, date: string) {
+  const buf = await redis.getBuffer(seatKey(cabinId, date));
+  const out: number[] = [];
+  if (buf) for (let byte = 0; byte < buf.length; byte++) for (let bit = 0; bit < 8; bit++) if (buf[byte] & (0x80 >> bit)) out.push(byte * 8 + bit);
+  return out;
 }
 /** Every month key a cabin can have: last month .. the end of the booking window. */
 function cabinMonthKeys(cabinId: string) {
@@ -608,20 +694,30 @@ function findItineraries(cabins: Cabin[], from: string, to: string, date: string
   return [...best.values()];
 }
 
-/** Seats left and a priced quote for each itinerary (booked counts from Redis, one pipeline). */
-async function quoteItineraries(itins: Leg[][], passengers: number) {
+/** Seats left and a priced quote for each itinerary, per fare class (booked counts from Redis, one pipeline).
+ *  The legs are priced in `fareCode` when given (booking), else in the cheapest class still on sale (search). */
+async function quoteItineraries(itins: Leg[][], passengers: number, fareCode?: FareCode) {
   const refs = itins.flatMap(legs => legs.map(l => ({ cabinId: l.cabin.id, date: l.date })));
   const booked = refs.length ? await bookedCounts(refs) : [];
   if (!booked) throw NOT_LOADED;
   const P = await loadPricing([...new Map(itins.flat().map(l => [l.cabin.id, l.cabin])).values()]);
   let i = 0;
   return itins.map(legs => {
-    const quoted = legs.map(l => { const b = booked[i++]; const q = priceSeat(l.cabin, l.date, b, P);
-      return { ...l, booked: b, seatsLeft: Math.max(0, l.cabin.total_seats - b), quote: q }; });
-    const perPassenger = quoted.reduce((a, l) => a + l.quote.price, 0);
+    const base = legs.map(l => { const b = booked[i++]; return { ...l, booked: b, seatsLeft: Math.max(0, l.cabin.total_seats - b) }; });
+    const fares = FARE_CLASSES.map(f => {
+      const priced = base.map(l => priceSeat(l.cabin, l.date, l.booked, P, f));
+      const perPassenger = priced.reduce((a, q) => a + q.price, 0);
+      const seatsAtFare = Math.max(0, Math.min(...base.map(l => fareCap(l.cabin, f) - l.booked)));
+      return { fare: f, priced, perPassenger, seatsAtFare, available: seatsAtFare >= passengers };
+    });
+    const onSale = fares.filter(x => x.available).sort((a, b) => a.perPassenger - b.perPassenger);
+    const chosen = (fareCode ? fares.find(x => x.fare.code === fareCode) : onSale[0]) || fares[fares.length - 1];
+    const quoted = base.map((l, j) => ({ ...l, quote: chosen.priced[j] }));
     const seatsLeft = Math.min(...quoted.map(l => l.seatsLeft));
-    return { legs: quoted, perPassenger, total: perPassenger * passengers, seatsLeft, soldOut: seatsLeft < passengers,
-      depAt: legs[0].depAt, arrAt: legs[legs.length - 1].arrAt };
+    return { legs: quoted, fare: chosen.fare, fareAvailable: chosen.available, perPassenger: chosen.perPassenger, total: chosen.perPassenger * passengers,
+      seatsLeft, soldOut: !onSale.length, depAt: legs[0].depAt, arrAt: legs[legs.length - 1].arrAt,
+      fares: fares.map(x => ({ code: x.fare.code, name: x.fare.name, refundPct: x.fare.refund_pct, changeable: x.fare.changeable, pricePct: x.fare.price_pct,
+        perPassenger: x.perPassenger, total: x.perPassenger * passengers, seatsAtFare: x.seatsAtFare, available: x.available })) };
   });
 }
 const iso = (ms: number) => new Date(ms).toISOString();
@@ -633,7 +729,7 @@ function itineraryJson(x: Awaited<ReturnType<typeof quoteItineraries>>[number]) 
     from: legs[0].cabin.dep_iata, to: legs[legs.length - 1].cabin.arr_iata,
     depAt: iso(x.depAt), arrAt: iso(x.arrAt), durationMin: Math.round((x.arrAt - x.depAt) / 60000),
     layovers: legs.slice(1).map((l, i) => ({ airport: l.cabin.dep_iata, city: l.cabin.dep_city, minutes: Math.round((l.depAt - legs[i].arrAt) / 60000) })),
-    pricePerPassenger: x.perPassenger, totalPrice: x.total, seatsLeft: x.seatsLeft, soldOut: x.soldOut,
+    pricePerPassenger: x.perPassenger, totalPrice: x.total, seatsLeft: x.seatsLeft, soldOut: x.soldOut, fareClass: x.fare.code, fares: x.fares,
     airlines: [...new Set(legs.map(l => l.cabin.airline_name))],
     source: legs.every(l => l.cabin.source === 'AVIATIONSTACK') ? 'AVIATIONSTACK' : 'SAMPLE',
     legs: legs.map(l => ({
@@ -801,6 +897,22 @@ app.delete('/api/me/search-history', async (req: any) => {
   return { ok: true };
 });
 
+// The seat map of one departure: layout, taken seats (decoded from the Redis bitmap) and where each fare class stands.
+app.get('/api/flights/seatmap', async (req: any, reply) => {
+  const { cabinId, date } = req.query;
+  const problem = dateProblem(date);
+  if (problem) return reply.code(400).send({ error: problem });
+  const [c] = await loadCabins(`WHERE c.id=$1`, [cabinId]);
+  if (!c) return reply.code(404).send({ error: 'Flight not found' });
+  const booked = await bookedCounts([{ cabinId: c.id, date }]);
+  if (!booked) return reply.code(409).send({ error: NOT_LOADED.message });
+  const L = seatLayout(c), taken = await takenSeats(c.id, date);
+  return { cabinId: c.id, flightNumber: c.flight_number, from: c.dep_iata, to: c.arr_iata, cabin: c.cabin, date, booked: booked[0],
+    layout: L, taken: taken.map(i => seatLabel(L, i)), redisKey: seatKey(c.id, date),
+    fares: FARE_CLASSES.map(f => ({ code: f.code, name: f.name, cap: fareCap(c, f), onSale: booked[0] < fareCap(c, f) })) };
+});
+app.get('/api/fare-classes', async () => FARE_CLASSES.map(f => ({ code: f.code, name: f.name, capPct: f.cap_pct, pricePct: f.price_pct, refundPct: f.refund_pct, changeable: f.changeable })));
+
 // ---- Booking --------------------------------------------------------------------------------------------------------
 type BookLeg = Leg & { direction: 'OUTBOUND'|'RETURN' };
 /** Validates the requested legs against the catalogue; returns them ready to book, or an error message. */
@@ -839,58 +951,89 @@ function parsePassengers(input: any): { passengers: { firstName: string; lastNam
   return { passengers: out };
 }
 
-/** Prices the trip, holds every leg's seats in Redis at once, then persists the booking + outbox events. */
+/** Prices the trip in one fare class, holds every leg's seats (count + seat bits) in Redis at once, then persists the
+ *  booking, seat assignments and outbox events. `seats[i]` = seat indexes chosen on leg i (any not chosen are assigned). */
 async function createFlightBooking(userId: string, legs: BookLeg[], passengers: { firstName: string; lastName: string; passport: string | null }[],
-  status: 'PENDING'|'CONFIRMED' = 'PENDING', windowSeconds = PAYMENT_WINDOW_SECONDS) {
+  status: 'PENDING'|'CONFIRMED' = 'PENDING', windowSeconds = PAYMENT_WINDOW_SECONDS, fareCode?: FareCode, seats: number[][] = []) {
   const pax = passengers.length;
   // Priced before the Redis hold, so a pricing failure never leaves a hold behind. The booking keeps this price.
-  const [quote] = await quoteItineraries([legs], pax);
-  const seats = legs.map(l => ({ cabinId: l.cabin.id, date: l.date, total: l.cabin.total_seats }));
+  const [quote] = await quoteItineraries([legs], pax, fareCode);
+  const fare = quote.fare;
+  if (!quote.fareAvailable) throw { statusCode: 409, message: `No ${fare.name} seats left for ${pax} passenger(s) on this trip` };
+  const hold: HoldLeg[] = legs.map((l, i) => ({ cabinId: l.cabin.id, date: l.date, cap: fareCap(l.cabin, fare), total: l.cabin.total_seats, seats: seats[i] || [] }));
   const t0 = performance.now();
-  const [code, value] = (await redis.eval(RESERVE_LUA, ...legsScript(seats, pax))) as number[];
+  const res = (await redis.eval(RESERVE_LUA, ...holdScript(hold, pax))) as number[];
   const redisMs = performance.now() - t0;
+  const [code, value] = res;
   if (code === -2) throw { ...NOT_LOADED, redisMs };
-  if (code === -1) { const l = legs[value - 1]; throw { statusCode: 409, message: `Not enough seats left on ${l.cabin.flight_number} (${l.cabin.cabin.toLowerCase()}) on ${l.date}`, redisMs }; }
+  if (code === -1) { const l = legs[value - 1]; throw { statusCode: 409, message: `Not enough ${fare.name} seats left on ${l.cabin.flight_number} (${l.cabin.cabin.toLowerCase()}) on ${l.date}`, redisMs }; }
+  if (code === -3) { const l = legs[value - 1]; throw { statusCode: 409, message: `Seat ${seatLabel(seatLayout(l.cabin), res[2])} on ${l.cabin.flight_number} is already taken`, redisMs }; }
+  const assigned = legs.map((_, i) => res.slice(2 + i * pax, 2 + (i + 1) * pax));
+  const held = hold.map((h, i) => ({ ...h, seats: assigned[i] }));
   const t1 = performance.now();
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
     // Final guard, PostgreSQL decides: lock the cabins (in id order, so two trips sharing flights cannot deadlock) and
-    // count active passengers on each departure. If Redis is ever wrong this turns an overbooking into "sold out".
-    await client.query(`SELECT 1 FROM flight_cabins WHERE id = ANY($1) ORDER BY id FOR UPDATE`, [seats.map(s => s.cabinId)]);
-    for (const [i, s] of seats.entries()) {
+    // count active passengers on each departure against the fare cap; the partial unique index on seat assignments
+    // refuses a seat that is already taken. If Redis is ever wrong this turns an overbooking into "sold out".
+    await client.query(`SELECT 1 FROM flight_cabins WHERE id = ANY($1) ORDER BY id FOR UPDATE`, [hold.map(s => s.cabinId)]);
+    for (const [i, s] of hold.entries()) {
       const used = (await client.query(`SELECT COALESCE(sum(b.passengers),0)::int AS n FROM flight_booking_legs l JOIN flight_bookings b ON b.id=l.booking_id
         WHERE l.cabin_id=$1 AND l.dep_date=$2 AND b.status IN ('CONFIRMED','PENDING')`, [s.cabinId, s.date])).rows[0].n;
-      if (used + pax > s.total) throw { statusCode: 409, message: `Not enough seats left on ${legs[i].cabin.flight_number} on ${s.date}`, guard: true, redisMs };
+      if (used + pax > s.cap) throw { statusCode: 409, message: `Not enough ${fare.name} seats left on ${legs[i].cabin.flight_number} on ${s.date}`, guard: true, redisMs };
     }
     const bookingId = id();
     const tripType = legs.some(l => l.direction === 'RETURN') ? 'ROUND_TRIP' : 'ONE_WAY';
+    const layouts = legs.map(l => seatLayout(l.cabin));
     const breakdown = quote.legs.map((l, i) => ({ seq: i + 1, direction: legs[i].direction, flightNumber: l.cabin.flight_number, from: l.cabin.dep_iata, to: l.cabin.arr_iata,
-      date: l.date, cabin: l.cabin.cabin, price: l.quote.price, label: l.quote.label, parts: l.quote.parts }));
+      date: l.date, cabin: l.cabin.cabin, fareClass: fare.code, seats: assigned[i].map(x => seatLabel(layouts[i], x)), price: l.quote.price, label: l.quote.label, parts: l.quote.parts }));
     // PENDING = seats held while the customer pays; the expiry worker releases them if they don't.
     const ins = await client.query(
-      `INSERT INTO flight_bookings(id,user_id,status,trip_type,passengers,price,expires_at,paid_at,price_breakdown)
-       VALUES($1,$2,$3,$4,$5,$6, CASE WHEN $3='PENDING' THEN now() + ($7 * interval '1 second') END, CASE WHEN $3='CONFIRMED' THEN now() END, $8)
+      `INSERT INTO flight_bookings(id,user_id,status,trip_type,passengers,price,expires_at,paid_at,price_breakdown,fare_class)
+       VALUES($1,$2,$3,$4,$5,$6, CASE WHEN $3='PENDING' THEN now() + ($7 * interval '1 second') END, CASE WHEN $3='CONFIRMED' THEN now() END, $8, $9)
        RETURNING expires_at AS "expiresAt"`,
-      [bookingId, userId, status, tripType, pax, quote.total, windowSeconds, JSON.stringify(breakdown)]);
+      [bookingId, userId, status, tripType, pax, quote.total, windowSeconds, JSON.stringify(breakdown), fare.code]);
     for (const [i, l] of quote.legs.entries())
-      await client.query(`INSERT INTO flight_booking_legs(booking_id,seq,direction,cabin_id,schedule_id,dep_date,dep_at,arr_at,price) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
-        [bookingId, i + 1, legs[i].direction, l.cabin.id, l.cabin.schedule_id, l.date, iso(l.depAt), iso(l.arrAt), l.quote.price]);
-    for (const p of passengers)
-      await client.query(`INSERT INTO passengers(id,booking_id,first_name,last_name,passport) VALUES($1,$2,$3,$4,$5)`, [id(), bookingId, p.firstName, p.lastName, p.passport]);
+      await client.query(`INSERT INTO flight_booking_legs(booking_id,seq,direction,cabin_id,schedule_id,dep_date,dep_at,arr_at,price,fare_class) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`,
+        [bookingId, i + 1, legs[i].direction, l.cabin.id, l.cabin.schedule_id, l.date, iso(l.depAt), iso(l.arrAt), l.quote.price, fare.code]);
+    const paxIds: string[] = [];
+    for (const p of passengers) {
+      const pid = id(); paxIds.push(pid);
+      await client.query(`INSERT INTO passengers(id,booking_id,first_name,last_name,passport) VALUES($1,$2,$3,$4,$5)`, [pid, bookingId, p.firstName, p.lastName, p.passport]);
+    }
+    for (const [i, l] of legs.entries()) for (const [k, seat] of assigned[i].entries())
+      await client.query(`INSERT INTO flight_seat_assignments(booking_id,passenger_id,cabin_id,dep_date,seat_index,seat) VALUES($1,$2,$3,$4,$5,$6)`,
+        [bookingId, paxIds[k], l.cabin.id, l.date, seat, seatLabel(layouts[i], seat)])
+        .catch((e: any) => { throw e?.code === '23505' ? { statusCode: 409, message: `Seat ${seatLabel(layouts[i], seat)} on ${l.cabin.flight_number} is already taken`, guard: true } : e; });
     const expiresAt = ins.rows[0].expiresAt;
-    const legsEvent = breakdown.map(b => ({ flightNumber: b.flightNumber, from: b.from, to: b.to, date: b.date, cabin: b.cabin }));
-    await addOutbox(client, 'flight.booking.created', bookingId, { bookingId, userId, status, tripType, passengers: pax, totalPrice: quote.total, legs: legsEvent, seatsLeft: value, expiresAt });
-    for (const [i, s] of seats.entries())
-      await addOutbox(client, 'flight.seats.changed', s.cabinId, { cabinId: s.cabinId, flightNumber: legs[i].cabin.flight_number, date: s.date, delta: -pax });
+    const legsEvent = breakdown.map(b => ({ flightNumber: b.flightNumber, from: b.from, to: b.to, date: b.date, cabin: b.cabin, seats: b.seats }));
+    await addOutbox(client, 'flight.booking.created', bookingId, { bookingId, userId, status, tripType, fareClass: fare.code, passengers: pax, totalPrice: quote.total, legs: legsEvent, seatsLeft: value, expiresAt });
+    for (const [i, s] of hold.entries())
+      await addOutbox(client, 'flight.seats.changed', s.cabinId, { cabinId: s.cabinId, flightNumber: legs[i].cabin.flight_number, date: s.date, delta: -pax, seats: breakdown[i].seats });
     await client.query('COMMIT');
-    return { bookingId, status, tripType, passengers: pax, totalPrice: quote.total, priceBreakdown: breakdown, seatsLeft: value, expiresAt,
+    return { bookingId, status, tripType, fareClass: fare.code, passengers: pax, totalPrice: quote.total, priceBreakdown: breakdown, seatsLeft: value, expiresAt,
       paymentWindowSeconds: status === 'PENDING' ? windowSeconds : 0, timings: { redisMs, pgMs: performance.now() - t1 } };
   } catch (e) {
     await client.query('ROLLBACK');
-    await releaseLegs(seats, pax);
+    await releaseLegs(held, pax);
     throw e;
   } finally { client.release(); }
+}
+
+/** Validates chosen seats per leg (labels like "23A") against each cabin's layout; returns seat indexes or an error. */
+function parseSeats(legs: BookLeg[], input: any[], pax: number): { seats: number[][] } | { error: string } {
+  const out: number[][] = [];
+  for (const [i, l] of legs.entries()) {
+    const labels = Array.isArray(input?.[i]?.seats) ? input[i].seats.filter((x: any) => x) : [];
+    if (labels.length > pax) return { error: `Choose at most ${pax} seat(s) on ${l.cabin.flight_number}` };
+    const L = seatLayout(l.cabin), idx = labels.map((x: any) => seatIndex(L, x));
+    const bad = labels.find((_: any, k: number) => idx[k] < 0);
+    if (bad) return { error: `There is no seat ${bad} in ${l.cabin.cabin.toLowerCase()} on ${l.cabin.flight_number}` };
+    if (new Set(idx).size !== idx.length) return { error: `The same seat is chosen twice on ${l.cabin.flight_number}` };
+    out.push(idx);
+  }
+  return { seats: out };
 }
 
 app.post('/api/flight-bookings', async (req: any, reply) => {
@@ -899,17 +1042,23 @@ app.post('/api/flight-bookings', async (req: any, reply) => {
   if ('error' in legs) return reply.code(400).send({ error: legs.error });
   const pax = parsePassengers(req.body?.passengers);
   if ('error' in pax) return reply.code(400).send({ error: pax.error });
-  try { return await createFlightBooking(req.userCtx!.id, legs.legs, pax.passengers); }
+  const fare = req.body?.fareClass ? fareByCode(req.body.fareClass) : undefined;
+  if (req.body?.fareClass && !fare) return reply.code(400).send({ error: `fareClass must be ${FARE_CLASSES.map(f => f.code).join(', ')}` });
+  const seats = parseSeats(legs.legs, req.body?.legs, pax.passengers.length);
+  if ('error' in seats) return reply.code(400).send({ error: seats.error });
+  try { return await createFlightBooking(req.userCtx!.id, legs.legs, pax.passengers, 'PENDING', PAYMENT_WINDOW_SECONDS, fare?.code, seats.seats); }
   catch (e: any) { if (e?.statusCode === 409) return reply.code(409).send({ error: e.message }); throw e; }
 });
 
 const BOOKING_SQL = `
   SELECT b.id, b.status, b.trip_type AS "tripType", b.passengers, b.price, b.created_at AS "createdAt", b.expires_at AS "expiresAt", b.paid_at AS "paidAt",
-    b.price_breakdown AS "priceBreakdown", u.name AS "customerName", u.email AS "customerEmail",
+    b.price_breakdown AS "priceBreakdown", u.name AS "customerName", u.email AS "customerEmail", b.fare_class AS "fareClass", b.refund_amount AS "refundAmount",
     (SELECT json_agg(json_build_object('seq', l.seq, 'direction', l.direction, 'cabinId', l.cabin_id, 'scheduleId', l.schedule_id, 'cabin', c.cabin,
         'flightNumber', s.flight_number, 'airline', al.name, 'airlineIata', s.airline_iata, 'from', s.dep_iata, 'to', s.arr_iata, 'fromCity', da.city, 'toCity', aa.city,
         'date', to_char(l.dep_date,'YYYY-MM-DD'), 'depAt', l.dep_at, 'arrAt', l.arr_at, 'depLocal', to_char(s.dep_time,'HH24:MI'), 'arrLocal', to_char(s.arr_time,'HH24:MI'),
-        'arrDayOffset', s.arr_day_offset, 'price', l.price) ORDER BY l.seq)
+        'arrDayOffset', s.arr_day_offset, 'price', l.price, 'fareClass', l.fare_class,
+        'seats', (SELECT json_agg(json_build_object('seat', a.seat, 'passenger', p.first_name || ' ' || p.last_name) ORDER BY a.seat_index)
+          FROM flight_seat_assignments a JOIN passengers p ON p.id=a.passenger_id WHERE a.booking_id=l.booking_id AND a.cabin_id=l.cabin_id AND a.dep_date=l.dep_date)) ORDER BY l.seq)
      FROM flight_booking_legs l JOIN flight_cabins c ON c.id=l.cabin_id JOIN flight_schedules s ON s.id=l.schedule_id JOIN airlines al ON al.iata=s.airline_iata
      JOIN airports da ON da.iata=s.dep_iata JOIN airports aa ON aa.iata=s.arr_iata WHERE l.booking_id=b.id) AS legs,
     (SELECT json_agg(json_build_object('firstName', p.first_name, 'lastName', p.last_name, 'passport', p.passport) ORDER BY p.last_name, p.first_name)
@@ -928,11 +1077,20 @@ app.get('/api/flight-bookings/me', async (req: any) => {
       .map((o: any) => ({ id: o.id, route: `${o.legs[0].from} → ${o.legs[o.legs.length - 1].to}`, depAt: o.legs[0].depAt })) }));
 });
 
-type LegRow = { cabin_id: string; dep_date: string; total_seats: number; flight_number: string };
+type LegRow = { cabin_id: string; dep_date: string; total_seats: number; flight_number: string; price: number; seats: number[] };
 const legRows = async (client: any, bookingId: string): Promise<LegRow[]> => (await client.query(
-  `SELECT l.cabin_id, to_char(l.dep_date,'YYYY-MM-DD') AS dep_date, c.total_seats, s.flight_number
+  `SELECT l.cabin_id, to_char(l.dep_date,'YYYY-MM-DD') AS dep_date, c.total_seats, s.flight_number, l.price::float AS price,
+     COALESCE((SELECT array_agg(a.seat_index) FROM flight_seat_assignments a
+       WHERE a.booking_id=l.booking_id AND a.cabin_id=l.cabin_id AND a.dep_date=l.dep_date AND a.active), '{}') AS seats
    FROM flight_booking_legs l JOIN flight_cabins c ON c.id=l.cabin_id JOIN flight_schedules s ON s.id=l.schedule_id WHERE l.booking_id=$1 ORDER BY l.seq`, [bookingId])).rows;
-const seatRefs = (rows: LegRow[]) => rows.map(r => ({ cabinId: r.cabin_id, date: r.dep_date, total: r.total_seats }));
+const seatRefs = (rows: LegRow[]): HoldLeg[] => rows.map(r => ({ cabinId: r.cabin_id, date: r.dep_date, cap: r.total_seats, total: r.total_seats, seats: r.seats }));
+/** Gives a booking's seats back: Redis counts and bits, and the PostgreSQL assignments. Inside the caller's transaction. */
+async function releaseBooking(client: any, bookingId: string, passengers: number) {
+  const legs = await legRows(client, bookingId);
+  const seatsLeft = await releaseLegs(seatRefs(legs), passengers);
+  await client.query(`UPDATE flight_seat_assignments SET active=false WHERE booking_id=$1 AND active`, [bookingId]);
+  return { legs, seatsLeft };
+}
 
 /** PENDING -> CONFIRMED inside the payment window. Throws {statusCode:404|409}. No real payment is processed. */
 async function payBooking(bookingId: string, userId: string) {
@@ -967,14 +1125,16 @@ async function cancelBooking(bookingId: string, opts: { userId?: string; force?:
     if (!row) throw { statusCode: 404, message: 'Booking not found' };
     if (row.status !== 'CONFIRMED' && row.status !== 'PENDING') throw { statusCode: 409, message: `Booking is already ${row.status.replace('_',' ').toLowerCase()}` };
     if (!opts.force && new Date(row.first_dep).getTime() <= Date.now()) throw { statusCode: 409, message: 'The trip has already started' };
-    await client.query(`UPDATE flight_bookings SET status='CANCELLED' WHERE id=$1`, [row.id]);
-    const legs = await legRows(client, row.id);
-    const seatsLeft = await releaseLegs(seatRefs(legs), row.passengers);
+    const { legs, seatsLeft } = await releaseBooking(client, row.id, row.passengers);
+    // Only paid bookings get money back, by the fare class's refund %: Saver 0, Standard 50, Flex 100.
+    const fare = fareByCode(row.fare_class) || FARE_DEFAULTS[1];
+    const refund = row.status === 'CONFIRMED' ? Math.round(legs.reduce((a, l) => a + l.price, 0) * row.passengers * fare.refund_pct / 100) : 0;
+    await client.query(`UPDATE flight_bookings SET status='CANCELLED', refund_amount=$2 WHERE id=$1`, [row.id, refund]);
     await addOutbox(client, 'flight.booking.cancelled', row.id, { bookingId: row.id, userId: row.user_id, passengers: row.passengers, forced: !!opts.force,
-      legs: legs.map(l => ({ flightNumber: l.flight_number, date: l.dep_date })) });
+      fareClass: fare.code, refundPct: fare.refund_pct, refundAmount: refund, legs: legs.map(l => ({ flightNumber: l.flight_number, date: l.dep_date })) });
     for (const l of legs) await addOutbox(client, 'flight.seats.changed', l.cabin_id, { cabinId: l.cabin_id, flightNumber: l.flight_number, date: l.dep_date, delta: row.passengers });
     await client.query('COMMIT');
-    return { bookingId: row.id, status: 'CANCELLED' as const, seatsLeft };
+    return { bookingId: row.id, status: 'CANCELLED' as const, seatsLeft, fareClass: fare.code, refundPct: fare.refund_pct, refundAmount: refund };
   } catch (e) { await client.query('ROLLBACK').catch(() => {}); throw e; } finally { client.release(); }
 }
 
@@ -1625,21 +1785,25 @@ app.post('/api/admin/simulation/:id/cancel-all', async (req: any, reply) => {
 app.post('/api/admin/concurrent-booking', async (req: any, reply) => {
   await auth(req, ['ADMIN']);
   const { cabinId, date, confirm } = req.body || {};
-  const passengers = Math.min(MAX_PASSENGERS, Math.max(1, Number(req.body?.passengers) || 1));
+  // With `seat` (e.g. "1A") every customer wants that one seat: exactly one can get it.
+  const seat = req.body?.seat ? String(req.body.seat).toUpperCase() : null;
+  const passengers = seat ? 1 : Math.min(MAX_PASSENGERS, Math.max(1, Number(req.body?.passengers) || 1));
   const legs = await resolveLegs([{ cabinId, date }]);
   if ('error' in legs) return reply.code(400).send({ error: legs.error });
   const c = legs.legs[0].cabin;
+  const seatIdx = seat ? seatIndex(seatLayout(c), seat) : -1;
+  if (seat && seatIdx < 0) return reply.code(400).send({ error: `There is no seat ${seat} in this cabin` });
   const customers = await pool.query(`SELECT id,name,email FROM users WHERE role='CUSTOMER' ORDER BY created_at`);
   if (!customers.rows.length) return reply.code(409).send({ error: 'No customers exist yet' });
   const seatsFree = async () => { const b = await bookedCounts([{ cabinId: c.id, date }]); if (!b) throw NOT_LOADED; return c.total_seats - b[0]; };
   const before = await seatsFree();
   const startedAt = Date.now();
   const settled = await Promise.allSettled(customers.rows.map((u: any, i: number) =>
-    createFlightBooking(u.id, legs.legs, samplePassengers(passengers, i), confirm ? 'CONFIRMED' : 'PENDING')));
+    createFlightBooking(u.id, legs.legs, samplePassengers(passengers, i), confirm ? 'CONFIRMED' : 'PENDING', PAYMENT_WINDOW_SECONDS, 'FLEX', seat ? [[seatIdx]] : [])));
   const durationMs = Date.now() - startedAt;
   const results = settled.map((x, i) => {
     const u = customers.rows[i];
-    if (x.status === 'fulfilled') return { customer: u.name, email: u.email, ok: true, bookingId: x.value.bookingId, status: x.value.status, seatsLeft: x.value.seatsLeft };
+    if (x.status === 'fulfilled') return { customer: u.name, email: u.email, ok: true, bookingId: x.value.bookingId, status: x.value.status, seatsLeft: x.value.seatsLeft, seats: x.value.priceBreakdown[0].seats };
     const e: any = x.reason;
     if (e?.statusCode !== 409) app.log.error(e);
     return { customer: u.name, email: u.email, ok: false, error: e?.statusCode === 409 ? e.message : 'Internal error' };
@@ -1647,10 +1811,11 @@ app.post('/api/admin/concurrent-booking', async (req: any, reply) => {
   const after = await seatsFree();
   const won = results.filter(x => x.ok).length;
   await pool.query(`INSERT INTO audit_logs(id,actor_user_id,action,metadata) VALUES($1,$2,'CONCURRENT_BOOKING_DEMO',$3)`,
-    [id(), req.userCtx!.id, JSON.stringify({ cabinId, date, passengers, customers: customers.rows.length, won, before, after, confirm: !!confirm })]);
+    [id(), req.userCtx!.id, JSON.stringify({ cabinId, date, passengers, seat, customers: customers.rows.length, won, before, after, confirm: !!confirm })]);
   return { ok: true,
-    message: `${customers.rows.length} customers booked ${passengers} seat(s) each on ${c.flight_number} (${c.cabin.toLowerCase()}) ${date} at once: ${won} got seats, ${results.length - won} were rejected. Seats free ${before} -> ${after}.`,
-    flight: c.flight_number, cabin: c.cabin, date, passengers, seatsBefore: before, seatsAfter: after, durationMs, results };
+    message: seat ? `${customers.rows.length} customers wanted seat ${seat} on ${c.flight_number} ${date} at the same instant: ${won} got it, ${results.length - won} were rejected.`
+      : `${customers.rows.length} customers booked ${passengers} seat(s) each on ${c.flight_number} (${c.cabin.toLowerCase()}) ${date} at once: ${won} got seats, ${results.length - won} were rejected. Seats free ${before} -> ${after}.`,
+    flight: c.flight_number, cabin: c.cabin, date, passengers, seat, seatsBefore: before, seatsAfter: after, durationMs, results };
 });
 
 // ---- Workers ----------------------------------------------------------------------------------------------------------
@@ -1679,8 +1844,7 @@ async function expirePendingBookings() {
       WITH due AS (SELECT id FROM flight_bookings WHERE status='PENDING' AND expires_at <= now() FOR UPDATE SKIP LOCKED LIMIT 100)
       UPDATE flight_bookings b SET status='PAYMENT_TIMEOUT' FROM due WHERE b.id=due.id RETURNING b.id, b.user_id, b.passengers`);
     for (const row of r.rows) {
-      const legs = await legRows(client, row.id);
-      const seatsLeft = await releaseLegs(seatRefs(legs), row.passengers);
+      const { legs, seatsLeft } = await releaseBooking(client, row.id, row.passengers);
       await addOutbox(client, 'flight.booking.payment_timeout', row.id, { bookingId: row.id, userId: row.user_id, passengers: row.passengers, seatsLeft,
         legs: legs.map(l => ({ flightNumber: l.flight_number, date: l.dep_date })) });
       for (const l of legs) await addOutbox(client, 'flight.seats.changed', l.cabin_id, { cabinId: l.cabin_id, flightNumber: l.flight_number, date: l.dep_date, delta: row.passengers });
@@ -1734,11 +1898,38 @@ async function rebuildAvailability() {
     });
     await execOrThrow(del);
   }
+  const seatBits = await rebuildSeatBitmaps(first);
   await redis.set(FS_LOADED, new Date().toISOString());
   const summary = { bookedSeats: r.rows.reduce((a: number, x: any) => a + x.booked, 0), departures: r.rows.length, keys: wanted.size,
-    staleFieldsDropped, staleKeysDropped, ms: Math.round(performance.now() - t0) };
+    staleFieldsDropped, staleKeysDropped, ...seatBits, ms: Math.round(performance.now() - t0) };
   app.log.info(summary, 'seat availability rebuilt from PostgreSQL');
   return summary;
+}
+// Seat bitmaps from the active seat assignments: set every wanted bit, clear bits no active assignment backs, drop
+// bitmaps of deleted cabins. Like the counts, SETBIT only adds, so a booking running right now keeps its seats.
+async function rebuildSeatBitmaps(first: string) {
+  const r = await pool.query(`SELECT a.cabin_id, to_char(a.dep_date,'YYYY-MM-DD') AS date, array_agg(a.seat_index) AS seats
+    FROM flight_seat_assignments a WHERE a.active AND a.dep_date >= $1::date GROUP BY 1, 2`, [first]);
+  const wanted = new Map<string, Set<number>>(r.rows.map((x: any) => [seatKey(x.cabin_id, x.date), new Set<number>(x.seats)]));
+  let pipe = redis.pipeline(), queued = 0, seatBitsSet = 0, staleSeatBitsCleared = 0, staleSeatKeysDropped = 0;
+  for (const [k, seats] of wanted) {
+    for (const s of seats) { pipe.setbit(k, s, 1); seatBitsSet++; }
+    pipe.expireat(k, seatExpireAt(k.slice(-10)));
+    if (++queued % 500 === 0) { await execOrThrow(pipe); pipe = redis.pipeline(); }
+  }
+  await execOrThrow(pipe);
+  const cabinOf = (k: string) => k.slice(5, 41);
+  for await (const keys of redis.scanStream({ match: 'fsm:{*', count: 1000 }) as AsyncIterable<string[]>) {
+    if (!keys.length) continue;
+    const known = new Set((await pool.query(`SELECT id FROM flight_cabins WHERE id = ANY($1)`, [[...new Set(keys.map(cabinOf))]])).rows.map((x: any) => x.id));
+    const gone = keys.filter(k => !known.has(cabinOf(k)) || k.slice(-10) < first);
+    if (gone.length) { await redis.unlink(...gone); staleSeatKeysDropped += gone.length; }
+    for (const k of keys.filter(k => !gone.includes(k))) {
+      const extra = (await takenSeats(cabinOf(k), k.slice(-10))).filter(s => !wanted.get(k)?.has(s));
+      if (extra.length) { await execOrThrow(extra.reduce((p, s) => p.setbit(k, s, 0), redis.pipeline())); staleSeatBitsCleared += extra.length; }
+    }
+  }
+  return { seatBitsSet, staleSeatBitsCleared, staleSeatKeysDropped };
 }
 app.post('/api/admin/rebuild-availability', async (req: any) => {
   await auth(req, ['ADMIN']);
@@ -1766,7 +1957,10 @@ app.get('/api/admin/redis-records', async (req: any) => {
   const redisVals = pg.length ? await execOrThrow(pg.reduce((p, x: any) => p.hget(monthKey(x.cabin_id, x.date.slice(0, 7)), dayField(x.date)), redis.pipeline())) : [];
   const summary = { totalKeys: await redis.dbsize(), cabins: all.length, windowDays: AVAILABILITY_DAYS, memory: await redisMemory(), loadedAt: await redis.get(FS_LOADED),
     checkedDepartures: pg.length, bookedSeats: pg.reduce((a: number, x: any) => a + x.booked, 0),
-    mismatches: pg.filter((x: any, i) => Number(redisVals[i][1] || 0) !== x.booked).length };
+    mismatches: pg.filter((x: any, i) => Number(redisVals[i][1] || 0) !== x.booked).length,
+    // Seat invariant: the bitmap of every booked departure has exactly as many bits set as seats booked.
+    seatMismatches: pg.length ? (await execOrThrow(pg.reduce((p, x: any) => p.bitcount(seatKey(x.cabin_id, x.date)), redis.pipeline())))
+      .filter(([, n], i) => Number(n) !== pg[i].booked).length : 0 };
   const cabins = scheduleId ? all.filter(c => c.schedule_id === scheduleId) : all;
   const dates = date ? [String(date)] : Array.from({ length: AVAILABILITY_DAYS }, (_, i) => addDays(first, i));
   // Only days the flight flies. Row order: date, then flight, then cabin.
@@ -1774,9 +1968,11 @@ app.get('/api/admin/redis-records', async (req: any) => {
   for (const d of dates) for (const c of cabins) if (runsOn(c, d)) rows.push({ cabin: c, date: d });
   const slice = rows.slice((page - 1) * limit, page * limit);
   const vals = slice.length ? await execOrThrow(slice.reduce((p, x) => p.hget(monthKey(x.cabin.id, x.date.slice(0, 7)), dayField(x.date)), redis.pipeline())) : [];
+  const bits = slice.length ? await execOrThrow(slice.reduce((p, x) => p.bitcount(seatKey(x.cabin.id, x.date)), redis.pipeline())) : [];
   return { summary, page, limit, total: rows.length, flights: [...new Map(all.map(c => [c.schedule_id, { id: c.schedule_id, name: `${c.flight_number} ${c.dep_iata} → ${c.arr_iata}` }])).values()],
     items: slice.map((x, i) => { const booked = Number(vals[i][1] || 0);
       return { key: `${monthKey(x.cabin.id, x.date.slice(0, 7))} · ${dayField(x.date)}`, stored: vals[i][1] !== null, date: x.date, booked,
+        seatBits: Number(bits[i][1] || 0), seatKey: seatKey(x.cabin.id, x.date), cabinId: x.cabin.id,
         available: Math.max(0, x.cabin.total_seats - booked), flight: x.cabin.flight_number, route: `${x.cabin.dep_iata} → ${x.cabin.arr_iata}`,
         cabin: x.cabin.cabin, totalSeats: x.cabin.total_seats }; }) };
 });
@@ -1817,7 +2013,45 @@ async function seedCurrencies() {
     await pool.query(`INSERT INTO currency_rates(code,name,symbol,thb_per_unit) VALUES($1,$2,$3,$4) ON CONFLICT (code) DO NOTHING`, [code, name, symbol, rate]);
 }
 
+// Fare classes and seat assignments, for databases created before they existed (idempotent).
+async function migrateSeatsAndFares() {
+  await pool.query(`CREATE TABLE IF NOT EXISTS flight_fare_classes (code TEXT PRIMARY KEY CHECK (code IN ('SAVER','STANDARD','FLEX')), name TEXT NOT NULL,
+    cap_pct INT NOT NULL CHECK (cap_pct BETWEEN 1 AND 100), price_pct NUMERIC(6,2) NOT NULL, refund_pct INT NOT NULL CHECK (refund_pct BETWEEN 0 AND 100),
+    changeable BOOLEAN NOT NULL DEFAULT false, sort INT NOT NULL)`);
+  for (const f of FARE_DEFAULTS) await pool.query(`INSERT INTO flight_fare_classes(code,name,cap_pct,price_pct,refund_pct,changeable,sort) VALUES($1,$2,$3,$4,$5,$6,$7)
+    ON CONFLICT (code) DO NOTHING`, [f.code, f.name, f.cap_pct, f.price_pct, f.refund_pct, f.changeable, f.sort]);
+  FARE_CLASSES = (await pool.query(`SELECT code, name, cap_pct, price_pct::float AS price_pct, refund_pct, changeable, sort FROM flight_fare_classes ORDER BY sort`)).rows;
+  await pool.query(`ALTER TABLE flight_bookings ADD COLUMN IF NOT EXISTS fare_class TEXT NOT NULL DEFAULT 'STANDARD', ADD COLUMN IF NOT EXISTS refund_amount NUMERIC(12,2)`);
+  await pool.query(`ALTER TABLE flight_booking_legs ADD COLUMN IF NOT EXISTS fare_class TEXT NOT NULL DEFAULT 'STANDARD'`);
+  await pool.query(`CREATE TABLE IF NOT EXISTS flight_seat_assignments (id BIGSERIAL PRIMARY KEY,
+    booking_id UUID NOT NULL REFERENCES flight_bookings(id) ON DELETE CASCADE, passenger_id UUID NOT NULL REFERENCES passengers(id) ON DELETE CASCADE,
+    cabin_id UUID NOT NULL REFERENCES flight_cabins(id) ON DELETE CASCADE, dep_date DATE NOT NULL, seat_index INT NOT NULL, seat TEXT NOT NULL,
+    active BOOLEAN NOT NULL DEFAULT true)`);
+  await pool.query(`CREATE UNIQUE INDEX IF NOT EXISTS seat_taken_once ON flight_seat_assignments(cabin_id, dep_date, seat_index) WHERE active`);
+  await pool.query(`CREATE INDEX IF NOT EXISTS seat_assignments_booking_idx ON flight_seat_assignments(booking_id)`);
+  // Active bookings made before seat maps existed get seats now (first free seats), so BITCOUNT = booked holds everywhere.
+  const legs = (await pool.query(`SELECT l.booking_id, l.cabin_id, to_char(l.dep_date,'YYYY-MM-DD') AS date, c.cabin, c.total_seats,
+      (SELECT b2.total_seats FROM flight_cabins b2 WHERE b2.schedule_id=c.schedule_id AND b2.cabin='BUSINESS') AS biz_seats,
+      (SELECT array_agg(p.id ORDER BY p.last_name, p.first_name, p.id) FROM passengers p WHERE p.booking_id=l.booking_id
+        AND NOT EXISTS (SELECT 1 FROM flight_seat_assignments a WHERE a.passenger_id=p.id AND a.cabin_id=l.cabin_id AND a.dep_date=l.dep_date)) AS pax
+    FROM flight_booking_legs l JOIN flight_bookings b ON b.id=l.booking_id JOIN flight_cabins c ON c.id=l.cabin_id
+    WHERE b.status IN ('CONFIRMED','PENDING') AND l.dep_date >= CURRENT_DATE ORDER BY b.created_at, l.seq`)).rows.filter((l: any) => l.pax?.length);
+  for (const l of legs) {
+    const L = seatLayout(l), taken = new Set((await pool.query(`SELECT seat_index FROM flight_seat_assignments WHERE cabin_id=$1 AND dep_date=$2 AND active`,
+      [l.cabin_id, l.date])).rows.map((x: any) => x.seat_index));
+    let s = 0;
+    for (const pid of l.pax) {
+      while (taken.has(s)) s++;
+      taken.add(s);
+      await pool.query(`INSERT INTO flight_seat_assignments(booking_id,passenger_id,cabin_id,dep_date,seat_index,seat) VALUES($1,$2,$3,$4,$5,$6)`,
+        [l.booking_id, pid, l.cabin_id, l.date, s, seatLabel(L, s)]);
+    }
+  }
+  if (legs.length) app.log.info({ legs: legs.length }, 'seats assigned to bookings made before seat maps');
+}
+
 async function start() {
+  await migrateSeatsAndFares();
   await seedCurrencies();
   await seedCountryPricing();
   const snaps = await loadSnapshots();

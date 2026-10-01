@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  typecheck:
+    name: Typecheck and build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: [api, availability-worker, web]
+    defaults:
+      run:
+        working-directory: apps/${{ matrix.app }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/${{ matrix.app }}/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+
+  smoke:
+    name: End-to-end smoke test (no aviationstack key)
+    runs-on: ubuntu-latest
+    needs: typecheck
+    steps:
+      - uses: actions/checkout@v4
+      # No AVIATIONSTACK_KEY: the flights come from the committed snapshots, and the test fails on any real API call.
+      - name: Start the stack
+        run: docker compose up -d --build postgres redis kafka api availability-worker
+      - name: Smoke test
+        run: ./scripts/smoke.sh
+      - name: Logs on failure
+        if: failure()
+        run: docker compose logs --no-color --tail 200 api availability-worker kafka
+      - name: Stop
+        if: always()
+        run: docker compose down -v
